@@ -108,7 +108,7 @@ use frontend\components\LanguageWidget;
                         </li>
 
                         <li class="top-line__menu-item">
-                            <a href="" class="top-line__menu-link"><?= Yii::t('header', 'Акції')?></a>
+                            <?= Html::a(Yii::t('header', 'Акції'), ['/promotion/'])?>
                         </li>
 
                         <li class="top-line__menu-item">
@@ -135,7 +135,7 @@ use frontend\components\LanguageWidget;
                 <div class="middle-line__wrapper-left">
                     <div class="middle-line__logo">
                         <a href="#">
-                            <img src="img/Logo.svg" alt="Logo">
+                            <img src="/img/Logo.svg" alt="Logo">
                         </a>
                     </div>
                     <p class="middle-line__promotion"><?= Yii::t('header', 'Непристойно швидкий інтернет на півдні України')?></p>
@@ -147,12 +147,12 @@ use frontend\components\LanguageWidget;
                     <div class="middle-line__social-wrapper">
                         <a class="footer-link__social-item telegMarg">
                             <div class="footer-link__social-item__img">
-                                <img src="img/image__social/iconBig/Telegram.svg" alt="">
+                                <img src="/img/image__social/iconBig/Telegram.svg" alt="">
                             </div>
                         </a>
                         <a class="footer-link__social-item viber__Left">
                             <div class="footer-link__social-item__img">
-                                <img src="img/image__social/iconBig/Viber.svg" alt="">
+                                <img src="/img/image__social/iconBig/Viber.svg" alt="">
                             </div>
                         </a>
                     </div>
@@ -171,7 +171,7 @@ use frontend\components\LanguageWidget;
                         <li class="bottom-line__list-item">
                             <a class="bottom-line__link" href="">
                                 <svg class="bottom-line__icon">
-                                    <use xlink:href="img/sprite.svg#home"></use>
+                                    <use xlink:href="/img/sprite.svg#home"></use>
                                 </svg>
                                 <span class="bottom-line__link-text"><?= Yii::t('header', 'Головна')?></span>
                             </a>
@@ -179,7 +179,7 @@ use frontend\components\LanguageWidget;
                         <li class="bottom-line__list-item">
                             <a class="bottom-line__link" href="">
                                 <svg class="bottom-line__icon">
-                                    <use xlink:href="img/sprite.svg#wifi"></use>
+                                    <use xlink:href="/img/sprite.svg#wifi"></use>
                                 </svg>
                                 <span class="bottom-line__link-text"><?= Yii::t('header', 'Інтернет')?></span>
                             </a>
@@ -187,7 +187,7 @@ use frontend\components\LanguageWidget;
                         <li class="bottom-line__list-item">
                             <a class="bottom-line__link" href="">
                                 <svg class="bottom-line__icon">
-                                    <use xlink:href="img/sprite.svg#vision"></use>
+                                    <use xlink:href="/img/sprite.svg#vision"></use>
                                 </svg>
                                 <span class="bottom-line__link-text"><?= Yii::t('header', 'Відеоспостереження')?></span>
                             </a>
@@ -195,7 +195,7 @@ use frontend\components\LanguageWidget;
                         <li class="bottom-line__list-item">
                             <a class="bottom-line__link" href="">
                                 <svg class="bottom-line__icon">
-                                    <use xlink:href="img/sprite.svg#tv"></use>
+                                    <use xlink:href="/img/sprite.svg#tv"></use>
                                 </svg>
                                 <span class="bottom-line__link-text"><?= Yii::t('header', 'Цифрове TV')?></span>
 
@@ -204,7 +204,7 @@ use frontend\components\LanguageWidget;
                         <li class="bottom-line__list-item">
                             <a class="bottom-line__link" href="">
                                 <svg class="bottom-line__icon-phone">
-                                    <use xlink:href="img/sprite.svg#phone"></use>
+                                    <use xlink:href="/img/sprite.svg#phone"></use>
                                 </svg>
                                 <span class="bottom-line__link-text"><?= Yii::t('header', 'Домашній телефон')?></span>
 
@@ -213,7 +213,7 @@ use frontend\components\LanguageWidget;
                         <li class="bottom-line__list-item">
                             <a class="bottom-line__link" href="">
                                 <svg class="bottom-line__icon">
-                                    <use xlink:href="img/sprite.svg#colocation"></use>
+                                    <use xlink:href="/img/sprite.svg#colocation"></use>
                                 </svg>
                                 <span class="bottom-line__link-text">Colocation</span>
                             </a>

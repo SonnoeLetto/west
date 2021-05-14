@@ -2,6 +2,8 @@
 
 use common\models\News;
 use common\models\Slider;
+use yii\helpers\Html;
+use yii\helpers\BaseStringHelper;
 ?>
 
 <section class="promotion">
@@ -69,7 +71,7 @@ use common\models\Slider;
                 <div class="col-md-12">
 
                     <div class="offer__check">
-                        <h5 class="offer__check-title"><?= Yii::t('site', 'Лідируючі підприємства Одеси і області вибирають рішення Westelecom,')?>
+                        <h5 class="offer__check-title middle__title"><?= Yii::t('site', 'Лідируючі підприємства Одеси і області вибирають рішення Westelecom,')?>
                             <span> <?= Yii::t('site', 'щоб працювати продуктивніше')?></span>
                         </h5>
                         <p class="offer__check-text">
@@ -467,7 +469,7 @@ use common\models\Slider;
             <div class="row">
                 <div class="col-md-12">
                     <div class="rate-content">
-                        <h5 class="rate-content__title"><span><?= Yii::t('site', 'Інтернет на високих обертах.')?></span></h5>
+                        <h5 class="rate-content__title middle__title"><span><?= Yii::t('site', 'Інтернет на високих обертах.')?></span><?= Yii::t('site', 'Оберіть ваш населений пункт.')?></h5>
                         <p class="rate-content__text"><?= Yii::t('site', 'і підключіть Домашній Інтернет на супершвидкості')?></p>
                     </div>
                     <div class="rate-variables">
@@ -572,7 +574,7 @@ use common\models\Slider;
         <div class="row">
             <div class="col-md-12">
                 <div class="router-content">
-                    <h5 class="router-content__title"><?= Yii::t('site', 'Потужні роутери для дому та бізнесу')?></h5>
+                    <h5 class="router-content__title middle__title"><?= Yii::t('site', 'Потужні роутери для дому та бізнесу')?></h5>
                     <p class="router-content__text"><?= Yii::t('site', 'Вибрати найбільш відповідний роутер для ваших повсякденних завдань')?></p>
                     <a class="router-content__link" href="#"><?= Yii::t('site', 'Докладніше')?></a>
                 </div>
@@ -590,7 +592,7 @@ use common\models\Slider;
         <div class="wrapper">
             <div class="row">
                 <div class="col-md-12">
-                    <h5 class="our-clients__title"><?= Yii::t('site', 'Наші клієнти')?></h5>
+                    <h5 class="our-clients__title middle__title"><?= Yii::t('site', 'Наші клієнти')?></h5>
                     <div class="our-clients__wrapper slick-our-clients">
                         <div class="our-clients__items-logo">
                             <div class="our-clients__img-wrap">
@@ -669,19 +671,19 @@ use common\models\Slider;
                 <div class="col-md-12">
                     <div class="news-slider">
                         <?php foreach (News::getActive() as $news_item) { ?>
-                        <div class="news-slider__item">
+                        <div class="mainCards__item  news-slider__item">
                             <img class="news-slider__item-img" src="/uploads/news/<?= $news_item->img_small?>" alt="">
                             <div class="news-slider__content">
                                 <h4 class="news-slider__item-title"><?= $news_item->name ?></h4>
-                                <a class="news-slider__item-link" href=""><?= $news_item->text ?></a>
+                                <?= Html::a(BaseStringHelper::truncate($news_item->text, 30), ['/news/' . $news_item->slug], ['class' => 'news-slider__item-link']) ?>
                                 <div class="news-slider__item-bottom-group">
                                     <div class="news-slider__item-date"><?= Yii::$app->formatter->asDate($news_item->created_at) ?></div>
                                     <div class="social__wrapper">
-                                        <a class="social-twitter" href="#"><img src="img/image__social/twitter.svg"
+                                        <a class="social-twitter" href="#"><img src="/img/image__social/twitter.svg"
                                                                                 alt=""></a>
-                                        <a class="social-facebook" href=""><img src="img/image__social/facebook.svg"
+                                        <a class="social-facebook" href=""><img src="/img/image__social/facebook.svg"
                                                                                 alt=""></a>
-                                        <a class="social-linkendin" href=""><img src="img/image__social/linken.svg"
+                                        <a class="social-linkendin" href=""><img src="/img/image__social/linken.svg"
                                                                                  alt=""></a>
                                     </div>
                                 </div>

@@ -1,3 +1,6 @@
+<?php
+use yii\helpers\Html;
+?>
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -8,8 +11,8 @@
                         <ul class="footer-content__list">
                             <li class="footer-content__list-item"><a href="#"><?= Yii::t('footer', 'Загальна інформація')?></a></li>
                             <li class="footer-content__list-item"><a href="#"><?= Yii::t('footer', 'Сертифікати')?></a></li>
-                            <li class="footer-content__list-item"><a href="#"><?= Yii::t('footer', 'Новини')?></a></li>
-                            <li class="footer-content__list-item"><a href="#">Блог</a></li>
+                            <li class="footer-content__list-item"> <?= Html::a(Yii::t('footer', 'Новини'), ['/news/'])?></li>
+                            <li class="footer-content__list-item"><?= Html::a(Yii::t('footer', 'Блог'), ['/blog/'])?></li>
                             <li class="footer-content__list-item"><a href="#"><?= Yii::t('footer', 'Договірна документація')?></a></li>
                             <li class="footer-content__list-item"><a href="#"><?= Yii::t('footer', 'Політика конфіденційності')?></a></li>
                             <li class="footer-content__list-item"><a href="#"><?= Yii::t('footer', 'Умови надання послуг')?></a></li>
@@ -49,8 +52,8 @@
                         <ul class="footer-content__list accordion-item__content">
                             <li class="footer-content__list-item"><a href="#"><?= Yii::t('footer', 'Загальна інформація')?></a></li>
                             <li class="footer-content__list-item"><a href="#"><?= Yii::t('footer', 'Сертифікати')?></a></li>
-                            <li class="footer-content__list-item"><a href="#"><?= Yii::t('footer', 'Новини')?></a></li>
-                            <li class="footer-content__list-item"><a href="#">Блог</a></li>
+                            <li class="footer-content__list-item"><?= Html::a(Yii::t('footer', 'Новини'), ['/news/'])?></li>
+                            <li class="footer-content__list-item"><?= Html::a(Yii::t('footer', 'Блог'), ['/blog/'])?></li>
                             <li class="footer-content__list-item"><a href="#"><?= Yii::t('footer', 'Договірна документація')?></a></li>
                             <li class="footer-content__list-item"><a href="#"><?= Yii::t('footer', 'Політика конфіденційності')?></a></li>
                             <li class="footer-content__list-item"><a href="#"><?= Yii::t('footer', 'Умови надання послуг')?></a></li>
@@ -86,38 +89,38 @@
                     <div class="footer-link__social">
                         <a class="footer-link__social-item" href="">
                             <div class="footer-link__social-item__img">
-                                <img src="img/image__social/iconBig/Instagram.svg" alt="">
+                                <img src="/img/image__social/iconBig/Instagram.svg" alt="">
                                 <!--<img class="footer-link__social-item__img-color" src="img/icons/ins_col.png" alt="">-->
                             </div>
                         </a>
 
                         <a class="footer-link__social-item" href="">
                             <div class="footer-link__social-item__img">
-                                <img src="img/image__social/iconBig/Facebook.svg" alt="">
+                                <img src="/img/image__social/iconBig/Facebook.svg" alt="">
                                 <!--<img class="footer-link__social-item__img-color" src="img/icons/ins_col.png" alt="">-->
                             </div>
                         </a>
                         <a class="footer-link__social-item telegMarg" href="">
                             <div class="footer-link__social-item__img">
-                                <img src="img/image__social/iconBig/Telegram.svg" alt="">
+                                <img src="/img/image__social/iconBig/Telegram.svg" alt="">
                                 <!--<img class="footer-link__social-item__img-color" src="img/icons/ins_col.png" alt="">-->
                             </div>
                         </a>
                         <a class="footer-link__social-item" href="">
                             <div class="footer-link__social-item__img">
-                                <img src="img/image__social/iconBig/Viber.svg" alt="">
+                                <img src="/img/image__social/iconBig/Viber.svg" alt="">
                                 <!--<img class="footer-link__social-item__img-color" src="img/icons/ins_col.png" alt="">-->
                             </div>
                         </a>
                     </div>
                     <a class="footer-link__speedTest speedT-pt">
                         <svg class="speedTest">
-                            <use xlink:href="img/sprite.svg#speed__test"></use>
+                            <use xlink:href="/img/sprite.svg#speed__test"></use>
                         </svg>
                     </a>
                     <div class="link__wrapper link_tp">
-                        <a class="btn__link center_link" href=""><img src="img/Appstore.svg" alt=""></a>
-                        <a class="btn__link center_link" href=""><img src="img/PlayMarket.svg" alt=""></a>
+                        <a class="btn__link center_link" href=""><img src="/img/Appstore.svg" alt=""></a>
+                        <a class="btn__link center_link" href=""><img src="/img/PlayMarket.svg" alt=""></a>
                     </div>
                 </div>
             </div>

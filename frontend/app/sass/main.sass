@@ -79,6 +79,13 @@ header
   align-items: center
   border-bottom: 1px solid #757575
 
+.top-line__headerTypeTwo
+  display: flex
+  justify-content: space-between
+  align-items: center
+  border-bottom: 1px solid #757575
+  padding: 25px 0
+
 .top-line__left
   display: flex
   align-items: center
@@ -286,7 +293,7 @@ header
 .right-line__icon
   transition: all .2s ease-in
   fill: $secondary_color
-  width: 20px
+  width: 25px
   height: 21px
   margin-right: 18px
 
@@ -396,9 +403,11 @@ header
     .bottom-line__link-text
       color: #ffffff
     .bottom-line__icon
+
       fill: white
     .bottom-line__icon-phone
       stroke: #ffffff
+
 
 .bottom-line__list-item+.bottom-line__list-item
   margin-left: 38px
@@ -407,8 +416,9 @@ header
 .bottom-line__icon
   transition: all .2s ease-in
   fill: $secondary_color
-  width: 33px
+  width: 37px
   height: 27px
+  margin-bottom: 10px
 
 .bottom-line__link-text
   transition: all .2s ease-in
@@ -420,8 +430,9 @@ header
   transition: all .2s ease-in
   fill: none
   stroke: $secondary_color
-  width: 24px
-  height: 25px
+  width: 33px
+  height: 27px
+  margin-bottom: 10px
 
 // SLIDER START
 
@@ -566,10 +577,6 @@ header
     padding-bottom: 20px
 
 .offer__check-title
-  text-align: center
-  font-size: 48px
-  font-weight: 700
-  line-height: 58px
   margin-bottom: 54px
   span
     color: #315EFB
@@ -988,10 +995,6 @@ header
 
 .rate-content__title
   color: #000
-  font-weight: 700
-  font-size: 48px
-  line-height: 58px
-  text-align: center
   margin-bottom: 15px
   span
     background-image: $orangeToPink
@@ -1127,19 +1130,15 @@ header
 
 .router-content__title
   color: #000000
-  font-weight: 700
-  font-size: 48px
-  line-height: 58px
   margin-bottom: 26px
 
 .router-content__text
   font-weight: 500
   font-size: 24px
   line-height: 29px
-  background-image: $orangeToPink
-  -webkit-background-clip: text
-  color: transparent
+  color: #62687F
   margin-bottom: 34px
+
 
 .router-content__link
   position: relative
@@ -1179,13 +1178,7 @@ header
   padding-bottom: 64px
 
 .our-clients__title
-  font-weight: 700
-  font-size: 48px
-  line-height: 58px
-  text-align: center
-  background-image: $orangeToPink
-  -webkit-background-clip: text
-  color: transparent
+  color: #ffffff
   margin-bottom: 38px
 
 .our-clients__wrapper
@@ -1326,6 +1319,8 @@ header
 .news-slider
   position: relative
   outline: none
+  .slick-track
+    padding: 10px 0
   .slick-arrow
     position: absolute
     top: 50%
@@ -1363,14 +1358,7 @@ header
   right: -60px
   background: url("../img/rare_img/right_arrow.svg")
 
-.news-slider__item
-  position: relative
-  //width: 320px
-  //height: 407px
-  overflow: hidden
-  border-radius: 12px
-  border: 0.5px solid #939597
-  margin: 0 15px
+
 
 
 .news-slider__item-img
@@ -1379,22 +1367,27 @@ header
 
 .news-slider__content
   padding-left: 19px
-  min-height: 120px
+  padding-right: 19px
+  min-height: 170px
 
-.mainNews
+.mainCards
   background: #E8E8E8
   padding: 50px 0
 
-.mainNews__wrapper
+.mainCards__wrapper
   display: flex
   justify-content: space-between
   flex-wrap: wrap
   margin-bottom: 20px
 
-.mainNews__item
+.mainCards__item
   max-width: 330px
   width: 100%
-  margin: 0 0 25px 0
+  margin: 0 15px 25px
+  position: relative
+  overflow: hidden
+  border-radius: 12px
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1)
 
 .news-slider__item-title
   color: #1D1D1F
@@ -1456,14 +1449,14 @@ header
   margin-bottom: 9px
 
 .color-company
-  color: #00D37F
+  color: #BF5AF2
 
 .color-forHome
   background-image: $orangeToPink
   -webkit-background-clip: text
   color: transparent
 .pad-forHome
-  margin-right: 113px
+  margin-right: 60px
 
 .color-forBusiness
   background-image: $blueToPurple
@@ -1494,7 +1487,7 @@ header
   position: relative
   &:after
     content: ''
-    background: url("../img/icon__footer/foot_arr_green.svg") no-repeat
+    background: url("../img/icon__footer/foot_arr_purpl.svg") no-repeat
     width: 10px
     height: 15px
     position: absolute
@@ -1540,7 +1533,10 @@ header
   transition: .5s ease-in-out
 
 .footer__accordion-item.active .accordion-item__content
-  height: 250px
+  height: 240px
+
+.footer__accordion-item + .footer__accordion-item
+    margin-top: 30px
 
 
 .footer-link__social-item
@@ -1850,12 +1846,180 @@ header
   color: #1D1D1F
 
 .news__pagination
+
   .pagination
     display: flex
     justify-content: center
+    align-items: center
     margin: 0
-    a
-      padding: 0
+    .active
+      a
+        color: #FF375F
+        cursor: pointer
+        &:hover
+          background-color: transparent
+        &:focus
+          background-color: transparent
+    li
+      a
+        color: #000
+        padding: 0
+        margin: 0 5px
+        border: none
+        background-color: transparent
+      span
+        display: block
+        cursor: pointer
+        padding: 0
+        height: 100%
+        background: none
+        border: none
+        //margin-bottom: 3px
+    .prev, .next
+      background: url("/img/arrCard.svg") no-repeat
+      background-position-y: center;
+      height: 20px
+      width: 13px
+    .prev
+      transform: rotate(-180deg)
+      margin-right: 10px
+    .next
+      margin-left: 10px
+    .disabled
+      background: none
+
+
+//li
+    //  list-style: none
+
+.cards-view_item
+  //min-height: 600px
+  width: 100%
+
+
+.cards-view_img
+  width: 100%
+
+.content__wrap
+  padding: 0 200px
+
+.cards-view
+  background: #ffffff
+
+.cards-view_content
+  position: relative
+  padding-top: 80px
+
+.cards-view_content-backLink-wrap
+  position: absolute
+  color: #62687F
+
+.cards-view_content-backLink
+  position: relative
+  line-height: 30px
+  font-size: 21px
+  font-weight: 500
+  color: #62687F
+  padding-left: 20px
+  &:before
+    content: ''
+    background: url("../img/arrowLeft.svg") no-repeat
+    width: 10px
+    height: 16px
+    position: absolute
+    top: 50%
+    left: 0
+    transform: translateY(-50%)
+    fill: #00D37F
+    color: red
+  &:hover
+    color: #8D96B2
+  &:hover:before
+    background: url("../img/arrowLeftHover.svg") no-repeat
+
+.cards-view_content-title
+  color: #1D1D1F
+  font-size: 48px
+  line-height: 60px
+  font-weight: 500
+  max-width: 580px
+  margin-bottom: 18px
+  margin-top: -5px
+
+.cards-view_content-wrap
+  margin-bottom: 22px
+  display: flex
+  justify-content: space-between
+  line-height: 28px
+
+.cards-view_content-date
+  color: #8D96B2
+  font-size: 14px
+
+.cards-view_content-wrap-text
+  color: #1D1D1F
+  font-size: 21px
+  line-height: 26px
+  font-weight: 500
+  margin-bottom: 100px
+
+.cards-view_content-item + .cards-view_content-item
+  margin-top: 40px
+  a
+    color: #315EFB
+    &:hover
+      text-decoration: underline
+    
+
+.cards-view_content-item-list
+  list-style: disc
+  padding-left: 30px
+
+.cards-view_content-link
+
+  color: #315EFB
+  line-height: 21px
+  font-weight: 500
+  padding: 10px 0 11px
+  background: #EEF2F4
+
+.cards-view_content-link-flex
+  display: flex
+  justify-content: space-between
+
+.cards-view_nav-link
+  position: relative
+  padding: 0 15px
+  &:hover
+    text-decoration: underline
+
+.cards-view_content-link-prev
+
+  &:before
+    content: ''
+    background: url("../img/router_image/Vector_link.svg") no-repeat
+    height: 13px
+    width: 9px
+    position: absolute
+    top: 5px
+    left: 0
+    transform: rotate(180deg)
+
+.cards-view_content-link-next
+  text-align: right
+  margin-left: auto
+  &:after
+    content: ''
+    background: url("../img/router_image/Vector_link.svg") no-repeat
+    height: 13px
+    width: 9px
+    position: absolute
+    top: 5px
+    right: 0
+    //transform: translateY(-50%)
+
+.svg__headerTypeTwo
+  display: none
 @import "media";
 
 

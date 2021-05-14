@@ -22,6 +22,8 @@
                     ['label' => 'Menu', 'options' => ['class' => 'header']],
                     ['label' => 'Слайдер', 'icon' => 'sliders', 'url' => '/slider'],
                     ['label' => 'Новости', 'icon' => 'file-text-o', 'url' => '/news'],
+                    ['label' => 'Блог', 'icon' => 'file-text-o', 'url' => '/blog'],
+                    ['label' => 'Акции', 'icon' => 'file-text-o', 'url' => '/promotion'],
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],

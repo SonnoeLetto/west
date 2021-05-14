@@ -30,7 +30,7 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <?= $this->render('header') ?>
+    <?= $this->render(Yii::$app->params['template_header']) ?>
     <?= Alert::widget() ?>
     <?= $content ?>
     <?= $this->render('footer') ?>

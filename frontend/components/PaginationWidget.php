@@ -13,8 +13,8 @@ class PaginationWidget extends LinkPager
     public function init()
     {
         $this->lastPageLabel = false;
-        $this->prevPageLabel = '<i class="fa fa-chevron-left"></i>';
-        $this->nextPageLabel = '<i class="fa fa-chevron-right"></i>';
+        $this->prevPageLabel = '';
+        $this->nextPageLabel = '';
 
         $this->page_from = $this->pagination->totalCount > 0 ? $this->pagination->page * $this->page_size + 1 : 0;
 

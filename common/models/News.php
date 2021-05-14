@@ -7,7 +7,6 @@ use yii\behaviors\SluggableBehavior;
 use yii\db\ActiveRecord;
 use yii\helpers\Inflector;
 use yii\behaviors\TimestampBehavior;
-
 /**
  * This is the model class for table "news".
  *
@@ -57,9 +56,13 @@ class News extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['name_ru'], 'required'],
             [['created_at', 'status'], 'integer'],
             [['text_ru', 'text_uk', 'meta_description_ru', 'meta_description_uk'], 'string'],
             [['slug', 'name_ru', 'name_uk', 'meta_keywords_ru', 'meta_keywords_uk', 'img_big', 'img_middle', 'img_small'], 'string', 'max' => 255],
+//            ['slug' => 'unique'],
+//            ['name_ru' => 'unique'],
+//            ['name_uk' => 'unique'],
             [['meta_title_ru', 'meta_title_uk'], 'string', 'max' => 150],
             [['image_big'],  'image',
                 'extensions' => 'jpg',
@@ -87,21 +90,21 @@ class News extends \yii\db\ActiveRecord
 
     public function behaviors()
     {
-        return [
-            [
+        return array(
+            array(
                 'class' => SluggableBehavior::className(),
                 'attribute' => 'name_ru',
-            ],
-            [
+            ),
+            array(
                 'class' => TimestampBehavior::className(),
-                'attributes' => [
-                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at'],
+                'attributes' => array(
+                    ActiveRecord::EVENT_BEFORE_INSERT => array('created_at'),
 
-                ],
+                ),
                 // если вместо метки времени UNIX используется datetime:
                 // 'value' => new Expression('NOW()'),
-            ]
-        ];
+            )
+        );
     }
 
     /**
@@ -165,15 +168,27 @@ class News extends \yii\db\ActiveRecord
     {
         return $this->{'text_' . Yii::$app->language};
     }
+
     public static function getNews()
     {
         return self::find()->where([
             'status' => self::STATUS_ACTIVE
         ])->orderBy(['created_at' => SORT_DESC]);
     }
-//
-//    public function getTitle()
-//    {
-//        return $this->activeLanguage->meta_title ?: $this->activeLanguage->name.' | '.Yii::$app->name;
-//    }
+
+    public static function getNewsBySlug($slug)
+    {
+        return self::findOne(['slug' => $slug, 'status' => self::STATUS_ACTIVE]);
+    }
+
+    public function getNextNews()
+    {
+        return self::find()->where(['>', 'created_at', $this->created_at])->one();
+    }
+
+    public function getLastNews()
+    {
+        return self::find()->where(['<', 'created_at', $this->created_at])->one();
+    }
+
 }

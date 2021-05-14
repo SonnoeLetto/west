@@ -53,7 +53,17 @@ return [
             'enableLanguagePersistence' => false,
             'rules' => [
                 '' => 'site/index',
+                '/news/page/<page:\d+>' => '/news/index',
+                '/news/<slug>' => '/news/view',
+                '/news' => '/news/index',
+                '/blog/page/<page:\d+>' => '/blog/index',
+                '/blog/<slug>' => '/blog/view',
+                '/blog' => '/blog/index',
+                '/promotion/page/<page:\d+>' => '/promotion/index',
+                '/promotion/<slug>' => '/promotion/view',
+                '/promotion' => '/promotion/index',
             ],
+
         ],
     ],
     'params' => $params,
