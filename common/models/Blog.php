@@ -28,6 +28,9 @@ use yii\helpers\Inflector;
  * @property string $img_middle
  * @property string $img_small
  * @property int $status
+ * @property int $time_read
+ * @property int sub_name_ru
+ * @property int sub_name_uk
  */
 class Blog extends \yii\db\ActiveRecord
 {
@@ -54,12 +57,12 @@ class Blog extends \yii\db\ActiveRecord
     {
         return [
             [['name_ru'], 'required'],
-            [['created_at', 'status'], 'integer'],
+            [['created_at', 'status', 'time_read'], 'integer'],
             [['text_ru', 'text_uk', 'meta_description_ru', 'meta_description_uk'], 'string'],
-            [['slug', 'name_ru', 'name_uk', 'meta_keywords_ru', 'meta_keywords_uk', 'img_big', 'img_middle', 'img_small'], 'string', 'max' => 255],
-            ['slug' => 'unique'],
-            ['name_ru' => 'unique'],
-            ['name_uk' => 'unique'],
+            [['slug', 'name_ru', 'name_uk', 'sub_name_ru', 'sub_name_uk', 'meta_keywords_ru', 'meta_keywords_uk', 'img_big', 'img_middle', 'img_small'], 'string', 'max' => 255],
+//            ['slug' => 'unique'],
+//            ['name_ru' => 'unique'],
+//            ['name_uk' => 'unique'],
             [['meta_title_ru', 'meta_title_uk'], 'string', 'max' => 150],
             [['image_big'],  'image',
                 'extensions' => 'jpg',
@@ -114,6 +117,8 @@ class Blog extends \yii\db\ActiveRecord
             'slug' => 'Slug',
             'name_ru' => 'Название',
             'name_uk' => 'Украинское название',
+            'sub_name_ru' => 'Русское подназвание',
+            'sub_name_uk' => 'Украинское подназвание',
             'text_ru' => 'Русский текст',
             'text_uk' => 'Украинский текст',
             'meta_title_ru' => 'Meta Title Ru',
@@ -126,6 +131,7 @@ class Blog extends \yii\db\ActiveRecord
             'img_middle' => 'Картинка средняя',
             'img_small' => 'Картинка маленькая',
             'status' => 'Статус',
+            'time_read' => 'Время чтения(мин)',
         ];
     }
 
@@ -155,6 +161,11 @@ class Blog extends \yii\db\ActiveRecord
     public function getName()
     {
         return $this->{'name_' . Yii::$app->language};
+    }
+
+    public function getSubName()
+    {
+        return $this->{'sub_name_' . Yii::$app->language};
     }
 
     public function getText()

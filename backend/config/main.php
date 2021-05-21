@@ -47,5 +47,19 @@ return [
             ],
         ],
     ],
+
+
+    'controllerMap' => [
+        'elfinder' => [
+            'class' => 'mihaildev\elfinder\PathController',
+            'access' => ['@'],
+            'root' => [
+                'path' => 'uploads/page',
+                'name' => 'Page'
+            ]
+        ]
+    ],
+
+
     'params' => $params,
 ];

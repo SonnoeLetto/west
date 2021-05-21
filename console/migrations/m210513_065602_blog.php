@@ -24,6 +24,8 @@ class m210513_065602_blog extends Migration
             'slug' => $this->string(255),
             'name_ru' => $this->string(255),
             'name_uk' => $this->string(255),
+            'sub_name_ru' => $this->string(255),
+            'sub_name_uk' => $this->string(255),
             'text_ru' => $this->text(),
             'text_uk' => $this->text(),
             'meta_title_ru' => $this->string(150),
@@ -36,6 +38,7 @@ class m210513_065602_blog extends Migration
             'img_middle' => $this->string(255)->notNull()->unique(),
             'img_small' => $this->string(255)->notNull()->unique(),
             'status' => $this->smallInteger()->notNull()->defaultValue(0),
+            'time_read' => $this->integer(),
         ], $tableOptions);
     }
 

@@ -34,6 +34,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'slug',
             'name_ru',
             'name_uk',
+            'sub_name_ru',
+            'sub_name_uk',
             'text_ru:ntext',
             'text_uk:ntext',
             'meta_title_ru',
@@ -46,6 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'img_middle',
             'img_small',
             'status',
+            'time_read',
         ],
     ]) ?>
 

@@ -36,6 +36,7 @@ class m210429_064637_news extends Migration
             'img_middle' => $this->string(255)->notNull()->unique(),
             'img_small' => $this->string(255)->notNull()->unique(),
             'status' => $this->smallInteger()->notNull()->defaultValue(0),
+            'time_read' => $this->integer(),
         ], $tableOptions);
     }
 

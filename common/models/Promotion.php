@@ -54,7 +54,8 @@ class Promotion extends ActiveRecord
     {
         return [
             [['name_ru'], 'required'],
-            [['created_at', 'status'], 'integer'],
+            [['created_at', 'status', 'time_read'], 'integer'],
+            [['date_from', 'date_to'], 'date', 'format' => 'yyyy-mm-dd'],
             [['text_ru', 'text_uk', 'meta_description_ru', 'meta_description_uk'], 'string'],
             [['slug', 'name_ru', 'name_uk', 'meta_keywords_ru', 'meta_keywords_uk', 'img_big', 'img_middle', 'img_small'], 'string', 'max' => 255],
 //            ['slug' => 'unique'],
@@ -127,6 +128,9 @@ class Promotion extends ActiveRecord
             'img_middle' => 'Картинка средняя',
             'img_small' => 'Картинка маленькая',
             'status' => 'Статус',
+            'time_read' => 'Время чтения',
+            'date_from' => 'Время начала',
+            'date_to' => 'Время окончания',
         ];
     }
 

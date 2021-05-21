@@ -10,13 +10,15 @@ namespace frontend\controllers;
 
 
 use common\models\Promotion;
+use Yii;
 use yii\data\Pagination;
 use yii\web\Controller;
 
 class PromotionController extends Controller
 {
-    public function actionIndex($page=false) {
-
+    public function actionIndex($page=false)
+    {
+        Yii::$app->params['template_header'] = 'header_article';
         $query = Promotion::getPromotion();
 
         $pages = new Pagination([
@@ -42,6 +44,7 @@ class PromotionController extends Controller
 
     public function actionView($slug)
     {
+        Yii::$app->params['template_header'] = 'header_article';
         $promotion = Promotion::getPromotionBySlug($slug);
         if (!$promotion) {
             throw new \yii\web\NotFoundHttpException(404);

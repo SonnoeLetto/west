@@ -4,7 +4,9 @@ use yii\bootstrap\Tabs;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\file\FileInput;
-
+use mihaildev\ckeditor\CKEditor;
+use mihaildev\elfinder\ElFinder;
+use kartik\date\DatePicker;
 /* @var $this yii\web\View */
 /* @var $model common\models\Promotion */
 /* @var $form yii\widgets\ActiveForm */
@@ -30,8 +32,37 @@ use kartik\file\FileInput;
         </div>
     <?php } ?>
 
+    <div class="row">
+
+        <div class="col-md-3">
+            <?= $form->field($model, 'date_from')->widget(DatePicker::classname(), [
+                'type' => DatePicker::TYPE_COMPONENT_PREPEND,
+                'language'=>'ru',
+                'pluginOptions' => [
+                    'autoclose'=>true,
+                    'format' => 'yyyy-mm-dd',
+                    'startDate' => date('Y-m-d')
+                ]
+            ]); ?>
+        </div>
+        <div class="col-md-3">
+            <?= $form->field($model, 'date_to')->widget(DatePicker::classname(), [
+                'type' => DatePicker::TYPE_COMPONENT_PREPEND,
+                'language'=>'ru',
+                'pluginOptions' => [
+                    'autoclose'=>true,
+                    'format' => 'yyyy-mm-dd',
+                    'startDate' => date('Y-m-d')
+                ]
+            ]); ?>
+        </div>
+        <div class="col-md-1">
+            <?= $form->field($model, 'time_read')->textInput() ?>
+        </div>
+    </div>
+
     <div class="box box-solid box-success">
-        <div class="box-header">Название блога</div>
+        <div class="box-header">Название акции</div>
 
         <div class="box-body">
             <?=  Tabs::widget([
@@ -58,12 +89,26 @@ use kartik\file\FileInput;
                 'items' => [
                     [
                         'label' => 'RU',
-                        'content' => $form->field($model, 'text_ru')->textarea(['rows' => 6])->label(false),
+                        'content' => $form->field($model, 'text_ru')->widget(CKEditor::className(), [
+                            'editorOptions' => ElFinder::ckeditorOptions('elfinder', [
+                                'preset' => 'full',
+                                'inline' => false,
+                                'font_names' => 'roboto; playfairdisplaysc',
+                                'allowedContent' => true,
+                            ]),
+                        ])->label(false),
                         'active' => true
                     ],
                     [
                         'label' => 'UA',
-                        'content' => $form->field($model, 'text_uk')->textarea(['rows' => 6])->label(false)
+                        'content' => $form->field($model, 'text_uk')->widget(CKEditor::className(), [
+                            'editorOptions' => ElFinder::ckeditorOptions('elfinder', [
+                                'preset' => 'full',
+                                'inline' => false,
+                                'font_names' => 'roboto; playfairdisplaysc',
+                                'allowedContent' => true,
+                            ]),
+                        ])
                     ]
                 ]
             ]) ?>

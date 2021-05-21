@@ -27,13 +27,14 @@ use yii\behaviors\TimestampBehavior;
  * @property string $img_middle
  * @property string $img_small
  * @property int $status
+ * @property int $time_read
  */
 class News extends \yii\db\ActiveRecord
 {
     const STATUS_ACTIVE = 1;
     const STATUS_INACTIVE = 0;
 
-    const PAGE_SIZE = 2;
+    const PAGE_SIZE = 4;
 
     public $image_big;
     public $image_middle;
@@ -57,7 +58,7 @@ class News extends \yii\db\ActiveRecord
     {
         return [
             [['name_ru'], 'required'],
-            [['created_at', 'status'], 'integer'],
+            [['created_at', 'status', 'time_read'], 'integer'],
             [['text_ru', 'text_uk', 'meta_description_ru', 'meta_description_uk'], 'string'],
             [['slug', 'name_ru', 'name_uk', 'meta_keywords_ru', 'meta_keywords_uk', 'img_big', 'img_middle', 'img_small'], 'string', 'max' => 255],
 //            ['slug' => 'unique'],
@@ -131,6 +132,7 @@ class News extends \yii\db\ActiveRecord
             'image_small' => 'Картинка маленькая',
 
             'status' => 'Статус',
+            'time_read' => 'Время чтения(мин)',
         ];
     }
 

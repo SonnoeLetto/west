@@ -8,6 +8,7 @@
 
 namespace frontend\controllers;
 use common\models\Blog;
+use Yii;
 use yii\data\Pagination;
 use yii\web\Controller;
 
@@ -15,6 +16,7 @@ class BlogController extends Controller
 {
     public function actionIndex($page=false)
     {
+        Yii::$app->params['template_header'] = 'header_article';
         $query = Blog::getBlog();
 
         $pages = new Pagination([
@@ -40,6 +42,7 @@ class BlogController extends Controller
 
     public function actionView($slug)
     {
+        Yii::$app->params['template_header'] = 'header_article';
         $blog = Blog::getBlogBySlug($slug);
         if (!$blog) {
             throw new \yii\web\NotFoundHttpException(404);

@@ -46,6 +46,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'img_middle',
             'img_small',
             'status',
+            'time_read',
+            'date_from',
+            'date_to',
         ],
     ]) ?>
 

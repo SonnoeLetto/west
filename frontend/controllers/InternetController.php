@@ -1,19 +1,28 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: alex
+ * Date: 19.05.21
+ * Time: 8:48
+ */
 
 namespace frontend\controllers;
 use yii\web\Controller;
 
-/**
- * Created by PhpStorm.
- * User: alex
- * Date: 22.04.21
- * Time: 10:52
- */
-
 class InternetController extends Controller
 {
-    public function actionIndex()
+    public function actionHome()
     {
-        return $this->render('index');
+        return $this->render('home');
+    }
+
+    public function actionBusiness()
+    {
+        return $this->render('business');
+    }
+
+    public function actionView()
+    {
+        return $this->render('view');
     }
 }

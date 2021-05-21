@@ -89,7 +89,7 @@ header
 .top-line__left
   display: flex
   align-items: center
-  color: #8D96B2
+  color: $secondary_color
 
 
 .top-line__left-lang
@@ -120,9 +120,6 @@ header
   display: inline-block
   margin: 0 19px
 
-
-
-
 .top-line__menu-link
   position: relative
   color: #fff
@@ -143,32 +140,35 @@ header
     width: 100%
     height: 4px
 
+.top-line__menu-link-forBusiness
+  &:hover
+    background-image: $blueToPurple
+  &:hover:after
+    background-image: $blueToPurple
 
 .tools__item
   display: inline-block
   vertical-align: middle
   line-height: 25px
 
+.top-line__tools-basket:before,
+.top-line__tools-personal:before
+  content: ""
+  background-size: auto 25px
+  display: inline-block
+  height: 26px
+  vertical-align: top
+
 .top-line__tools-basket
   margin-right: 20px
   &:before
-    content: ""
     background: url("../img/icons/Bag.svg") no-repeat
-    background-size: auto 25px
-    display: inline-block
-    height: 26px
     width: 30px
-    vertical-align: top
 
 .top-line__tools-personal
   &:before
-    content: ""
     background: url("../img/icons/Profile.svg") no-repeat
-    background-size: auto 25px
-    display: inline-block
-    height: 26px
     width: 26px
-    vertical-align: top
 
 // SWIPE RIGHT MENU START
 .menu__bg
@@ -180,6 +180,7 @@ header
   bottom: 0
   z-index: 500
   background-color: rgba(0, 0, 0, 0.3)
+
 .burger
   display: none
   cursor: pointer
@@ -220,12 +221,10 @@ header
   height: 21px
   background: none
   border: none
-  background-image: url(/img/icons/CloseMenu.svg)
+  background-image: url('/img/icons/CloseMenu.svg')
 
 .right-menu__close
   text-align: left
-
-
 
 .right-menu-contacts
   display: none
@@ -310,9 +309,6 @@ header
   width: 21px
   height: 27px
 
-
-
-
 // SWIPE RIGHT MENU END
 
 .middle-line
@@ -334,13 +330,12 @@ header
   height: 46px
 
 .middle-line__promotion
+  position: relative
   color: #ffffff
   margin: 0
   font-size: 21px
   line-height: 25px
-  font-weight: 500
   padding-left: 16px
-  position: relative
   &:before
     content: ""
     position: absolute
@@ -352,7 +347,6 @@ header
     left: 0
 
 .middle-line__email
-  font-weight: 500
   line-height: 24px
   color: $secondary_color
   margin-right: 19px
@@ -368,16 +362,13 @@ header
   background-image: $orangeToPink
   -webkit-background-clip: text
   color: transparent
-  margin-right: 18px
+  margin-right: 24px
   cursor: pointer
   &:hover
     color: transparent
 
 .telegMarg
   padding-right: 3px
-
-.viber__Left
-  margin-left: 15px
 
 .bottom-line-fixed
   position: fixed
@@ -396,7 +387,6 @@ header
 .bottom-line__link
   display: inline-block
   font-size: 14px
-  font-weight: 500
   line-height: 17px
   text-align: center
   &:hover
@@ -408,11 +398,9 @@ header
     .bottom-line__icon-phone
       stroke: #ffffff
 
-
 .bottom-line__list-item+.bottom-line__list-item
   margin-left: 38px
 
-  
 .bottom-line__icon
   transition: all .2s ease-in
   fill: $secondary_color
@@ -441,23 +429,6 @@ header
   min-height: 600px
   width: 195px
 
-
-  //&:before
-  //  content: ''
-  //  width: 100%
-  //  height: 100%
-  //  display: block
-  //  position: absolute
-  //  top: 0
-  //  bottom: 0
-  //  left: 0
-  //  right: 0
-  //  //background: transparent
-  //  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 39.93%, rgba(0, 0, 0, 0.7) 100%)
-
-
-
-
 .promotion-slider__img
   position: absolute
   width: 100%
@@ -466,7 +437,6 @@ header
   right: 0
   margin: 0 auto
   object-fit: cover
-
 
 .slick-track
   display: flex
@@ -516,7 +486,6 @@ header
   height: 600px
   flex-direction: column
 
-
 .promotion__content-title
   font-size: 48px
   line-height: 58px
@@ -525,12 +494,9 @@ header
   margin-bottom: 32px
 
 .promotion__content-text
-  font-weight: 500
   font-size: 32px
   line-height: 39px
   max-width: 760px
-
-
 
 .promotion__content-btn
   display: inline-block
@@ -562,9 +528,6 @@ header
     .promotion__content-wrap
       text-align: left
 
-
-
-
 .wrapper
   padding: 0 50px
 
@@ -588,7 +551,6 @@ header
   font-size: 32px
   line-height: 39px
   text-align: center
-  font-weight: 500
 
 .offer__check-form
   max-width: 350px
@@ -600,7 +562,6 @@ header
   padding-bottom: 20px
   border-radius: 18px
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
-  font-weight: 500
 
 .offer__check-form-input
   color: #ffffff
@@ -633,11 +594,9 @@ header
 .offer__case-slider-item
   overflow: hidden
 
-
 .offer__case-text
   text-align: center
   color: $secondary_color
-  font-weight: 500
   line-height: 22px
   max-width: 337px
   margin: 0 auto 46px
@@ -661,7 +620,6 @@ header
   position: absolute
   bottom: 0
   left: 0
-  font-weight: 500
   line-height: 21px
   color: #ffffff
   &:hover
@@ -747,12 +705,6 @@ header
   & + .options-connect-input
     margin-top: 15px
 
-//input:-webkit-autofill,
-//input:-webkit-autofill:hover,
-//input:-webkit-autofill:focus,
-//input:-webkit-autofill:active
-//  -webkit-box-shadow: 0 0 0 30px #C6CAD8 inset !important
-
 // SWITCH START
 
 .options-connect__switch
@@ -772,7 +724,7 @@ header
   transition: 0.5s
 
 .options-connect__checkbox-input:checked
-  background: #8D96B2
+  background: $secondary_color
 
 .options-connect__checkbox-input:before
   content: ""
@@ -811,7 +763,6 @@ header
   color: #62687F
   text-align: left
   line-height: 20px
-  font-weight: 500
   background: rgba(#ffffff, .3)
   border-radius: 16px
   padding: 14.25px 20px 14.75px 34px
@@ -842,7 +793,6 @@ header
   background: rgb(255, 255, 255)
   border-radius: 16px
   line-height: 20px
-  font-weight: 500
   color: #1D1D1F
   z-index: 1
 
@@ -854,7 +804,7 @@ header
   padding: 10px 20px 10px 34px
   cursor: pointer
   &:hover
-    background: #8D96B2
+    background: $secondary_color
 
 .dropdown__input-hidden
   display: none
@@ -867,11 +817,8 @@ header
   max-width: 326px
   width: 100%
   margin: 15px auto 37px
-
   padding-left: 20px
   padding-top: 2px
-
-
 
 .options-connect__form-agree
   border: #8d96b2 5px solid
@@ -920,7 +867,7 @@ header
   border-radius: 20px
   background:  #000000
   vertical-align: center
-  line-height: 17px
+  line-height: 40px
   margin: 0 auto
   display: block
   &:active
@@ -1006,7 +953,6 @@ header
   text-align: center
   font-size: 24px
   line-height: 29px
-  font-weight: 500
   margin-bottom: 44px
 
 .rate-variables__select-wrapper
@@ -1019,7 +965,6 @@ header
   line-height: 20px
   max-width: 280px
   width: 100%
-  font-weight: 500
   margin-bottom: 16px
   background: rgba(#C6CAD8, .3)
   color: #62687F
@@ -1030,7 +975,6 @@ header
 
 .rate-item
   position: relative
-
   background-image: linear-gradient(359.61deg,rgba(169,201,255,.65) .34%,rgba(255,187,236,.65) 99.68%)
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1)
   border-radius: 30px
@@ -1042,7 +986,6 @@ header
 
 .rate-item__forNewClients
   text-align: center
-  font-weight: 500
   font-size: 14px
   line-height: 17px
   position: absolute
@@ -1077,7 +1020,6 @@ header
 .rate-item__list
   padding: 0 31px
   margin-bottom: 22px
-  font-weight: 500
   font-size: 17px
   line-height: 19px
   color: #000000
@@ -1130,6 +1072,7 @@ header
 
 .router-content__title
   color: #000000
+
   margin-bottom: 26px
 
 .router-content__text
@@ -1357,10 +1300,6 @@ header
 .news-slider .slick-arrow.slick-next
   right: -60px
   background: url("../img/rare_img/right_arrow.svg")
-
-
-
-
 .news-slider__item-img
   width: 100%
   margin-bottom: 15px
@@ -1374,55 +1313,56 @@ header
   background: #E8E8E8
   padding: 50px 0
 
-.mainCards__wrapper
-  display: flex
-  justify-content: space-between
-  flex-wrap: wrap
-  margin-bottom: 20px
-
 .mainCards__item
-  max-width: 330px
-  width: 100%
-  margin: 0 15px 25px
   position: relative
   overflow: hidden
   border-radius: 12px
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1)
 
-.news-slider__item-title
+.news__card-item
+  margin: 0 15px 25px
   color: #1D1D1F
+
+.cards-list
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+  margin: 0 25px 25px
+  &:after
+    content: ""
+    flex: auto
+
+.card-item
+  width: calc(100% / 3)
+  padding: 20px 15px
+  color: #1D1D1F
+
+.news-slider__item-title
   font-weight: 700
   font-size: 18px
   line-height: 22px
   margin-bottom: 13px
 
 .news-slider__item-link
-  color: #1D1D1F
-  font-weight: 500
   font-size: 16px
   line-height: 19px
   &:hover
-    color: #1D1D1F
     text-decoration: underline
-
 
 .news-slider__item-bottom-group
   display: flex
   justify-content: space-between
-
-.news-slider__item-date
   position: absolute
   bottom: 17px
   left: 19px
-  font-size: 14px
-  font-weight: 500
+  right: 19px
   line-height: 17px
+
+.news-slider__item-date
+  font-size: 14px
   color: $secondary_color
 
 .social__wrapper
-  position: absolute
-  bottom: 17px
-  right: 20px
   display: flex
   gap: 8px
 
@@ -1430,13 +1370,9 @@ header
   padding: 27px 0 29px
   background: #1F2431
 
-
-
-
 .footer-content
   display: flex
   justify-content: space-between
-  font-weight: 500
   color: $secondary_color
   line-height: 21px
   padding-bottom: 17px
@@ -1455,6 +1391,7 @@ header
   background-image: $orangeToPink
   -webkit-background-clip: text
   color: transparent
+
 .pad-forHome
   margin-right: 60px
 
@@ -1471,7 +1408,6 @@ header
   &:hover
     color: #ffffff
 
-
 .footer__accordion-wrapper
   display: none
   font-weight: 500
@@ -1479,7 +1415,6 @@ header
   line-height: 21px
   border-bottom: 0.5px solid #8D96B2
   padding-bottom: 17px
-
 
 .accordion-item__title-first
   display: inline-block
@@ -1538,14 +1473,14 @@ header
 .footer__accordion-item + .footer__accordion-item
     margin-top: 30px
 
-
 .footer-link__social-item
   display: inline-block
   background-color: #343B4C
   height: 40px
   width: 40px
   border-radius: 50%
-  margin-right: 7px
+  & + .footer-link__social-item
+    margin-left: 7px
   &:hover
     .footer-link__social-item__img
       img
@@ -1585,8 +1520,6 @@ header
   font-size: 48px
   line-height: 58px
   font-weight: 700
-
-
 
 .check-title
   margin-bottom: 38px
@@ -1656,6 +1589,7 @@ header
   background-image: $orangeToPink
   -webkit-background-clip: text
   color: transparent
+
 .services__text
   max-width: 604px
   width: 100%
@@ -1681,6 +1615,7 @@ header
   border-radius: 19px
   margin: 10px
   transition: transform 1s ease
+
   &:after
     content: ''
     position: absolute
@@ -1742,7 +1677,6 @@ header
   font-weight: 500
   margin-right: 33px
 
-
 .capability-content__mainTitle
   font-size: 28px
   line-height: 34px
@@ -1773,7 +1707,6 @@ header
 
 .about-text
   display: block
-
   font-size: 21px
   line-height: 26px
 
@@ -1787,9 +1720,6 @@ header
   background: #EEF2F4
   color: #1D1D1F
   padding: 39px 0 45px
-
-.HowConnect-content
-
 
 .HowConnect-content__title
   font-size: 48px
@@ -1846,56 +1776,44 @@ header
   color: #1D1D1F
 
 .news__pagination
-
   .pagination
     display: flex
     justify-content: center
     align-items: center
     margin: 0
-    .active
-      a
-        color: #FF375F
-        cursor: pointer
-        &:hover
-          background-color: transparent
-        &:focus
-          background-color: transparent
-    li
-      a
-        color: #000
-        padding: 0
-        margin: 0 5px
-        border: none
-        background-color: transparent
-      span
-        display: block
-        cursor: pointer
-        padding: 0
-        height: 100%
-        background: none
-        border: none
-        //margin-bottom: 3px
-    .prev, .next
-      background: url("/img/arrCard.svg") no-repeat
-      background-position-y: center;
-      height: 20px
-      width: 13px
-    .prev
-      transform: rotate(-180deg)
-      margin-right: 10px
-    .next
-      margin-left: 10px
-    .disabled
+    li span
+      cursor: pointer
+      padding: 0
+      border: none
+    li a
+      color: #000
       background: none
-
-
-//li
-    //  list-style: none
+      border: none
+      padding: 0 5px
+      &:hover
+        color: #000
+      //margin: 0 5px
+  .pagination .active a
+    color: #FF375F
+    cursor: pointer
+    &:hover
+      background-color: transparent
+      color: #FF375F
+    &:focus
+      background-color: transparent
+  .pagination .next a,
+  .pagination .prev a
+    background: url("/img/arrCard.svg") no-repeat
+    background-position-y: center
+    height: 20px
+  .pagination .prev
+    transform: rotate(-180deg)
+    margin-right: 10px
+  .pagination .next
+    margin-left: 10px
 
 .cards-view_item
-  //min-height: 600px
   width: 100%
-
 
 .cards-view_img
   width: 100%
@@ -1913,12 +1831,12 @@ header
 .cards-view_content-backLink-wrap
   position: absolute
   color: #62687F
+  z-index: 5
 
 .cards-view_content-backLink
   position: relative
   line-height: 30px
   font-size: 21px
-  font-weight: 500
   color: #62687F
   padding-left: 20px
   &:before
@@ -1941,10 +1859,18 @@ header
   color: #1D1D1F
   font-size: 48px
   line-height: 60px
-  font-weight: 500
   max-width: 580px
   margin-bottom: 18px
   margin-top: -5px
+
+.blog_content-title
+  margin-bottom: 9px
+
+.cards-view_content-subtitle
+  font-size: 22px
+  line-height: 28px
+  color: #343B4C
+  margin-bottom: 44px
 
 .cards-view_content-wrap
   margin-bottom: 22px
@@ -1953,14 +1879,20 @@ header
   line-height: 28px
 
 .cards-view_content-date
-  color: #8D96B2
+  color: $secondary_color
   font-size: 14px
+  span
+    height: 5px
+    width: 5px
+    display: inline-block
+    border-radius: 50%
+    background-color: $secondary_color
+    margin: 0 5px 3px
 
 .cards-view_content-wrap-text
   color: #1D1D1F
   font-size: 21px
   line-height: 26px
-  font-weight: 500
   margin-bottom: 100px
 
 .cards-view_content-item + .cards-view_content-item
@@ -1969,17 +1901,14 @@ header
     color: #315EFB
     &:hover
       text-decoration: underline
-    
 
 .cards-view_content-item-list
   list-style: disc
   padding-left: 30px
 
 .cards-view_content-link
-
   color: #315EFB
   line-height: 21px
-  font-weight: 500
   padding: 10px 0 11px
   background: #EEF2F4
 
@@ -1993,33 +1922,307 @@ header
   &:hover
     text-decoration: underline
 
-.cards-view_content-link-prev
+.cards-view_content-link-prev:before,
+.cards-view_content-link-next:after
+  content: ''
+  height: 13px
+  width: 9px
+  position: absolute
+  top: 5px
 
-  &:before
-    content: ''
-    background: url("../img/router_image/Vector_link.svg") no-repeat
-    height: 13px
-    width: 9px
-    position: absolute
-    top: 5px
-    left: 0
-    transform: rotate(180deg)
+.cards-view_content-link-prev:before
+  background: url("../img/router_image/Vector_link.svg") no-repeat
+  left: 0
+  transform: rotate(180deg)
 
 .cards-view_content-link-next
   text-align: right
   margin-left: auto
   &:after
-    content: ''
     background: url("../img/router_image/Vector_link.svg") no-repeat
-    height: 13px
-    width: 9px
-    position: absolute
-    top: 5px
     right: 0
-    //transform: translateY(-50%)
+    right: 0
 
 .svg__headerTypeTwo
   display: none
+
+.tariff__inner
+  padding-top: 50px
+
+.tariff-business__tabs
+  padding-top: 3%
+
+.tariff-select
+  width: 280px
+  margin: 0 auto
+
+.tariff-select > span > .selection > .select2-selection--multiple
+  background: rgba(#C6CAD8, .3)
+  padding: 10.25px 20px 10.75px 34px
+  border-radius: 18px
+
+.tariff-select > span > .selection > span
+  border: 1px solid rgba(#8D96B2, .3)
+
+.select2-container--krajee .select2-selection--multiple .select2-search--inline .select2-search__field
+  padding: 0
+  height: auto
+.select2-search__field
+  height: auto
+  background: red
+.tariff-business__tabs > .nav-tabs
+  max-width: 1000px
+  width: 100%
+  margin: 0 auto
+  display: flex
+  justify-content: space-between
+  color: #000000
+  border-bottom: 0.5px solid #939597
+  overflow-x: auto
+  -ms-overflow-style: none
+  scrollbar-width: none
+  &::-webkit-scrollbar
+    width: 0
+    height: 0
+  //scrollbar-width: none
+  &:before, &:after
+    display: none
+
+.tariff-business__tabs > .nav-tabs > li
+  position: relative
+  padding-left: 30px
+  padding-right: 30px
+
+.tariff-business__tabs > .nav-tabs > li > a
+  background: none
+  padding: 0 0 20px 0
+  border: none
+  &:hover
+    border: none
+
+
+.tariff-business__tabs > .nav-tabs > li.active
+  &:after
+    content: ''
+    position: absolute
+    bottom: 0
+    left: 0
+    background-image: $blueToPurple
+    width: 100%
+    height: 4px
+
+.tariff-business__tabs > .nav-tabs > li.active > a
+  background-image: $blueToPurple
+  -webkit-background-clip: text
+  color: transparent
+  border: none
+
+.tariff-tabs
+  width: 100%
+  margin: 49px auto 0
+
+.tariff-tabs > .nav-tabs
+  max-width: 1000px
+  margin: 0 auto 10px
+  border: none
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  &:after
+    content: ""
+    flex: auto
+
+.tariff-tabs > .nav-tabs > li
+  width: calc(100%/5 - 30px)
+  margin: 0 15px 40px
+
+.tariff-tabs > .nav-tabs > li > a
+  background: #ffffff
+  border: 2px solid #C6CAD8
+  border-radius: 12px
+  color: #000000
+  padding: 25px 0
+  text-align: center
+  font-size: 48px
+  font-weight: 700
+  &:hover
+    border-color: #C6CAD8
+    background-color: transparent
+
+
+.tariff-tabs > .nav-tabs > li.active > a
+  color: #000000
+  background-color: #C6CAD8
+  border: 2px solid #C6CAD8
+  &:hover
+    background-color: #C6CAD8
+    color: #000000
+    border: 2px solid #C6CAD8
+  &:focus
+    background-color: #C6CAD8
+    color: #000000
+    border: 2px solid #C6CAD8
+
+.tariff-tabs > .nav li a:focus
+  color: #000000
+  background: #ffffff
+
+
+
+
+//.tariff__title
+//  color: #000000
+//  margin-bottom: 23px
+//  span
+//    background-image: $orangeToPink
+//    -webkit-background-clip: text
+//    color: transparent
+
+.tariff-speed
+  text-align: center
+  margin-bottom: 30px
+
+.tariff__label
+  font-size: 14px
+  line-height: 16px
+
+.tariff-content
+  padding: 3% 3%
+
+.tariff-content__item
+  position: relative
+  max-width: 700px
+  width: 100%
+  margin: 0 auto
+  padding-left: 35px
+  & + .tariff-content__item
+    margin-top: 37px
+  &:before
+    content: ''
+    background: url("/img/tariff_icon.svg")
+    width: 21px
+    height: 16px
+    position: absolute
+    top: 3px
+    left: 0
+
+
+
+.tariff-content__title
+  font-size: 21px
+  line-height: 26px
+  font-weight: 700
+  color: #000000
+  max-width: 390px
+  width: 100%
+  margin-bottom: 16px
+  a
+    color: #315EFB
+    &:hover
+      text-decoration: underline
+
+.tariff-content__title-color-home
+  background-image: $orangeToPink
+  -webkit-background-clip: text
+  color: transparent
+
+.tariff-content__title-color-business
+  background-image: $blueToPurple
+  -webkit-background-clip: text
+  color: transparent
+
+.tariff-content__checkbox-color-home:before
+  background: url("/img/tarif_icon2.svg")
+
+.tariff-content__checkbox-color-business:before
+  background: url("/img/check__arrBus.svg")
+
+.tariff-content__text
+  color: #62687F
+  line-height: 21px
+  a
+    color: #315EFB
+    &:hover
+      text-decoration: underline
+
+.tariff-result
+  background: #EEF2F4
+  padding: 3% 3%
+  color: #000
+
+.tariff-result__inner
+  max-width: 700px
+  width: 100%
+  margin: 0 auto
+  .btn__form
+    color: #ffffff
+
+.tariff-result__checkbox-wrapper
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-bottom: 44px
+
+
+.tariff-result__select-checkbox
+  max-width: 218px
+  width: 100%
+
+.tariff-result__dropdown
+  background: rgba(#C6CAD8, 0.3)
+  color: #000000
+
+.tariff-result__total
+  margin-bottom: 45px
+
+
+
+.tariff-result__total-title
+  font-size: 26px
+  line-height: 32px
+  margin-bottom: 23px
+
+.total-list-item
+  display: flex
+  justify-content: space-between
+  & + .total-list-item
+    margin-top: 25px
+
+
+.total-list-item-text
+  font-size: 21px
+  line-height: 26px
+
+.item-text-main
+  font-weight: 700
+
+.tariff-services__title
+  margin-bottom: 22px
+  background-image: $blueToPurple
+  -webkit-background-clip: text
+  color: transparent
+
+.tariff-services__title-plus
+  margin-bottom: 40px
+  background-image: $blueToPurple
+  -webkit-background-clip: text
+  color: transparent
+
+.tariff-title-business
+  color: #000000
+  margin-bottom: 23px
+  span
+    background-image: $blueToPurple
+    -webkit-background-clip: text
+    color: transparent
+
+.tariff__title-home
+  color: #000000
+  margin-bottom: 23px
+  span
+    background-image: $orangeToPink
+    -webkit-background-clip: text
+    color: transparent
 @import "media";
 
 

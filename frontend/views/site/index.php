@@ -7,7 +7,6 @@ use yii\helpers\BaseStringHelper;
 ?>
 
 <section class="promotion">
-
         <div class="promotion-slider">
             <?php foreach (Slider::getActive() as $slider) { ?>
             <div class="promotion-slider__item promotion-slider__type<?= $slider->type ?>">
@@ -33,34 +32,6 @@ use yii\helpers\BaseStringHelper;
                 </div>
             </div>
             <?php } ?>
-
-<!--            <div class="promotion-slider__item">-->
-<!---->
-<!--                <img class="promotion-slider__img" src="img/slider_img/Карусель2.jpg" alt="">-->
-<!--                <div class="container">-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-md-4">-->
-<!--                            <div class="promotion__content">-->
-<!--                                <h3 class="promotion__content-title">Без штрафов за превышение скорости по Одессе:)</h3>-->
-<!--                                <a class="promotion__content-btn">Подключить</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="promotion-slider__item">-->
-<!--                <img class="promotion-slider__img" src="img/slider_img/Карусель.jpg" alt="">-->
-<!--                <div class="container">-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-md-4">-->
-<!--                            <div class="promotion__content">-->
-<!--                                <h3 class="promotion__content-title">Без штрафов за превышение скорости по Одессе:)</h3>-->
-<!--                                <a class="promotion__content-btn">Подключить</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
         </div>
     </section>
 
@@ -69,7 +40,6 @@ use yii\helpers\BaseStringHelper;
         <div class="wrapper">
             <div class="row">
                 <div class="col-md-12">
-
                     <div class="offer__check">
                         <h5 class="offer__check-title middle__title"><?= Yii::t('site', 'Лідируючі підприємства Одеси і області вибирають рішення Westelecom,')?>
                             <span> <?= Yii::t('site', 'щоб працювати продуктивніше')?></span>
@@ -85,7 +55,6 @@ use yii\helpers\BaseStringHelper;
                                    placeholder="<?= Yii::t('site', 'Номер телефону')?>">
                             <button class="offer__check-form-btn" name="download"><?= Yii::t('site', 'Завантажити')?></button>
                         </form>
-
                     </div>
 
                     <div class="offer__case">
@@ -493,7 +462,7 @@ use yii\helpers\BaseStringHelper;
                     <div class="rate-item">
                         <div class="rate-item__forNewClients">для новых клиентов</div>
                         <div class="hot__img"></div>
-                        <h5 class="rate-item__title"><span>100</span> Мб/с</h5>
+                        <p class="rate-item__title"><span>100</span> Мб/с</p>
                         <ul class="rate-item__list">
                             <li class="rate-item__item">Симметричный канал</li>
                             <li class="rate-item__item">Гарантированная скорость</li>
@@ -652,10 +621,10 @@ use yii\helpers\BaseStringHelper;
                                 </svg>
                             </a>
                             <div class="link__wrapper mob__link">
-                                <a class="btn__link" href=""><img src="img/Appstore.svg" alt=""></a>
-                                <a class="btn__link" href=""><img src="img/PlayMarket.svg" alt=""></a>
+                                <a class="btn__link" href=""><img src="/img/Appstore.svg" alt=""></a>
+                                <a class="btn__link" href=""><img src="/img/PlayMarket.svg" alt=""></a>
                             </div>
-                            <img class="mobile-content__image" src="img/image__mobile/iPhonePhoto.png" alt="">
+                            <img class="mobile-content__image" src="/img/image__mobile/iPhonePhoto.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -671,88 +640,12 @@ use yii\helpers\BaseStringHelper;
                 <div class="col-md-12">
                     <div class="news-slider">
                         <?php foreach (News::getActive() as $news_item) { ?>
-                        <div class="mainCards__item  news-slider__item">
-                            <img class="news-slider__item-img" src="/uploads/news/<?= $news_item->img_small?>" alt="">
-                            <div class="news-slider__content">
-                                <h4 class="news-slider__item-title"><?= $news_item->name ?></h4>
-                                <?= Html::a(BaseStringHelper::truncate($news_item->text, 30), ['/news/' . $news_item->slug], ['class' => 'news-slider__item-link']) ?>
-                                <div class="news-slider__item-bottom-group">
-                                    <div class="news-slider__item-date"><?= Yii::$app->formatter->asDate($news_item->created_at) ?></div>
-                                    <div class="social__wrapper">
-                                        <a class="social-twitter" href="#"><img src="/img/image__social/twitter.svg"
-                                                                                alt=""></a>
-                                        <a class="social-facebook" href=""><img src="/img/image__social/facebook.svg"
-                                                                                alt=""></a>
-                                        <a class="social-linkendin" href=""><img src="/img/image__social/linken.svg"
-                                                                                 alt=""></a>
-                                    </div>
-                                </div>
+                            <div class="news__card-item">
+                                <?= $this->render('/news/item', ['news_item' => $news_item]) ?>
                             </div>
-                        </div>
+
                         <?php } ?>
-<!--                        <div class="news-slider__item">-->
-<!--                            <img class="news-slider__item-img" src="img/image__news/ripe.jpg" alt="">-->
-<!--                            <div class="news-slider__content">-->
-<!--                                <h4 class="news-slider__item-title">Новости</h4>-->
-<!--                                <a class="news-slider__item-link" href="">Westelecom получила-->
-<!--                                    статус LIR!</a>-->
-<!--                                <div class="news-slider__item-bottom-group">-->
-<!--                                    <div class="news-slider__item-date">15 мар. 2021</div>-->
-<!--                                    <div class="social__wrapper">-->
-<!--                                        <a class="social-twitter" href="#"><img src="img/image__social/twitter.svg"-->
-<!--                                                                                alt=""></a>-->
-<!--                                        <a class="social-facebook" href=""><img src="img/image__social/facebook.svg"-->
-<!--                                                                                alt=""></a>-->
-<!--                                        <a class="social-linkendin" href=""><img src="img/image__social/linken.svg"-->
-<!--                                                                                 alt=""></a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!---->
-<!--                            </div>-->
-<!---->
-<!---->
-<!--                        </div>-->
-<!--                        <div class="news-slider__item">-->
-<!--                            <img class="news-slider__item-img" src="img/image__news/sertificate.jpg" alt="">-->
-<!--                            <div class="news-slider__content">-->
-<!--                                <h4 class="news-slider__item-title">Новости</h4>-->
-<!--                                <a class="news-slider__item-link" href="">SWestelecom получила-->
-<!--                                    статус LIR!</a>-->
-<!--                                <div class="news-slider__item-bottom-group">-->
-<!--                                    <div class="news-slider__item-date">15 мар. 2021</div>-->
-<!--                                    <div class="social__wrapper">-->
-<!--                                        <a class="social-twitter" href="#"><img src="img/image__social/twitter.svg"-->
-<!--                                                                                alt=""></a>-->
-<!--                                        <a class="social-facebook" href=""><img src="img/image__social/facebook.svg"-->
-<!--                                                                                alt=""></a>-->
-<!--                                        <a class="social-linkendin" href=""><img src="img/image__social/linken.svg"-->
-<!--                                                                                 alt=""></a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!---->
-<!--                            </div>-->
-<!---->
-<!---->
-<!--                        </div>-->
-<!--                        <div class="news-slider__item">-->
-<!--                            <img class="news-slider__item-img" src="img/image__news/sertificate.jpg" alt="">-->
-<!--                            <div class="news-slider__content">-->
-<!--                                <h4 class="news-slider__item-title">Новости</h4>-->
-<!--                                <a class="news-slider__item-link" href="">Westelecom получила сертификат-->
-<!--                                    качества ISO 9001:2015</a>-->
-<!--                            </div>-->
-<!--                            <div class="news-slider__item-bottom-group">-->
-<!--                                <div class="news-slider__item-date">15 мар. 2021</div>-->
-<!--                                <div class="social__wrapper">-->
-<!--                                    <a class="social-twitter" href="#"><img src="img/image__social/twitter.svg"-->
-<!--                                                                            alt=""></a>-->
-<!--                                    <a class="social-facebook" href=""><img src="img/image__social/facebook.svg"-->
-<!--                                                                            alt=""></a>-->
-<!--                                    <a class="social-linkendin" href=""><img src="img/image__social/linken.svg"-->
-<!--                                                                             alt=""></a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
+
                     </div>
                 </div>
             </div>

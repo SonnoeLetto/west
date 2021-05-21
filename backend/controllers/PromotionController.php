@@ -92,7 +92,7 @@ class PromotionController extends Controller
                     return $this->redirect(['update', 'id' => $model->id]);
                 } catch(Throwable $e) {
                     $transaction->rollBack();
-                    $session->addFlash('danger', 'Не удалось создать блог!');
+                    $session->addFlash('danger', 'Не удалось создать акцию!');
                 }
             }
         }
@@ -144,10 +144,11 @@ class PromotionController extends Controller
                     }
 
                     $transaction->commit();
-                    $session->addFlash('success', 'Вы успешно редактировали блог!');
+                    $session->addFlash('success', 'Вы успешно редактировали акцию!');
                 } catch (\Throwable $e) {
                     $transaction->rollBack();
-                    $session->addFlash('danger', 'Не удалось редактировать блог!');
+                    $session->addFlash('danger', 'Не удалось редактировать акцию
+                    !');
                 }
                 return $this->redirect(['update', 'id' => $model->id]);
             }

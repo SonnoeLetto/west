@@ -3,6 +3,8 @@ use yii\bootstrap\Tabs;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\file\FileInput;
+use mihaildev\ckeditor\CKEditor;
+use mihaildev\elfinder\ElFinder;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\News */
@@ -27,6 +29,13 @@ use kartik\file\FileInput;
 
         </div>
     <?php } ?>
+
+    <div class="row">
+        <div class="col-md-1">
+            <?= $form->field($model, 'time_read')->textInput() ?>
+        </div>
+    </div>
+
     <div class="box box-solid box-success">
         <div class="box-header">Название новости</div>
 
@@ -47,6 +56,16 @@ use kartik\file\FileInput;
         </div>
     </div>
 
+<!--    $form->field($model, 'text_ru')->widget(CKEditor::className(), [-->
+<!--        'editorOptions' => ElFinder::ckeditorOptions('elfinder', [-->
+<!--        'preset' => 'full',-->
+<!--        'inline' => false,-->
+<!--        'font_names' => 'roboto; playfairdisplaysc',-->
+<!--        'allowedContent' => true,-->
+<!--        ]),-->
+<!--        ])->label(false)-->
+
+
     <div class="box box-solid box-primary">
         <div class="box-header">Текст</div>
 
@@ -55,14 +74,29 @@ use kartik\file\FileInput;
                 'items' => [
                     [
                         'label' => 'RU',
-                        'content' => $form->field($model, 'text_ru')->textarea(['rows' => 6])->label(false),
+                        'content' => $form->field($model, 'text_ru')->widget(CKEditor::className(), [
+                            'editorOptions' => ElFinder::ckeditorOptions('elfinder', [
+                                'preset' => 'full',
+                                'inline' => false,
+                                'font_names' => 'roboto; playfairdisplaysc',
+                                'allowedContent' => true,
+                            ]),
+                        ])->label(false),
                         'active' => true
                     ],
                     [
                         'label' => 'UA',
-                        'content' => $form->field($model, 'text_uk')->textarea(['rows' => 6])->label(false)
+                        'content' => $form->field($model, 'text_uk')->widget(CKEditor::className(), [
+                            'editorOptions' => ElFinder::ckeditorOptions('elfinder', [
+                                'preset' => 'full',
+                                'inline' => false,
+                                'font_names' => 'roboto; playfairdisplaysc',
+                                'allowedContent' => true,
+                            ]),
+                            ])
                     ]
                 ]
+
             ]) ?>
         </div>
     </div>

@@ -36,6 +36,9 @@ class m210514_054232_promotion extends Migration
             'img_middle' => $this->string(255)->notNull()->unique(),
             'img_small' => $this->string(255)->notNull()->unique(),
             'status' => $this->smallInteger()->notNull()->defaultValue(0),
+            'time_read' => $this->integer(),
+            'date_from' => $this->date(),
+            'date_to' => $this->date(),
         ], $tableOptions);
     }
 

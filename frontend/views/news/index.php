@@ -12,14 +12,15 @@ use frontend\components\PaginationWidget;
 
 <section class="mainCards">
     <div class="container">
-        <div class="wrapper">
             <div class="row">
                 <div class="col-mb-12">
-                    <div class="mainCards__wrapper">
+                    <ul class="cards-list">
                         <?php foreach ($news as $news_item) { ?>
-                            <?= $this->render('/news/item', ['news_item' => $news_item]) ?>
+                            <li class="card-item">
+                                <?= $this->render('/news/item', ['news_item' => $news_item]) ?>
+                            </li>
                         <?php } ?>
-                    </div>
+                    </ul>
                 </div>
 
             </div>
@@ -31,6 +32,6 @@ use frontend\components\PaginationWidget;
                     ]) ?>
                 </div>
             </div>
-        </div>
+
     </div>
 </section>

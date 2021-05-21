@@ -29,7 +29,7 @@ use yii\helpers\Url;
             </ul>
             <ul class="right-menu__list">
                 <li class="right-menu__list-item">
-                    <a class="right-line__link" href="">
+                    <a class="right-line__link" href="<?=Url::to('/site/') ?>">
                         <svg class="right-line__icon">
                             <use xlink:href="#home"></use>
                         </svg>
@@ -98,7 +98,7 @@ use yii\helpers\Url;
             <div class="middle-line">
                 <div class="middle-line__wrapper-left">
                     <div class="middle-line__logo">
-                        <a href="#">
+                        <a href="<?=Url::to('/site/') ?>">
                             <img src="/img/Logo.svg" alt="Logo">
                         </a>
                     </div>

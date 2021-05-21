@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use yii\helpers\BaseStringHelper;
 ?>
 
-<div class="mainCards__item ">
+<div class="mainCards__item">
         <img class="news-slider__item-img" src="/uploads/news/<?= $news_item->img_small?>" alt="">
         <div class="news-slider__content">
             <h4 class="news-slider__item-title">
