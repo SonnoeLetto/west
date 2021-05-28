@@ -1,12 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alex
- * Date: 22.04.21
- * Time: 10:57
- */ ?>
+use common\models\Slider;
+use kartik\select2\Select2;
+?>
 <section class="promotion">
-
     <div class="promotion-slider">
         <div class="promotion-slider__item">
             <img class="promotion-slider__img" src="img/slider_img/prom__fast-internet.jpg" alt="">
@@ -65,21 +61,25 @@
                 <div class="col-md-12">
                 <div class="col-md-12">
                     <div class="rate-content">
-                        <h5 class="rate-content__title"><span>Интернет на высоких оборотах.</span> Выберите
-                            ваш населенный пункт.</h5>
-                        <p class="rate-content__text">и подключите Домашний Интернет на Суперскорости</p>
+                        <h5 class="rate__title middle__title"><?= '<span>' . Yii::t('site', 'Домашній Інтернет') . '</span>' . Yii::t('site', ' на супер швидкості')?></h5>
+                        <p class="rate__text"><?= Yii::t('site', 'Коли швидкість має значення')?></p>
                     </div>
                     <div class="rate-variables">
-                        <div class="dropdown rate-variables__select-wrapper">
-                            <button class="dropdown__btn rate-variables__select" type="button">Одесса
-                            </button>
-                            <ul class="dropdown__list">
-                                <li class="dropdown__list-item" data-value="card"> Одесса</li>
-                                <li class="dropdown__list-item" data-value="cash"> Не Одесса</li>
-                            </ul>
-                            <input type="text" class="dropdown__input-hidden" value="" name="sel-category">
+                        <div class="rate__select">
+                            <?= Select2::widget([
+                                'name' => 'location3',
+                                'id' => 'chooselocation3',
+                                'data' => [
+                                    1 => 'Одесса',
+                                    2 => 'Южный',
+                                ],
+                                'hideSearch' => true,
+                                'options' => [
+                                    'placeholder' => 'Выберите тариф'
+                                ],
+                            ]);
+                            ?>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -171,13 +171,12 @@
             <div class="col-md-12">
                 <div class="wrapper">
                     <h5 class="middle__title check-title">
-                        Проверьте, подключен ли ваш
-                        населенный пункт к сети Westelecom
+                        <?= Yii::t('site', 'Перевірте, чи підключений ваш населений пункт до мережі Westelecom')?>
                     </h5>
                     <div class="connection-check__form">
                         <div class="connection-check__form-inner">
                             <input class="connection-check__form-input" type="text" placeholder="Одесса">
-                            <button class="connection-check__form-btn">Проверить</button>
+                            <button class="connection-check__form-btn"><?= Yii::t('site', 'Перевірити')?></button>
                         </div>
                     </div>
                 </div>
@@ -192,22 +191,14 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="wrapper">
-                    <h5 class="info__title middle__title">Стабильный Интернет, симметричная
-                        скорость, минимальный пинг</h5>
-                    <p class="info__text">Никаких “до…” - скорость всегда равна вашему тарифному плану. Каждому клиенту
-                        в дом проводится оптоволоконный кабель
-                        (GPON).
+                    <h5 class="info__title middle__title"><?= Yii::t('site', 'Стабільний Інтернет, симетрична швидкість, мінімальний пінг')?></h5>
+                    <p class="info__text"><?= Yii::t('site', 'Ніяких "до ..." - швидкість завжди дорівнює вашого тарифного плану. кожному клієнту в будинок проводиться оптоволоконний кабель (GPON).')?>
                     </p>
                     <p class="info__text">
-                        Минимальный пинг, который обеспечивается с помощью пяти точек доступа к магистральным
-                        провайдерам и правильной
-                        маршрутизации.
+                        <?= Yii::t('site', 'Мінімальний пінг, який забезпечується за допомогою п\'яти точок доступу до магістральних провайдерів і правильної маршрутизації.')?>
                     </p>
                     <p class="info__text">
-
-                        Расширенные функции: заморозка интернета до 6 месяцев, услуга “3 дня в долг”, выделенный
-                        IP-адрес, бесплатная смена
-                        тарифного плана, удобная система оплаты услуг.
+                        <?= Yii::t('site', 'Розширені функції: заморозка інтернету до 6 місяців, послуга "3 дні в борг", виділений IP-адрес, безкоштовна зміна тарифного плану, зручна система оплати послуг.')?>
                     </p>
                 </div>
             </div>
@@ -222,69 +213,76 @@
                 <div class="wrapper">
                     <div class="services-content">
                         <h5 class="middle__title services-content__title">
-                            Вас обязательно заинтересует...
+                            <?= Yii::t('site', 'Вас обов\'язково зацікавить ...')?>
                         </h5>
                         <p class="services__text">
-                            Для более комфортного использования интернета
-                            выберите именно то, что вам необходимо
+                            <?= Yii::t('site', 'Для більш комфортного використання інтернету виберіть саме те, що вам необхідно')?>
                         </p>
                     </div>
                     <div class="services-card">
                         <div class="services-card__item">
-                            <img class="services-card__img" src="img/image__servCard/card1.jpg" alt="card">
-                            <a class="services-card__link" href="#">Неприлично быстрый Интернет
-                                для дома</a>
+                                <img class="services-card__img" src="/img/image__servCard/card1.jpg" alt="card">
+                                <a class="services-card__link" href="#">
+                                    <?= Yii::t('site', 'Непристойно швидкий Інтернет для дому')?>
+                                </a>
                         </div>
                         <div class="services-card__item">
-                            <img class="services-card__img" src="img/image__servCard/card2.jpg" alt="card">
-                            <a class="services-card__link" href="#"><p>Ваш дом или квартира всегда
-                                    в прямом эфире</p></a>
+                            <img class="services-card__img" src="/img/image__servCard/card2.jpg" alt="card">
+                            <a class="services-card__link" href="#">
+                                <?= Yii::t('site', 'Ваш будинок або квартира завжди у прямому ефірі')?>
+                            </a>
                         </div>
                         <div class="services-card__item">
-                            <img class="services-card__img" src="img/image__servCard/card3.jpg" alt="card">
-                            <a class="services-card__link" href="#"><p>Смотрите ваши любимые
-                                    фильмы и шоу c Trinity TV
-                                    в сети Westelecom</p></a>
+                            <img class="services-card__img" src="/img/image__servCard/card3.jpg" alt="card">
+                            <a class="services-card__link" href="#">
+                                    <?= Yii::t('site', 'Дивіться ваші улюблені фільми і шоу c Trinity TV в мережі Westelecom')?>
+                            </a>
                         </div>
                         <div class="services-card__item">
-                            <img class="services-card__img" src="img/image__servCard/card4.jpg" alt="card">
-                            <a class="services-card__link" href="#"><p>Домашний телефон стал
-                                    более полезным</p></a>
+                            <img class="services-card__img" src="/img/image__servCard/card4.jpg" alt="card">
+                            <a class="services-card__link" href="#">
+                                <?= Yii::t('site', 'Домашній телефон став більш корисним')?>
+                            </a>
                         </div>
                         <div class="services-card__item">
-                            <img class="services-card__img" src="img/image__servCard/card5.jpg" alt="card">
-                            <a class="services-card__link" href="#"><p>Храните данные в самом
-                                    безопасном месте</p></a>
+                            <img class="services-card__img" src="/img/image__servCard/card5.jpg" alt="card">
+                            <a class="services-card__link" href="#">
+                                <?= Yii::t('site', 'Зберігайте дані в самому безпечному місці')?>
+                            </a>
                         </div>
                         <div class="services-card__item">
-                            <img class="services-card__img" src="img/image__servCard/card6.jpg" alt="card">
-                            <a class="services-card__link" href="#"><p>Мощные роутеры для
-                                    требовательных развлечений
-                                    и работы</p></a>
+                            <img class="services-card__img" src="/img/image__servCard/card6.jpg" alt="card">
+                            <a class="services-card__link" href="#">
+                                <?= Yii::t('site', 'Потужні роутери для вимогливих розваг і роботи')?>
+                            </a>
                         </div>
                         <div class="services-card__item">
-                            <img class="services-card__img" src="img/image__servCard/card4.jpg" alt="card">
-                            <a class="services-card__link" href="#"><p>Сделай комплимент близким!
-                                    Подари интернет!</p></a>
+                            <img class="services-card__img" src="/img/image__servCard/card4.jpg" alt="card">
+                            <a class="services-card__link" href="#">
+                                <?= Yii::t('site', 'Зроби комплімент близьким! Подаруй інтернет!')?>
+                            </a>
                         </div>
                     </div>
                     <div class="services-plus">
-                        <h5 class="middle__title services-plus__title">Дополнительные услуги</h5>
-                        <div class="services-plus__card">
+                        <h5 class="middle__title services-plus__title"><?= Yii::t('site', 'Додаткові послуги')?></h5>
+                        <div class="services-card">
                             <div class="services-card__item">
-                                <img class="services-card__img" src="img/image__servCard/cardPlus1.jpg" alt="card">
-                                <a class="services-card__link" href="#"><p>Уезжаете в отпуск? Активируйте
-                                        услугу “Заморозка”</p></a>
+                                <img class="services-card__img" src="/img/image__servCard/cardPlus1.jpg" alt="card">
+                                <a class="services-card__link" href="#">
+                                    <?= Yii::t('site', 'Їдете у відпустку? Активуйте послугу "Заморожування"')?>
+                                </a>
                             </div>
                             <div class="services-card__item">
-                                <img class="services-card__img" src="img/image__servCard/cardPlus2.jpg" alt="card">
-                                <a class="services-card__link" href="#"><p>Уезжаете в отпуск? Активируйте
-                                        услугу “Заморозка”</p></a>
+                                <img class="services-card__img" src="/img/image__servCard/cardPlus2.jpg" alt="card">
+                                <a class="services-card__link" href="#">
+                                    <?= Yii::t('site', 'Чи працюєте з великим обсягом даних? Замовте "Виділений IP"')?>
+                                </a>
                             </div>
                             <div class="services-card__item">
-                                <img class="services-card__img" src="img/image__servCard/cardPlus3.jpg" alt="card">
-                                <a class="services-card__link" href="#"><p>Уезжаете в отпуск? Активируйте
-                                        услугу “Заморозка”</p></a>
+                                <img class="services-card__img" src="/img/image__servCard/cardPlus3.jpg" alt="card">
+                                <a class="services-card__link" href="#">
+                                    <?= Yii::t('site', 'Потрібно налаштувати домашню мережу або щось не працює? Виклик майстра!')?>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -302,43 +300,40 @@
                 <div class="application-inner__wrapper">
                     <div class="application-capability          ">
                         <div class="capability-content">
-                            <h3 class="capability-content__mainTitle">Личный кабинет от
-                                Westelecom всегда с вами</h3>
+                            <h3 class="capability-content__mainTitle">
+                                <?= Yii::t('site', 'Особистий кабінет від Westelecom завжди з вами')?></h3>
                             <div class="capability-content__block">
-                                <h6 class="capability-content__title">Держите баланс под контролем</h6>
-                                <p class="capability-content__text">Отслеживайте состояние баланса, контролируйте
-                                    расходы, где бы вы не находились</p>
+                                <h6 class="capability-content__title"><?= Yii::t('site', 'Тримайте баланс під контролем')?></h6>
+                                <p class="capability-content__text">
+                                    <?= Yii::t('site', 'Відстежуйте стан балансу, контролюйте витрати, де б ви не знаходилися')?>
+                                </p>
                             </div>
                             <div class="capability-content__block">
-                                <h6 class="capability-content__title">Управляйте услугами</h6>
-                                <p class="capability-content__text">Кастомизируйте услуги под себя - заказывайте именно
-                                    то, что вам необходимо</p>
+                                <h6 class="capability-content__title"><?= Yii::t('site', 'Керуйте послугами')?></h6>
+                                <p class="capability-content__text">
+                                    <?= Yii::t('site', 'Кастомізіруйте послуги під себе - замовляйте саме те, що вам необхідно')?>
+                                </p>
                             </div>
                             <div class="capability-content__block">
-                                <h6 class="capability-content__title">Служба поддержки</h6>
-                                <p class="capability-content__text">В любое время суток вы можете обратиться к нам
-                                    за получением необходимых консультаций.
-                                    Операторы тех поддержки всегда на
-                                    связи 24/7</p>
+                                <h6 class="capability-content__title"><?= Yii::t('site', 'Служба підтримки')?></h6>
+                                <p class="capability-content__text">
+                                    <?= Yii::t('site', 'У будь-який час доби ви можете звернутися до нас за отриманням необхідних консультацій. Оператори тех підтримки завжди на зв\'язку 24/7')?>В любое время суток вы можете обратиться к нам
+                                </p>
                             </div>
 
                         </div>
-                        <img class="capability-img" src="img/iPhone12.png">
+                        <img class="capability-img" src="/img/iPhone12.png">
                     </div>
                     <div class="application-about">
                         <p class="about-text">
-                            Приложение «Westelecom» — это
-                            бесплатный и удобный способ
-                            управлять услугами. Контролируйте
-                            баланс, подключайте услуги, меняйте
-                            тариф и многое другое.
+                            <?= Yii::t('site', 'Додаток «Westelecom» - це безкоштовний і зручний спосіб керувати послугами. Контролюйте баланс, підключайте послуги, міняйте тариф і багато іншого.')?>
                         </p>
                         <div class="about-link">
                             <a class="btn__link">
-                                <img src="img/Appstore.svg" alt="">
+                                <img src="/img/Appstore.svg" alt="">
                             </a>
                             <a class="btn__link">
-                                <img src="img/PlayMarket.svg" alt="">
+                                <img src="/img/PlayMarket.svg" alt="">
                             </a>
                         </div>
                     </div>
@@ -348,33 +343,33 @@
     </div>
 </section>
 
-<section class="HowConnect">
+<section class="howConnect">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="wrapper">
-                    <div class="HowConnect-content">
-                        <h5 class="HowConnect-content__title">Как подключить Домашний интернет</h5>
-                        <div class="HowConnect-content__list">
-                            <p class="HowConnect-content__list-item">1. Оставьте заявку <br> Просто нажмите «Подключить» или заполните форму обратной связи. </p>
-                            <p class="HowConnect-content__list-item">
-                                2. Консультация с оператором. Вы можете обратиться в любой день и в любое время. Наш колл-центр работает круглосуточно,
-                                в любой день недели. Подберите наиболее выгодный тариф, удобный день и время монтажа.
+                    <div class="howConnect-content">
+                        <h5 class="howConnect__title"><?= Yii::t('site', 'Як підключити Домашній інтернет')?></h5>
+                        <div class="howConnect__list">
+                            <p class="howConnect__list-item"><?= Yii::t('site', '1. Залиште заявку') . '<br>'. Yii::t('site', 'Просто натисніть «Підключити» або заповніть форму зворотного зв\'язку.')?></p>
+                            <p class="howConnect__list-item">
+                                <?= Yii::t('site', '2. Консультація з оператором. Ви можете звернутися в будь-який день і в будь-який час. Наш колл-центр працює цілодобово, в будь-який день тижня. Підберіть найбільш вигідний тариф, зручний день і час монтажу.')?>
                             </p>
-                            <p class="HowConnect-content__list-item"> 3. Оплачивайте без комиссий. Через сайт, личный кабинет либо другим, наиболее удобным для вас способом.
+                            <p class="howConnect__list-item">
+                                <?= Yii::t('site', '3. Сплачуйте без комісій. Через сайт, особистий кабінет або іншим, найбільш зручним для вас способом.')?>
                             </p>
-                            <p class="HowConnect-content__list-item">4. Специалист проведет монтаж и настроит оборудование. Без ущерба для вашего ремонта подключит нтернет и настроит
-                                оборудование.</p>
+                            <p class="howConnect__list-item">
+                                <?= Yii::t('site', '4. Спеціаліст проведе монтаж та налаштує обладнання. Без шкоди для вашого ремонту підключить нтернет і налаштує обладнання.')?>
+                            </p>
                         </div>
 
                     </div>
-                    <div class="HowConnect-feedback">
-                        <h6 class="HowConnect-feedback__title">Остались вопросы по подключению?</h6>
-                        <p class="HowConnect-feedback__text">Позвоните <span class="feedback-numb">0 800 201 222</span> или
-                            <a class="feedback-link">
-                                Заполните форму обратной связи
+                    <div class="howConnect-feedback">
+                        <h6 class="howConnect-feedback__title howConnect-feedback--homeInt"><?= Yii::t('site', 'Залишилися питання по підключенню?')?></h6>
+                        <p class="howConnect-feedback__text howConnect-feedback--homeInt"><?= Yii::t('site', 'Зателефонуйте ') . '<a class="feedback-numb">0 800 201 222</a>' . Yii::t('site', 'або') .
+                            '<a class="feedback-link">' . Yii::t('site', 'Заповніть форму зворотного зв\'язку')?>
                                 <svg class="feedbckArr">
-                                    <use xlink:href="img/sprite.svg#rightArrow"></use>
+                                    <use xlink:href="/img/sprite.svg#rightArrow"></use>
                                 </svg>
                             </a>
                         </p>

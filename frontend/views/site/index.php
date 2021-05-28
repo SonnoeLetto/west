@@ -2,6 +2,7 @@
 
 use common\models\News;
 use common\models\Slider;
+use kartik\select2\Select2;
 use yii\helpers\Html;
 use yii\helpers\BaseStringHelper;
 ?>
@@ -16,7 +17,6 @@ use yii\helpers\BaseStringHelper;
                     <img class="promotion-slider__img" src="/uploads/sliders/<?= $slider->img_desktop ?>" alt="">
                 </picture>
 
-                <!--<div class="wrap-img">-->
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
@@ -41,19 +41,19 @@ use yii\helpers\BaseStringHelper;
             <div class="row">
                 <div class="col-md-12">
                     <div class="offer__check">
-                        <h5 class="offer__check-title middle__title"><?= Yii::t('site', 'Лідируючі підприємства Одеси і області вибирають рішення Westelecom,')?>
-                            <span> <?= Yii::t('site', 'щоб працювати продуктивніше')?></span>
+                        <h5 class="offer__check-title middle__title"><?= Yii::t('site', 'Лідируючі підприємства Одеси і області вибирають рішення Westelecom,') .
+                            '<span>' . Yii::t('site', 'щоб працювати продуктивніше') . '</span>'?>
                         </h5>
                         <p class="offer__check-text">
                             <?= Yii::t('site', 'Увімкніть цифрові рішення в команду')?>
                         </p>
 
-                        <form class="offer__check-form" action="" method="get">
-                            <input class="offer__check-form-input" type="text" name="username"
+                        <form class="main-form" action="" method="get">
+                            <input class="main-form__input" type="text" name="username"
                                    placeholder="<?= Yii::t('site', 'Ваше ім\'я')?>">
-                            <input class="offer__check-form-input" type="tel" name="Phone number"
+                            <input class="main-form__input" type="tel" name="Phone number"
                                    placeholder="<?= Yii::t('site', 'Номер телефону')?>">
-                            <button class="offer__check-form-btn" name="download"><?= Yii::t('site', 'Завантажити')?></button>
+                            <button class="main-form__btn" name="download"><?= Yii::t('site', 'Завантажити')?></button>
                         </form>
                     </div>
 
@@ -285,52 +285,56 @@ use yii\helpers\BaseStringHelper;
                     <div class="options__inner">
                         <div class="options__item options-connect">
                             <div class="options-connect__title-wrapper">
-                                <h5 class="options-connect__title"><?= Yii::t('site', 'Експрес-заявка на підключення')?></h5>
+                                <h6 class="options-connect__title option-title"><?= Yii::t('site', 'Експрес-заявка на підключення')?></h6>
                             </div>
 
                             <form class="options-connect__form" action="">
 
                                 <div class="options-connect__select">
-                                    <div class="dropdown-select">
-                                        <button class="dropdown__btn" type="button"><span><?= Yii::t('site', 'Населений пункт')?></span>
-                                        </button>
-                                        <ul class="dropdown__list">
-                                            <li class="dropdown__list-item" data-value="Odessa"> Одесса</li>
-                                            <li class="dropdown__list-item" data-value="not od"> Не одесса</li>
-                                        </ul>
-                                        <input type="text" class="dropdown__input-hidden" value=""
-                                               name="sel-category">
-                                    </div>
+                                    <?= Select2::widget([
+                                        'name' => 'location',
+                                        'id' => 'chooseLocation2',
+                                        'data' => [
+                                            1 => 'Одесса',
+                                            2 => 'Не одесса',
+                                        ],
+                                        'hideSearch' => true,
+                                        'options' => [
+                                            'placeholder' => 'Населенный пункт'
+                                        ],
+                                    ]);
+                                    ?>
                                 </div>
                                 <div class="options-connect__checkbox">
                                     <div class="options-connect__checkbox-wrapper">
                                         <div class="options-connect__switch">
                                             <input class="options-connect__checkbox-input" type="checkbox">
-                                            <label class="options-connect__checkbox-label" for="checkbox"><p>
-                                                    <?= Yii::t('site', 'Інтернет')?></p></label>
+                                            <label class="options-connect__checkbox-label" for="checkbox">
+                                                    <?= Yii::t('site', 'Інтернет')?>
+                                            </label>
                                         </div>
                                         <div class="options-connect__select-checkbox">
-                                            <div class="dropdown-select">
-                                                <button class="dropdown__btn" type="button">
-                                                    500Мбит/с - 540грн/м</button>
-                                                <ul class="dropdown__list">
-                                                    <li class="dropdown__list-item" data-value="Odessa">500Мбит/с -
-                                                        540грн/м
-                                                    </li>
-                                                    <li class="dropdown__list-item" data-value="not od">500Мбит/с -
-                                                        540грн/м
-                                                    </li>
-                                                </ul>
-                                                <input type="text" class="dropdown__input-hidden" value=""
-                                                       name="sel-category">
-                                            </div>
+                                            <?= Select2::widget([
+                                                'name' => 'location',
+                                                'id' => 'choosespeed',
+                                                'data' => [
+                                                    1 => '500Мбит/с 540грн/м',
+                                                    2 => '500Мбит/с 540грн/м',
+                                                ],
+                                                'hideSearch' => true,
+                                                'options' => [
+                                                    'placeholder' => 'Выберите тариф'
+                                                ],
+                                            ]);
+                                            ?>
                                         </div>
                                     </div>
                                     <div class="options-connect__checkbox-wrapper">
                                         <div class="options-connect__switch">
                                             <input class="options-connect__checkbox-input" type="checkbox">
-                                            <label class="options-connect__checkbox-label" for="checkbox"><p>
-                                                    <?= Yii::t('site', 'Відеоспостереження')?></p></label>
+                                            <label class="options-connect__checkbox-label" for="checkbox">
+                                                    <?= Yii::t('site', 'Відеоспостереження')?>
+                                            </label>
                                         </div>
                                         <input class="form-input checkbox-input" type="tel" readonly name="phone"
                                                placeholder="Инд.расчет">
@@ -338,55 +342,55 @@ use yii\helpers\BaseStringHelper;
                                     <div class="options-connect__checkbox-wrapper">
                                         <div class="options-connect__switch">
                                             <input class="options-connect__checkbox-input" type="checkbox">
-                                            <label class="options-connect__checkbox-label" for="checkbox"><p>
+                                            <label class="options-connect__checkbox-label" for="checkbox">
                                                     <?= Yii::t('site', 'Цифрове TV')?>
-                                                    </p></label>
+                                            </label>
                                         </div>
                                         <div class="options-connect__select-checkbox">
-                                            <div class="dropdown-select">
-                                                <button class="dropdown__btn" type="button" >
-                                                    Премиум - 159грн/м</button>
-                                                <ul class="dropdown__list">
-                                                    <li class="dropdown__list-item" data-value="Odessa">не премиум -
-                                                        159грн/м
-                                                    </li>
-                                                    <li class="dropdown__list-item" data-value="not od"> премиум
-                                                    </li>
-                                                </ul>
-                                                <input type="text" class="dropdown__input-hidden" value=""
-                                                       name="sel-category">
-                                            </div>
+                                            <?= Select2::widget([
+                                                'name' => 'tariff',
+                                                'id' => 'chooseTV',
+                                                'data' => [
+                                                    1 => 'Премиум - 159грн/м',
+                                                    2 => 'не премиум - 159грн/м',
+                                                ],
+                                                'hideSearch' => true,
+                                                'options' => [
+                                                    'placeholder' => 'Выберите тариф'
+                                                ],
+                                            ]);
+                                            ?>
                                         </div>
                                     </div>
                                     <div class="options-connect__checkbox-wrapper">
                                         <div class="options-connect__switch">
                                             <input class="options-connect__checkbox-input" type="checkbox">
-                                            <label class="options-connect__checkbox-label" for="checkbox"><p>
+                                            <label class="options-connect__checkbox-label" for="checkbox">
                                                     <?= Yii::t('site', 'Домашній телефон ')?>
-                                                    </p></label>
+                                            </label>
                                         </div>
                                         <div class="options-connect__select-checkbox">
-                                            <div class="dropdown-select">
-                                                <button class="dropdown__btn" type="button">
-                                                    Премиум 120 - 89грн/м</button>
-                                                <ul class="dropdown__list">
-                                                    <li class="dropdown__list-item" data-value="Odessa">Премиум 120
-                                                        - 89грн/м
-                                                    </li>
-                                                    <li class="dropdown__list-item" data-value="not od">Премиум 120
-                                                        - 89грн/м
-                                                    </li>
-                                                </ul>
-                                                <input type="text" class="dropdown__input-hidden" value=""
-                                                       name="sel-category">
-                                            </div>
+                                            <?= Select2::widget([
+                                                'name' => 'tariff',
+                                                'id' => 'choosePhone',
+                                                'data' => [
+                                                    1 => 'Премиум 120',
+                                                    2 => 'Премиум 120',
+                                                ],
+                                                'hideSearch' => true,
+                                                'options' => [
+                                                    'placeholder' => 'Выберите тариф'
+                                                ],
+                                            ]);
+                                            ?>
                                         </div>
                                     </div>
                                     <div class="options-connect__checkbox-wrapper">
                                         <div class="options-connect__switch">
                                             <input class="options-connect__checkbox-input" type="checkbox">
-                                            <label class="options-connect__checkbox-label" for="checkbox"><p>
-                                                    Colocation</p></label>
+                                            <label class="options-connect__checkbox-label" for="checkbox">
+                                                    Colocation
+                                            </label>
                                         </div>
                                         <input class="form-input checkbox-input" readonly type="tel" name="phone"
                                                placeholder="Инд.расчет">
@@ -412,13 +416,16 @@ use yii\helpers\BaseStringHelper;
                         </div>
 
                         <div class="options__item options-payment">
-                            <h5 class="options-payment__title"><?= Yii::t('site', 'Онлайн Оплата')?></h5>
+                            <h5 class="options-payment__title option-title"><?= Yii::t('site', 'Онлайн Оплата')?></h5>
 
                             <form class="options-payment__form" action="">
                                 <input class="form-input options-payment__input" type="text" name="personal_number"
                                        placeholder="<?= Yii::t('site', 'Номер особового рахунку')?>">
 
-                                <p class="options-payment__form-text"><?= Yii::t('site', 'отримати')?> <a href=""><?= Yii::t('site', 'Три дні в борг')?></a> <?= Yii::t('site', 'якщо не встигли оплатити Інтернет')?></p>
+                                <p class="options-payment__form-text">
+                                    <?= Yii::t('site', 'Або отримати') . ' ' . '<a href="">' . Yii::t('site', 'Три дні в борг') .
+                                    '</a>' . ' ' . Yii::t('site', 'якщо не встигли оплатити Інтернет')?>
+                                </p>
 
                                 <button class="btn__form"><?= Yii::t('site', 'Далі')?></button>
                             </form>
@@ -438,20 +445,25 @@ use yii\helpers\BaseStringHelper;
             <div class="row">
                 <div class="col-md-12">
                     <div class="rate-content">
-                        <h5 class="rate-content__title middle__title"><span><?= Yii::t('site', 'Інтернет на високих обертах.')?></span><?= Yii::t('site', 'Оберіть ваш населений пункт.')?></h5>
-                        <p class="rate-content__text"><?= Yii::t('site', 'і підключіть Домашній Інтернет на супершвидкості')?></p>
+                        <h5 class="rate__title middle__title"><span><?= Yii::t('site', 'Інтернет на високих обертах.') . '</span>' . Yii::t('site', 'Оберіть ваш населений пункт.')?></h5>
+                                <?='<p class="rate__text">' . Yii::t('site', 'і підключіть Домашній Інтернет на супершвидкості') . '</p>'?>
                     </div>
                     <div class="rate-variables">
-                        <div class="dropdown-select rate-variables__select-wrapper">
-                            <button class="dropdown__btn rate-variables__select" type="button">Одесса
-                            </button>
-                            <ul class="dropdown__list">
-                                <li class="dropdown__list-item" data-value="card">Одесса</li>
-                                <li class="dropdown__list-item" data-value="cash">Не Одесса</li>
-                            </ul>
-                            <input type="text" class="dropdown__input-hidden" value="" name="sel-category">
+                        <div class="rate__select">
+                            <?= Select2::widget([
+                                'name' => 'location3',
+                                'id' => 'chooselocation3',
+                                'data' => [
+                                    1 => 'Одесса',
+                                    2 => 'Южный',
+                                ],
+                                'hideSearch' => true,
+                                'options' => [
+                                    'placeholder' => 'Выберите тариф'
+                                ],
+                            ]);
+                            ?>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -543,14 +555,11 @@ use yii\helpers\BaseStringHelper;
         <div class="row">
             <div class="col-md-12">
                 <div class="router-content">
-                    <h5 class="router-content__title middle__title"><?= Yii::t('site', 'Потужні роутери для дому та бізнесу')?></h5>
-                    <p class="router-content__text"><?= Yii::t('site', 'Вибрати найбільш відповідний роутер для ваших повсякденних завдань')?></p>
-                    <a class="router-content__link" href="#"><?= Yii::t('site', 'Докладніше')?></a>
+                    <h5 class="router__title middle__title"><?= Yii::t('site', 'Потужні роутери для дому та бізнесу')?></h5>
+                    <p class="router__text"><?= Yii::t('site', 'Вибрати найбільш відповідний роутер для ваших повсякденних завдань')?></p>
+                    <a class="router__link" href="#"><?= Yii::t('site', 'Докладніше')?></a>
                 </div>
-                <div class="router__image">
-
-                </div>
-
+                <div class="router__image"></div>
             </div>
         </div>
     </div>
@@ -611,10 +620,10 @@ use yii\helpers\BaseStringHelper;
                 <div class="col-md-12">
                     <div class="mobile-content__wrapper">
                         <div class="mobile-content">
-                            <h6 class="mobile-content__title"><?= Yii::t('site', 'Управляти послугами зручніше в додатку Westelecom')?></h6>
-                            <h6 class="mobile-content__subtitle"><?= Yii::t('site', 'Завантаж і отримай максимум функцій')?></h6>
-                            <p class="mobile-content__text"><?= Yii::t('site', 'Тримайте баланс під контролем, змінюйте тариф, сплачуйте послуги в пару кліків')?></p>
-                            <a class="mobile-content__link" href="">
+                            <h6 class="mobile__title"><?= Yii::t('site', 'Управляти послугами зручніше в додатку Westelecom')?></h6>
+                            <h6 class="mobile__subtitle"><?= Yii::t('site', 'Завантаж і отримай максимум функцій')?></h6>
+                            <p class="mobile__text"><?= Yii::t('site', 'Тримайте баланс під контролем, змінюйте тариф, сплачуйте послуги в пару кліків')?></p>
+                            <a class="mobile__link" href="">
                                 <p><?= Yii::t('site', 'Перейти в особистий кабінет')?></p>
                                 <svg class="rightArr">
                                     <use xlink:href="img/sprite.svg#rightArrow"></use>
@@ -624,7 +633,7 @@ use yii\helpers\BaseStringHelper;
                                 <a class="btn__link" href=""><img src="/img/Appstore.svg" alt=""></a>
                                 <a class="btn__link" href=""><img src="/img/PlayMarket.svg" alt=""></a>
                             </div>
-                            <img class="mobile-content__image" src="/img/image__mobile/iPhonePhoto.png" alt="">
+                            <img class="mobile__image" src="/img/image__mobile/iPhonePhoto.png" alt="">
                         </div>
                     </div>
                 </div>

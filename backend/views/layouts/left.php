@@ -24,6 +24,15 @@
                     ['label' => 'Новости', 'icon' => 'file-text-o', 'url' => '/news'],
                     ['label' => 'Блог', 'icon' => 'file-text-o', 'url' => '/blog'],
                     ['label' => 'Акции', 'icon' => 'file-text-o', 'url' => '/promotion'],
+                    [
+                      'label' => 'Секция тарифов',
+                      'icon' => 'bookmark-o',
+                        'items' => [
+                            ['label' => 'Группа тарифов', 'icon' => 'fa fa-sticky-note', 'url' => '/tariffs-groups'],
+                            ['label' => 'Населенные пункты', 'icon' => 'fa fa-sticky-note', 'url' => '/cities'],
+                            ['label' => 'тарифы', 'icon' => 'fa fa-sticky-note', 'url' => '/tariffs'],
+                        ]
+                    ],
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],

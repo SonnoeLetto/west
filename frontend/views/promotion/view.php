@@ -24,7 +24,6 @@ use yii\helpers\Html;
 <div class="cards-view_content">
     <div class="container">
         <div class="cards-view_content-backLink-wrap">
-<!--            <a class="news-view_content-backLink" href="#">Вернуться</a>-->
             <?= Html::a( Yii::t('article', 'Повернутися'), ['/promotion/'], ['class' => 'cards-view_content-backLink']) ?>
         </div>
 

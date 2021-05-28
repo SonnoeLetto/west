@@ -109,7 +109,7 @@ use yii\helpers\Url;
                         </li>
 
                         <li class="top-line__menu-item">
-                            <?= Html::a(Yii::t('header', 'Акції'), ['/promotion/'])?>
+                            <?= Html::a(Yii::t('header', 'Акції'), ['/promotion/'], ['class' => 'top-line__menu-link'])?>
                         </li>
 
                         <li class="top-line__menu-item">
@@ -134,7 +134,7 @@ use yii\helpers\Url;
         <div class="row">
             <div class="middle-line">
                 <div class="middle-line__wrapper-left">
-                    <div class="middle-line__logo">
+                    <div class="logo">
                         <a href="<?=Url::to('/site/') ?>">
                             <img src="/img/Logo.svg" alt="Logo">
                         </a>

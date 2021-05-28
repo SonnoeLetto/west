@@ -35,7 +35,7 @@ use kartik\file\FileInput;
                 'items' => [
                     [
                         'label' => 'RU',
-                        'content' => $form->field($model, 'link_text_ua')->textInput(['maxlength' => true])->label(false),
+                        'content' => $form->field($model, 'link_text_uk')->textInput(['maxlength' => true])->label(false),
                         'active' => true
                     ],
                     [
@@ -59,7 +59,7 @@ use kartik\file\FileInput;
                     ],
                     [
                         'label' => 'UA',
-                        'content' => $form->field($model, 'title_ua')->textInput(['maxlength' => true])->label(false)
+                        'content' => $form->field($model, 'title_uk')->textInput(['maxlength' => true])->label(false)
                     ]
                 ]
             ]) ?>
@@ -78,7 +78,7 @@ use kartik\file\FileInput;
                     ],
                     [
                         'label' => 'UA',
-                        'content' => $form->field($model, 'text_ua')->textarea(['rows' => 6])->label(false)
+                        'content' => $form->field($model, 'text_uk')->textarea(['rows' => 6])->label(false)
                     ]
                 ]
             ]) ?>

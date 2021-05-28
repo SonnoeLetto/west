@@ -138,7 +138,7 @@ use yii\helpers\Url;
         <div class="row">
             <div class="middle-line">
                 <div class="middle-line__wrapper-left">
-                    <div class="middle-line__logo">
+                    <div class="logo">
                         <a href="#">
                             <img src="/img/Logo.svg" alt="Logo">
                         </a>

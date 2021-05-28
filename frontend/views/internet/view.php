@@ -1,16 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alex
- * Date: 19.05.21
- * Time: 11:42
- */
+use common\models\Tariffs;
+
 ?>
 
 <div class="tariff-content" >
     <?= $title ?>
-
-    <p class="rate-item__title tariff-speed"><span><?= $tariff['speed'] ?></span> Мб/с</p>
+        <p class="rate-item__title tariff-speed"><span><?= $tariff->speed ?></span> Мб/с</p>
     <ul class="tariff-list">
         <li class="tariff-content__item">
             <h6 class="tariff-content__title"><?= Yii::t('internet', 'Гарантована швидкість доступу до мережі інтернет') ?></h6>
@@ -59,53 +54,4 @@
     </ul>
 
 </div>
-<div class="tariff-result">
-    <div class="tariff-result__inner">
-        <div class="tariff-result__checkbox-wrapper">
-            <div class="tariff-result__checkbox">
-                <input class="options-connect__checkbox-input" type="checkbox">
-                <label class="options-connect__checkbox-label" for="checkbox"><p>
-                        <?= Yii::t('internet', 'Виділений IP (32грн / міс)') ?>
-                    </p></label>
-            </div>
 
-            <div class="tariff-result__select-checkbox">
-                <div class="dropdown-select">
-                    <button class="dropdown__btn tariff-result__dropdown" type="button">
-                        1
-                    </button>
-                    <ul class="dropdown__list">
-                        <li class="dropdown__list-item" data-value="Odessa">
-                            2
-                        </li>
-                        <li class="dropdown__list-item" data-value="not od">
-                            3
-                        </li>
-                    </ul>
-                    <input type="text" class="dropdown__input-hidden" value=""
-                           name="sel-category">
-                </div>
-            </div>
-        </div>
-        <div class="tariff-result__total">
-            <div class="tariff-result__total-title"><?= Yii::t('internet', 'Разом:') ?></div>
-            <ul class="tariff-result__total-list">
-                <li class="total-list-item">
-                    <p class="total-list-item-text"> <?= Yii::t('internet', 'Абонентська плата') ?></p>
-                    <p class="total-list-item-text nowrap"> <?= $tariff['price'] ?><?= Yii::t('internet', 'грн / міс') ?></p>
-
-                </li>
-                <li class="total-list-item">
-                    <p class="total-list-item-text"><?= Yii::t('internet', 'Виділений IP') ?></p>
-                    <p class="total-list-item-text nowrap"><?= Yii::t('internet', '32грн / міс') ?></p>
-                </li>
-                <li class="total-list-item">
-                    <p class="total-list-item-text item-text-main"><?= Yii::t('internet', 'Підсумкова абонентська оплата') ?></p>
-                    <p class="total-list-item-text item-text-main nowrap"><?= Yii::t('internet', '182грн / міс') ?></p>
-                </li>
-            </ul>
-        </div>
-        <button class="btn__form"><?= Yii::t('internet', 'Підключити') ?></button>
-    </div>
-
-</div>

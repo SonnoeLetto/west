@@ -323,7 +323,7 @@ header
     display: flex
     align-items: center
 
-.middle-line__logo
+.logo
   margin-right: 15px
   max-width: 254px
   width: 100%
@@ -552,7 +552,7 @@ header
   line-height: 39px
   text-align: center
 
-.offer__check-form
+.main-form
   max-width: 350px
   width: 100%
   margin: 0 auto
@@ -563,7 +563,7 @@ header
   border-radius: 18px
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
 
-.offer__check-form-input
+.main-form__input
   color: #ffffff
   width: 254px
   margin: 0 auto
@@ -577,7 +577,7 @@ header
     color: $secondary_color
 
 
-.offer__check-form-btn
+.main-form__btn
   display: block
   margin: 40px auto 0
   padding: 11.5px 30.5px
@@ -588,7 +588,7 @@ header
   line-height: 17px
   font-size: 14px
 
-.offer__check-form-input+.offer__check-form-input
+.main-form__input+.main-form__input
   margin-top: 15px
 
 .offer__case-slider-item
@@ -635,7 +635,6 @@ header
   width: 100%
   background-image: linear-gradient(359.61deg, rgba(169, 201, 255, 0.65) 0.34%, rgba(255, 187, 236, 0.65) 99.68%)
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
-  border: 1px solid #C6CAD8
   border-radius: 18px
 
 .options-connect
@@ -645,14 +644,10 @@ header
 .options-connect__title-wrapper
   text-align: center
 
-.options-connect__title
+.option-title
   position: relative
-  display: inline-block
-  padding-left: 30px
-  margin-bottom: 36px
-
   font-weight: 700
-  color: #1D1D1F
+  color: #000000
   font-size: 17px
   line-height: 30px
   &:before
@@ -660,8 +655,14 @@ header
     color: #1d1d1f
     height: 23px
     width: 23px
-    background: url("../img/options_image/options_title_left.svg") no-repeat
     position: absolute
+
+.options-connect__title
+  display: inline-block
+  padding-left: 30px
+  margin-bottom: 36px
+  &:before
+    background: url("../img/options_image/options_title_left.svg") no-repeat
     bottom: 3px
     left: 2px
 
@@ -669,6 +670,12 @@ header
   max-width: 300px
   width: 100%
   margin: 0 auto 40px auto
+  text-align: left
+  & > .select2-container--krajee .select2-selection
+    background-color: rgba(#ffffff, .35)
+
+.options-connect__select .select2-container--krajee .select2-dropdown
+  border: none
 
 .options-connect__checkbox
   padding: 0 44px
@@ -685,6 +692,9 @@ header
 .options-connect__select-checkbox
   max-width: 265px
   width: 100%
+  text-align: left
+  & > .select2-container--krajee .select2-selection
+    background-color: rgba(#ffffff, .35)
 
 .form-input
   background: rgba(#ffffff, .3)
@@ -696,7 +706,7 @@ header
 .checkbox-input
   max-width: 265px
   width: 100%
-  padding: 14.25px 0 14.75px 34px
+  padding: 14px 20px 14px 20px
 
 .options-connect-input
   max-width: 300px
@@ -709,7 +719,6 @@ header
 
 .options-connect__switch
   margin-bottom: 9px
-  font-weight: 500
   line-height: 30px
   color: #1d1d1f
 
@@ -751,64 +760,7 @@ header
   margin-left: 11px
 // SWITCH END
 
-// SELECT START
-.dropdown-select
-  position: relative
 
-.dropdown__btn
-  position: relative
-  display: block
-  width: 100%
-  cursor: pointer
-  color: #62687F
-  text-align: left
-  line-height: 20px
-  background: rgba(#ffffff, .3)
-  border-radius: 16px
-  padding: 14.25px 20px 14.75px 34px
-
-  &:focus
-    border: 2px solid rgba(#1F2431, .3 )
-  &:before
-    content: ""
-    top: 50%
-
-    right: 15px
-    transform: translateY(-48%)
-    position: absolute
-    background: url("../img/selectArrow.svg") no-repeat
-    width: 14px
-    height: 10px
-    pointer-events: none
-
-.dropdown__btn-arr-none:before
-  content: none
-
-.dropdown__list
-  display: none
-  position: absolute
-  top: 52px
-  left: 0
-  width: 100%
-  background: rgb(255, 255, 255)
-  border-radius: 16px
-  line-height: 20px
-  color: #1D1D1F
-  z-index: 1
-
-.dropdown__list--visible
-  display: block
-
-.dropdown__list-item
-  border-radius: 16px
-  padding: 10px 20px 10px 34px
-  cursor: pointer
-  &:hover
-    background: $secondary_color
-
-.dropdown__input-hidden
-  display: none
-//SELECT END
 .options-connect__form
   text-align: center
 
@@ -881,22 +833,11 @@ header
   margin: 0 auto
   max-width: 397px
   width: 100%
-  display: block
-  position: relative
-  line-height: 28px
-  font-weight: 700
-  font-size: 17px
-  color: #000000
   padding-left: 34px
   padding-bottom: 45px
   &:before
-    content: ''
-    color: #1d1d1f
-    height: 23px
-    width: 23px
     background-image: url("../img/options_image/wallet.svg")
     background-repeat: no-repeat
-    position: absolute
     top: 3px
     left: 1px
   &:after
@@ -940,7 +881,7 @@ header
   background: #EEF2F4
   padding: 39px 0 50px
 
-.rate-content__title
+.rate__title
   color: #000
   margin-bottom: 15px
   span
@@ -948,29 +889,20 @@ header
     -webkit-background-clip: text
     color: transparent
 
-.rate-content__text
+.rate__text
   color: #62687F
   text-align: center
   font-size: 24px
   line-height: 29px
   margin-bottom: 44px
 
-.rate-variables__select-wrapper
+.rate__select
   margin: 0 auto 5px auto
-  position: relative
   max-width: 280px
-
-.rate-variables__select
-  appearance: none
-  line-height: 20px
-  max-width: 280px
-  width: 100%
-  margin-bottom: 16px
-  background: rgba(#C6CAD8, .3)
-  color: #62687F
-  border-radius: 16px
-  border: 1px solid rgba(#8D96B2, .3)
-  padding: 14.25px 0 14.75px 34px
+  & .select2-container--krajee .select2-selection
+    border: 1px solid rgba(#8D96B2, .3)
+    &:focus
+      border: 1px solid rgba(#8D96B2, .3)
 
 
 .rate-item
@@ -1070,23 +1002,20 @@ header
   text-align: center
   margin-bottom: 39px
 
-.router-content__title
+.router__title
   color: #000000
-
   margin-bottom: 26px
 
-.router-content__text
-  font-weight: 500
+.router__text
   font-size: 24px
   line-height: 29px
   color: #62687F
   margin-bottom: 34px
 
 
-.router-content__link
+.router__link
   position: relative
   color: #315EFB
-  font-weight: 500
   font-size: 21px
   line-height: 26px
   &:after
@@ -1156,11 +1085,6 @@ header
     max-height: 100%
     overflow: hidden
 
-
-
-//.our-clients__items-logo + .our-clients__items-logo
-//  margin-bottom: 15px
-
 .our-clients__text
   text-align: center
   font-weight: 700
@@ -1170,34 +1094,39 @@ header
   -webkit-background-clip: text
   color: transparent
 
-
-
-
 .mobile
   padding: 77px 0 43px
   background: linear-gradient(270deg, #A9C9FF -10.38%, #FFBBEC 114.81%)
   color: #000000
 
+.mobile-vision
+  padding: 110px 0
+  color: #000000
+
+  background: url("/img/backGround3.jpg"), #2eb4e6 no-repeat
+  background-size: cover
+
 .mobile-content__wrapper
   position: relative
+
 .mobile-content
   max-width: 532px
   width: 100%
 
-.mobile-content__title
+.mobile__title
   font-weight: 700
   font-size: 36px
   line-height: 44px
   margin-bottom: 26.5px
 
-.mobile-content__subtitle
+.mobile__subtitle
   font-weight: 500
   font-size: 21px
   line-height: 26px
   color: #343B4C
   margin-bottom: 26.5px
 
-.mobile-content__text
+.mobile__text
   max-width: 439px
   width: 100%
   font-weight: 700
@@ -1205,14 +1134,13 @@ header
   line-height: 29px
   margin-bottom: 26.5px
 
-.mobile-content__link
+.mobile__link
   display: flex
   font-weight: 500
   font-size: 21px
   line-height: 15px
   color: #000000
   margin-bottom: 45px
-
   &:hover
     color: #315EFB
     text-decoration: underline
@@ -1249,10 +1177,15 @@ header
 .btn__link +.btn__link
   margin-left: 18px
 
-.mobile-content__image
+.mobile__image
   position: absolute
   top: -114px
   right: -120px
+
+.mobile-vision__image
+  position: absolute
+  top: -58px
+  right: -80px
 
 .news
   padding-top: 60px
@@ -1293,6 +1226,7 @@ header
     li
       padding-right: 8px
       list-style: none
+
 .news-slider .slick-arrow.slick-prev
   left: -60px
   background: url("../img/rare_img/left_arrow.svg")
@@ -1576,7 +1510,6 @@ header
 
 .info__text
   line-height: 21px
-  font-weight: 500
   & + .info__text
     margin-top: 25px
 
@@ -1595,27 +1528,22 @@ header
   width: 100%
   font-size: 24px
   line-height: 29px
-  font-weight: 500
   margin: 0 auto 35px
   text-align: center
 
 .services-card
   display: flex
   flex-wrap: wrap
-  margin-bottom: 39px
-  //margin-left: auto
-  //margin-right: auto
+  margin: 0 -10px 39px -10px
 
 .services-card__item
   position: relative
-  display: block
   overflow: hidden
   max-width: 350px
   width: calc(100%/3 - 20px)
   border-radius: 19px
   margin: 10px
   transition: transform 1s ease
-
   &:after
     content: ''
     position: absolute
@@ -1625,17 +1553,10 @@ header
     bottom: 0
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 36.17%, rgba(0, 0, 0, 0.7) 100%)
   &:hover
-    transform: scale(0.9555)
-
-
-.services-card__img
-  min-width: 100%
-  min-height: 100%
-  display: inline-block
+    transform: scale(0.99)
 
 .services-card__link
   position: absolute
-  font-weight: 500
   line-height: 21px
   font-size: 1.8rem
   bottom: 26px
@@ -1651,10 +1572,6 @@ header
   background-image: $orangeToPink
   -webkit-background-clip: text
   color: transparent
-
-.services-plus__card
-  display: flex
-  flex-wrap: wrap
 
 .application
   background: center url("../img/backGround2.svg") no-repeat
@@ -1674,7 +1591,6 @@ header
 .capability-content
   max-width: 390px
   width: 100%
-  font-weight: 500
   margin-right: 33px
 
 .capability-content__mainTitle
@@ -1701,8 +1617,6 @@ header
   position: relative
   margin: auto 0
   max-width: 398px
-  width: 100%
-  height: 100%
   padding-left: 20px
 
 .about-text
@@ -1716,39 +1630,36 @@ header
   bottom: -185px
   left: 20px
 
-.HowConnect
+.howConnect
   background: #EEF2F4
   color: #1D1D1F
   padding: 39px 0 45px
 
-.HowConnect-content__title
+.howConnect__title
   font-size: 48px
   line-height: 58px
   font-weight: 700
   text-align: center
   margin-bottom: 38px
 
-.HowConnect-content__list
+.howConnect__list
   margin-bottom: 106px
   padding-left: 51px
 
-.HowConnect-content__list-item
+.howConnect__list-item
   line-height: 21px
-  & + .HowConnect-content__list-item
+  & + .howConnect__list-item
     margin-top: 20px
 
-.HowConnect-feedback__title
-  font-size: 26px
-  line-height: 32px
+.howConnect-feedback__title
   font-weight: 700
-  text-align: center
   padding-left: 100px
   margin-bottom: 19px
 
-.HowConnect-feedback__text
+.howConnect-feedback--homeInt
+  text-align: center
   font-size: 26px
   line-height: 32px
-  text-align: center
 
 .feedback-numb
   font-weight: 700
@@ -1756,24 +1667,90 @@ header
   -webkit-background-clip: text
   color: transparent
   margin: 0 20px
+  &:hover
+    background-image: $orangeToPink
+    -webkit-background-clip: text
+    color: transparent
 
 .feedback-link
   margin-left: 20px
+  color: #315EFB
   &:hover
-    color: #315EFB
     text-decoration: underline
+    color: #315EFB
     .feedbckArr
       fill: #315efb
 
 .feedbckArr
-  fill: #000000
+  fill: #315efb
   width: 9px
   height: 16px
 
-.controlOffer
-  background: #EEF2F4
-  padding: 39px 0 46px
+.video-home
+  background-color: #EEF2F4
+
+.block-content
+  padding: 40px 0 0
   color: #1D1D1F
+
+.block-content__title
+  margin-bottom: 38px
+
+.block-content__items-wrap
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -37px
+
+.block-content__item
+  margin-bottom: 40px
+  padding: 0 37px
+
+.block-content__item:nth-child(even)
+  flex: 0 1 55%
+
+.block-content__item:nth-child(odd)
+  flex: 0 1 45%
+
+.img-wrap
+  text-align: center
+
+.block-content__item-img
+  margin: 0 auto
+  margin-bottom: 20px
+
+.block-content__item-title
+  font-size: 26px
+  line-height: 32px
+  font-weight: 700
+  //text-align: center
+
+.content__item--mb
+  margin-bottom: 30px
+
+.block-content__item-text
+  line-height: 21px
+  color: #62687F
+
+.block-content--color
+  background-color: #ffffff
+  
+.video-apply
+  color: #1D1D1F
+  padding: 40px 0
+
+.video-apply__title
+  text-align: left
+  margin-bottom: 34px
+
+.apply-text__wrap
+  margin-bottom: 42px
+
+.video-apply__text + .video-apply__text
+  margin-top: 25px
+
+.video-apply__link
+  display: block
+  text-align: center
 
 .news__pagination
   .pagination
@@ -1950,26 +1927,93 @@ header
   padding-top: 50px
 
 .tariff-business__tabs
-  padding-top: 3%
+  padding-top: 50px
 
 .tariff-select
   width: 280px
   margin: 0 auto
+  & .select2-container--krajee .select2-selection
+    border: 1px solid rgba(#8D96B2, .3)
+    &:focus
+      border: 1px solid rgba(#8D96B2, .3)
 
-.tariff-select > span > .selection > .select2-selection--multiple
-  background: rgba(#C6CAD8, .3)
-  padding: 10.25px 20px 10.75px 34px
+#chooseLocation .select2-container--krajee .select2-dropdown
+  border: 1px solid rgba(#8D96B2, .3)
+// SELECT
+
+.select2-container--krajee .select2-selection--single
+  height: auto
+  padding: 14px 10px 14px 20px
   border-radius: 18px
 
-.tariff-select > span > .selection > span
-  border: 1px solid rgba(#8D96B2, .3)
+.select2-container--krajee .select2-selection
+  font-size: 17px
+  line-height: 21px
+  background: rgba(#C6CAD8, .35)
+  border: none
+  //border: 1px solid rgba(#8D96B2, .3)
+  box-shadow: none
+  color: #1F2431
+  &:focus
+    //border-color: rgba(#8D96B2, .3)
+    border: none
+    box-shadow: none
 
-.select2-container--krajee .select2-selection--multiple .select2-search--inline .select2-search__field
-  padding: 0
-  height: auto
-.select2-search__field
-  height: auto
-  background: red
+
+
+.select2-container--krajee .select2-results__option--highlighted[aria-selected]
+  background-color: white
+  color: #1F2431
+  &:hover
+    background-color: rgba(#8D96B2, .3)
+
+.select2-results__option
+  padding: 15px 15px 15px 20px
+
+.select2-container--krajee .select2-selection--single .select2-selection__placeholder
+  color: rgba(#62687F, .35)
+
+.select2-container--krajee .select2-selection--single .select2-selection__rendered
+  color: #1F2431
+  padding-right: 20px
+
+.select2-container--krajee .select2-results__option.select2-results__option--selected, .select2-container--krajee .select2-results__option[aria-selected=true]
+  color: #1F2431
+  background-color: rgba($secondary_color, .5)
+
+.select2-container--krajee.select2-container--open .select2-selection
+
+  box-shadow: none
+
+.select2-container--krajee .select2-selection--single .select2-selection__arrow
+  border-left: none
+
+.select2-container--krajee .select2-selection--single .select2-selection__arrow b
+  border: none
+  background: url(../img/selectArrow.svg) no-repeat
+  width: 15px
+  height: 10px
+  margin-top: 5px
+  margin-left: -19px
+
+.select2-container--krajee.select2-container--open .select2-selection--single .select2-selection__arrow b
+  transform: rotate(180deg)
+  margin-top: 3px
+  margin-left: -20px
+
+.select2-container--krajee .select2-dropdown
+  border: none
+  //border: 1px solid rgba(#1F2431, .3)
+  box-shadow: none
+
+
+
+.select2-dropdown
+  border-radius: 18px
+
+// SELECT END
+
+
 .tariff-business__tabs > .nav-tabs
   max-width: 1000px
   width: 100%
@@ -1987,6 +2031,9 @@ header
   //scrollbar-width: none
   &:before, &:after
     display: none
+
+.tariff-business__tabs > .nav
+  &:before
 
 .tariff-business__tabs > .nav-tabs > li
   position: relative
@@ -2023,7 +2070,7 @@ header
 
 .tariff-tabs > .nav-tabs
   max-width: 1000px
-  margin: 0 auto 10px
+  margin: 0 auto
   border: none
   display: flex
   flex-wrap: wrap
@@ -2087,7 +2134,7 @@ header
   line-height: 16px
 
 .tariff-content
-  padding: 3% 3%
+  padding: 40px 10px
 
 .tariff-content__item
   position: relative
@@ -2147,7 +2194,7 @@ header
 
 .tariff-result
   background: #EEF2F4
-  padding: 3% 3%
+  padding: 50px 10px
   color: #000
 
 .tariff-result__inner
@@ -2167,6 +2214,10 @@ header
 .tariff-result__select-checkbox
   max-width: 218px
   width: 100%
+  & .select2-container--krajee .select2-selection
+    border: 1px solid rgba(#8D96B2, .3)
+    &:focus
+      border: 1px solid rgba(#8D96B2, .3)
 
 .tariff-result__dropdown
   background: rgba(#C6CAD8, 0.3)
@@ -2223,6 +2274,56 @@ header
     background-image: $orangeToPink
     -webkit-background-clip: text
     color: transparent
+
+.consultation
+  background-color: #1F2431
+  padding: 50px 0
+
+.consultation__inner
+  display: flex
+  justify-content: space-between
+
+.consultation-content
+  max-width: 386px
+  width: 100%
+
+.consultation__title
+  text-align: left
+  background-image: $orangeToPink
+  -webkit-background-clip: text
+  color: transparent
+  margin-bottom: 47px
+
+.consultation-form
+  margin: 0 87px 0 0
+
+.consultation__text
+  color: #8D96B2
+  font-size: 27px
+  line-height: 33px
+  font-weight: 600
+  margin-bottom: 47px
+
+.consultation__subtext
+  color: #8D96B2
+  font-size: 23px
+  line-height: 28px
+
+.howConnect__title--video
+  text-align: left
+  padding-left: 51px
+
+.howConnect-feedback
+  padding-left: 51px
+
+.howConnect-feedback--homeVideo
+  text-align: left
+  font-size: 26px
+  line-height: 32px
+
+.howConnect-feedback__title--homeVideo
+  font-weight: 700
+  margin-bottom: 19px
 @import "media";
 
 
