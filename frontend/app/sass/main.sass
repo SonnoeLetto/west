@@ -1304,59 +1304,61 @@ header
   padding: 27px 0 29px
   background: #1F2431
 
-.footer-content
+.footer__inner
   display: flex
   justify-content: space-between
   color: $secondary_color
   line-height: 21px
   padding-bottom: 17px
-  border-bottom: 0.5px solid #8D96B2
+  border-bottom: 0.5px solid $secondary_color
 
-.footer-content__title
+.footer__title
   font-weight: 700
   font-size: 21px
   line-height: 25px
   margin-bottom: 9px
 
-.color-company
+.company__color
   color: #BF5AF2
 
-.color-forHome
+.home__color
   background-image: $orangeToPink
   -webkit-background-clip: text
   color: transparent
 
-.pad-forHome
+.home__pad
   margin-right: 60px
 
-.color-forBusiness
+.business__color
   background-image: $blueToPurple
   -webkit-background-clip: text
   color: transparent
 
-.footer-content__list-item + .footer-content__list-item
+.footer__list-item + .footer__list-item
   padding-top: 9.5px
 
-.footer-content__list-item
+.footer__list-item
   transition: all .2s ease-in
   &:hover
     color: #ffffff
 
-.footer__accordion-wrapper
+.footer__accordion
   display: none
-  font-weight: 500
   color: $secondary_color
   line-height: 21px
   border-bottom: 0.5px solid #8D96B2
   padding-bottom: 17px
 
-.accordion-item__title-first
-  display: inline-block
-  cursor: pointer
+.acc__title
   position: relative
+  display: inline-block
+  font-weight: 700
+  font-size: 21px
+  line-height: 25px
+  margin-bottom: 9px
+  cursor: pointer
   &:after
     content: ''
-    background: url("../img/icon__footer/foot_arr_purpl.svg") no-repeat
     width: 10px
     height: 15px
     position: absolute
@@ -1365,43 +1367,32 @@ header
     padding-left: 10px
     color: white
 
-.accordion-item__title-second
-  display: inline-block
-  cursor: pointer
-  position: relative
+.acc_Company
+  color: #BF5AF2
   &:after
-    content: ''
+    background: url("../img/icon__footer/foot_arr_purpl.svg") no-repeat
+
+.acc__Home
+  background-image: $orangeToPink
+  -webkit-background-clip: text
+  color: transparent
+  &:after
     background: url("../img/icon__footer/foot_arr_barb.svg") no-repeat
-    width: 15px
-    height: 15px
-    position: absolute
-    top: 5px
-    right: -23px
-    padding-left: 10px
-    color: white
 
-.accordion-item__title-third
-  display: inline-block
-  cursor: pointer
-  position: relative
+.acc__Business
+  background-image: $blueToPurple
+  -webkit-background-clip: text
+  color: transparent
   &:after
-    content: ''
     background: url("../img/icon__footer/foot_arr_blue.svg") no-repeat
-    width: 15px
-    height: 15px
-    position: absolute
-    top: 5px
-    right: -23px
-    padding-left: 10px
-    color: white
 
-.accordion-item__content
+.accordion__list
   position: relative
   height: 0
   overflow: hidden
   transition: .5s ease-in-out
 
-.footer__accordion-item.active .accordion-item__content
+.footer__accordion-item.active .accordion__list
   height: 240px
 
 .footer__accordion-item + .footer__accordion-item
@@ -1635,11 +1626,7 @@ header
   color: #1D1D1F
   padding: 39px 0 45px
 
-.howConnect__title
-  font-size: 48px
-  line-height: 58px
-  font-weight: 700
-  text-align: center
+.howConnect__title--homeInt
   margin-bottom: 38px
 
 .howConnect__list
@@ -2014,55 +2001,55 @@ header
 // SELECT END
 
 
-.tariff-business__tabs > .nav-tabs
-  max-width: 1000px
-  width: 100%
-  margin: 0 auto
-  display: flex
-  justify-content: space-between
-  color: #000000
-  border-bottom: 0.5px solid #939597
-  overflow-x: auto
-  -ms-overflow-style: none
-  scrollbar-width: none
-  &::-webkit-scrollbar
-    width: 0
-    height: 0
-  //scrollbar-width: none
-  &:before, &:after
-    display: none
-
-.tariff-business__tabs > .nav
-  &:before
-
-.tariff-business__tabs > .nav-tabs > li
-  position: relative
-  padding-left: 30px
-  padding-right: 30px
-
-.tariff-business__tabs > .nav-tabs > li > a
-  background: none
-  padding: 0 0 20px 0
-  border: none
-  &:hover
-    border: none
-
-
-.tariff-business__tabs > .nav-tabs > li.active
-  &:after
-    content: ''
-    position: absolute
-    bottom: 0
-    left: 0
-    background-image: $blueToPurple
-    width: 100%
-    height: 4px
-
-.tariff-business__tabs > .nav-tabs > li.active > a
-  background-image: $blueToPurple
-  -webkit-background-clip: text
-  color: transparent
-  border: none
+//.tariff-business__tabs > .nav-tabs
+//  max-width: 1000px
+//  width: 100%
+//  margin: 0 auto
+//  display: flex
+//  justify-content: space-between
+//  color: #000000
+//  border-bottom: 0.5px solid #939597
+//  overflow-x: auto
+//  -ms-overflow-style: none
+//  scrollbar-width: none
+//  &::-webkit-scrollbar
+//    width: 0
+//    height: 0
+//  //scrollbar-width: none
+//  &:before, &:after
+//    display: none
+//
+//.tariff-business__tabs > .nav
+//  &:before
+//
+//.tariff-business__tabs > .nav-tabs > li
+//  position: relative
+//  padding-left: 30px
+//  padding-right: 30px
+//
+//.tariff-business__tabs > .nav-tabs > li > a
+//  background: none
+//  padding: 0 0 20px 0
+//  border: none
+//  &:hover
+//    border: none
+//
+//
+//.tariff-business__tabs > .nav-tabs > li.active
+//  &:after
+//    content: ''
+//    position: absolute
+//    bottom: 0
+//    left: 0
+//    background-image: $blueToPurple
+//    width: 100%
+//    height: 4px
+//
+//.tariff-business__tabs > .nav-tabs > li.active > a
+//  background-image: $blueToPurple
+//  -webkit-background-clip: text
+//  color: transparent
+//  border: none
 
 .tariff-tabs
   width: 100%
@@ -2247,6 +2234,38 @@ header
 .item-text-main
   font-weight: 700
 
+.tariff-business__tabs
+  max-width: 1000px
+  width: 100%
+  margin: 0 auto
+  color: #1D1D1F
+  border-bottom: 0.5px solid #939597
+  & .tabs-list
+    display: flex
+    justify-content: space-between
+.business__tab
+  padding: 0 29px
+
+.business__tab.active
+  position: relative
+  &:after
+    content: ''
+    position: absolute
+    bottom: 0
+    left: 0
+    background-image: $blueToPurple
+    width: 100%
+    height: 4px
+//
+.business__tab.active
+  background-image: $blueToPurple
+  -webkit-background-clip: text
+  color: transparent
+//  border: none
+
+.business__tab
+  line-height: 21px
+  padding-bottom: 21px
 .tariff-services__title
   margin-bottom: 22px
   background-image: $blueToPurple
@@ -2312,6 +2331,7 @@ header
 .howConnect__title--video
   text-align: left
   padding-left: 51px
+  margin-bottom: 38px
 
 .howConnect-feedback
   padding-left: 51px

@@ -349,7 +349,7 @@ use kartik\select2\Select2;
             <div class="col-md-12">
                 <div class="wrapper">
                     <div class="howConnect-content">
-                        <h5 class="howConnect__title"><?= Yii::t('site', 'Як підключити Домашній інтернет')?></h5>
+                        <h5 class="middle__title howConnect__title--homeInt"><?= Yii::t('site', 'Як підключити Домашній інтернет')?></h5>
                         <div class="howConnect__list">
                             <p class="howConnect__list-item"><?= Yii::t('site', '1. Залиште заявку') . '<br>'. Yii::t('site', 'Просто натисніть «Підключити» або заповніть форму зворотного зв\'язку.')?></p>
                             <p class="howConnect__list-item">

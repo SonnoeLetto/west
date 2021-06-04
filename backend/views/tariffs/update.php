@@ -1,4 +1,4 @@
-<?php$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+<?php
 
 
 use yii\helpers\Html;

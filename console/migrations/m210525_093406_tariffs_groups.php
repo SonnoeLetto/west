@@ -19,7 +19,9 @@ class m210525_093406_tariffs_groups extends Migration
 
         $this->createTable('{{%tariffs_groups}}', [
             'id' => $this->primaryKey(),
-            'name' => $this->string(100)->notNull(),
+            'name_ru' => $this->string(100)->notNull(),
+            'name_uk' => $this->string(100)->notNull(),
+            'type' => $this->integer()
 
         ], $tableOptions);
     }

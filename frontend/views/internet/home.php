@@ -3,7 +3,7 @@ use kartik\select2\Select2;
 use yii\web\View;
 use yii\helpers\ArrayHelper;
 
-$this->registerJs('var tariffs = ' . json_encode($tariffs) . ';', View::POS_HEAD);
+$this->registerJs('var tariffs = ' . json_encode(ArrayHelper::toArray($tariffs)) . ';', View::POS_HEAD);
 $this->registerJs('var cities = ' . json_encode(ArrayHelper::map($cities, 'id', 'group_id')) . ';', View::POS_HEAD);
 ?>
 
@@ -29,11 +29,16 @@ $this->registerJs('var cities = ' . json_encode(ArrayHelper::map($cities, 'id', 
             'list__title' => 'tariff-content__title-color-home',
             'check__arrow' => 'tariff-content__checkbox-color-home',
             'tariffs' => $tariffs,
-            'group_id' => $cities[0]->group_id
+            'group_id' => $cities[0]->group_id,
+//                'groups' => $groups
         ]) ?>
         <?php } ?>
 
-        <?# $this->render('/internet/calc', ['tariffs' => $tariffs]) ?>
+        <?= $this->render('/internet/calc', [
+                'tariffs' => $tariffs,
+                'cities' => $cities,
+                'group_id' => $cities[0]->group_id
+            ]) ?>
 
         <div class="services">
             <div class="container">

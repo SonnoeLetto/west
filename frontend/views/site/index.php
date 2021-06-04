@@ -1,10 +1,14 @@
 <?php
 
 use common\models\News;
+use common\models\Tariffs;
 use common\models\Slider;
 use kartik\select2\Select2;
-use yii\helpers\Html;
-use yii\helpers\BaseStringHelper;
+use yii\helpers\ArrayHelper;
+use yii\web\View;
+
+$this->registerJs('var cities = ' . json_encode(ArrayHelper::map($cities, 'id', 'group_id')) . ';', View::POS_HEAD);
+
 ?>
 
 <section class="promotion">
@@ -452,15 +456,10 @@ use yii\helpers\BaseStringHelper;
                         <div class="rate__select">
                             <?= Select2::widget([
                                 'name' => 'location3',
-                                'id' => 'chooselocation3',
-                                'data' => [
-                                    1 => 'Одесса',
-                                    2 => 'Южный',
-                                ],
+                                'id' => 'cities-select',
+                                'data' => ArrayHelper::map($cities, 'id', 'name'),
+                                'value' => $cities[0]->id ?? null,
                                 'hideSearch' => true,
-                                'options' => [
-                                    'placeholder' => 'Выберите тариф'
-                                ],
                             ]);
                             ?>
                         </div>
@@ -471,81 +470,37 @@ use yii\helpers\BaseStringHelper;
         <div class="row">
             <div class="col-md-12">
                 <div class="rate-slider">
-                    <div class="rate-item">
-                        <div class="rate-item__forNewClients">для новых клиентов</div>
-                        <div class="hot__img"></div>
-                        <p class="rate-item__title"><span>100</span> Мб/с</p>
-                        <ul class="rate-item__list">
-                            <li class="rate-item__item">Симметричный канал</li>
-                            <li class="rate-item__item">Гарантированная скорость</li>
-                            <li class="rate-item__item">Подключение через
-                                оптоволокно по технологии
-                                <b>GPON</b></li>
-                            <li class="rate-item__item">Доставка оборудования
-                                и подключение - бесплатно
-                            </li>
-                            <li class="rate-item__item"><a href="">Подробнее</a></li>
-                        </ul>
-                        <div class="rate-item__price"><span>150</span> грн/мес</div>
-                        <button class="btn__form">Подключить</button>
-                    </div>
-                    <div class="rate-item">
-                        <div class="rate-item__forNewClients">для новых клиентов</div>
-                        <div class="hot__img"></div>
-                        <h5 class="rate-item__title"><span>200</span> Мб/с</h5>
-                        <ul class="rate-item__list">
-                            <li class="rate-item__item">Симметричный канал</li>
-                            <li class="rate-item__item">Гарантированная скорость</li>
-                            <li class="rate-item__item">Подключение через
-                                оптоволокно по технологии
-                                <b>GPON</b></li>
-                            <li class="rate-item__item">Доставка оборудования
-                                и подключение - бесплатно
-                            </li>
-                            <li class="rate-item__item"><a href="">Подробнее</a></li>
-                        </ul>
-                        <div class="rate-item__price"><span>180</span> грн/мес</div>
-                        <button class="btn__form">Подключить</button>
-                    </div>
-                    <div class="rate-item">
-                        <div class="rate-item__forNewClients">для новых клиентов</div>
-                        <div class="hot__img"></div>
-                        <h5 class="rate-item__title"><span>300</span> Мб/с</h5>
-                        <ul class="rate-item__list">
-                            <li class="rate-item__item">Симметричный канал</li>
-                            <li class="rate-item__item">Гарантированная скорость</li>
-                            <li class="rate-item__item">Подключение через
-                                оптоволокно по технологии
-                                <b>GPON</b></li>
-                            <li class="rate-item__item">Доставка оборудования
-                                и подключение - бесплатно
-                            </li>
-                            <li class="rate-item__item"><a href="">Подробнее</a></li>
-                        </ul>
-                        <div class="rate-item__price"><span>200</span> грн/мес</div>
-                        <button class="btn__form">Подключить</button>
-                    </div>
-                    <div class="rate-item">
-                        <div class="rate-item__forNewClients">для новых клиентов</div>
-                        <div class="hot__img"></div>
-                        <h5 class="rate-item__title"><span>100</span> Мб/с</h5>
-                        <ul class="rate-item__list">
-                            <li class="rate-item__item">Симметричный канал</li>
-                            <li class="rate-item__item">Гарантированная скорость</li>
-                            <li class="rate-item__item">Подключение через
-                                оптоволокно по технологии
-                                <b>GPON</b></li>
-                            <li class="rate-item__item">Доставка оборудования
-                                и подключение - бесплатно
-                            </li>
-                            <li class="rate-item__item"><a href="">Подробнее</a></li>
-                        </ul>
-                        <div class="rate-item__price"><span>150</span> грн/мес</div>
-                        <button class="btn__form">Подключить</button>
-                    </div>
+
+                    <?php $group_id = $cities[0]->group_id ?? null ?>
+                    <?php foreach (Tariffs::getTariffs() as $tariff) { ?>
+                        <div class="rate-item" data-id="<?= $tariff->group_id ?>">
+                            <?php if ($tariff->for_new){ ?>
+                            <div class="rate-item__forNewClients"><?= Yii::t('site', 'для нових клієнтів')?></div>
+                            <?php } ?>
+                            <?php if ($tariff->is_hot){ ?>
+                            <div class="hot__img"></div>
+                            <?php } ?>
+                            <p class="rate-item__title"><span><?=$tariff->speed ?></span> Мб/с</p>
+                            <ul class="rate-item__list">
+                                <li class="rate-item__item"><?= Yii::t('site', 'Симетричний канал')?></li>
+                                <li class="rate-item__item"><?= Yii::t('site', 'Гарантована швидкість')?></li>
+                                <li class="rate-item__item"><?= Yii::t('site', 'Підключення через оптоволокно за технологією')?>
+                                    <b>GPON</b></li>
+                                <li class="rate-item__item"><?= Yii::t('site', 'Доставка обладнання і підключення - безкоштовно')?>
+                                </li>
+                                <li class="rate-item__item"><a href=""><?= Yii::t('site', 'Докладніше')?></a></li>
+                            </ul>
+                            <div class="rate-item__price"><span><?=$tariff->price ?></span> <?= Yii::t('internet', 'грн / міс')?></div>
+                            <button class="btn__form"><?= Yii::t('internet', 'Підключити')?></button>
+                        </div>
+                    <?php } ?>
+
+
                 </div>
             </div>
         </div>
+
+
     </div>
 
 </section>

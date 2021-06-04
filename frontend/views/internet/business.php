@@ -9,53 +9,83 @@
 use kartik\select2\Select2;
 use yii\bootstrap\Tabs;
 use \yii\web\View;
+use yii\helpers\ArrayHelper;
 
-$this->registerJs('var tariffs = ' . json_encode($tariffs) . ';', View::POS_HEAD);
+$this->registerJs('var tariffs = ' . json_encode(ArrayHelper::toArray($tariffs)) . ';', View::POS_HEAD);
 
+$items = [];
+
+
+
+foreach ($groups as $group) {
+    $items[] = [
+
+            'label' => $group->name,
+            'headerOptions' => [
+                'data-id' => $group->id,
+                'class' => 'business__tab',
+//                'data' => ArrayHelper::map($groups, 'id', 'name'),
+//                'value' => $group->id ?? null,
+
+            ],
+//            'content' => $this->render('/internet/tab', [
+//
+//                'title' => '<h5 class="tariff-title-business middle__title">' . Yii::t('internet', 'Інтернет ') . ' <span>' . Yii::t('internet', 'для вашого бізнесу') . '</span></h5>',
+//                'list__title' => 'tariff-content__title-color-business',
+//                'check__arrow' => 'tariff-content__checkbox-color-business',
+//                'tariffs' => $tariffs,
+//                'group_id' => $groups[0]->id,
+//                'groups' => $groups
+//            ]),
+
+            'active' => $group->id != $groups[0]->id ? false : null,
+            'encode' => false
+    ];
+//    }
+}
+//echo '<pre>';
+//print_r($groups[0]->id);
+//echo '</pre>';
 ?>
+
+<!--<h5 class="tariff-title-business middle__title">--><?//= Yii::t('internet', 'Інтернет ') ?><!--<span>--><?//= Yii::t('internet', 'для вашого бізнесу') ?><!--</span></h5>-->
+
+
+
+
 <section class="tariff">
     <div class="tariff__inner">
 
-        <div class="tariff-business__tabs">
-            <?= Tabs::widget([
-                'items' => [
-                    [
-                        'label' => 'Акционные тарифы',
-                        'content' => $this->render('/internet/tab', [
-                            'title' => '<h5 class="tariff-title-business middle__title">' . Yii::t('internet', 'Інтернет ') . ' <span>' . Yii::t('internet', 'для вашого бізнесу') . '</span></h5>',
-                            'list__title' => 'tariff-content__title-color-business',
-                            'check__arrow' => 'tariff-content__checkbox-color-business',
-                            'tariffs' => $tariffs
-                        ]),
-                        'active' => true,
-                        'encode' => false
-                    ],
-                    [
-                        'label' => 'Крупный бизнес ',
-                        'content' => $this->render('/internet/tab', [
-                            'title' => '<h5 class="tariff-title-business middle__title">' . Yii::t('internet', 'Інтернет ') . ' <span>' . Yii::t('internet', 'для вашого бізнес1у') . '</span></h5>',
-                            'list__title' => 'tariff-content__title-color-business',
-                            'check__arrow' => 'tariff-content__checkbox-color-business',
-                            'tariffs' => $tariffs
 
-                        ]),
-                        'encode' => false
-                    ],
-                    [
-                        'label' => 'Малый и средний бизнес',
-                        'content' => $this->render('/internet/tab', [
-                            'title' => '<h5 class="tariff-title-business middle__title">' . Yii::t('internet', 'Інтернет ') . ' <span>' . Yii::t('internet', 'для вашого бізнесу') . '</span></h5>',
-                            'list__title' => 'tariff-content__title-color-business',
-                            'check__arrow' => 'tariff-content__checkbox-color-business',
-                            'tariffs' => $tariffs
-                        ]),
-                        'encode' => false
-                    ],
-                ]
-            ]); ?>
+        <div class="tariff-business__tabs">
+            <ul class="tabs-list">
+               <?php foreach ($groups as $key => $group) { ?>
+
+                <li class="business__tab <?= $key == 0 ? 'active' : '' ?> " data-group=<?= $group->id ?>>
+                    <a class="" href="#"><?= $group->name ?></a>
+                </li>
+              <?php } ?>
+
+            </ul>
+
+
         </div>
 
-        <?= $this->render('/internet/calc', ['tariff' => $tariffs[0]]) ?>
+        <?= $this->render('/internet/tab', [
+            'title' => '<h5 class="tariff-title-business middle__title">' . Yii::t('internet', 'Інтернет ') . ' <span>' . Yii::t('internet', 'для вашого бізнесу') . '</span></h5>',
+            'list__title' => 'tariff-content__title-color-business',
+            'check__arrow' => 'tariff-content__checkbox-color-business',
+            'tariffs' => $tariffs,
+            'group_id' => $groups[0]->id,
+            'groups' => $groups
+        ]) ?>
+
+        <?= $this->render('/internet/calc', [
+            'tariffs' => $tariffs,
+            'cities' => $cities,
+            'groups' => $groups,
+            'group_id' => $groups[0]->id
+        ]) ?>
 
 
 

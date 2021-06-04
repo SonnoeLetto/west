@@ -360,7 +360,7 @@
                 <div class="col-md-12">
                     <div class="wrapper">
                         <div class="howConnect-content">
-                            <h5 class="howConnect__title howConnect__title--video"><?= Yii::t('site', 'Як підключити Відеоспостереження')?></h5>
+                            <h5 class="middle__title howConnect__title--video"><?= Yii::t('site', 'Як підключити Відеоспостереження')?></h5>
                             <div class="howConnect__list">
                                 <p class="howConnect__list-item"><?= Yii::t('site', '1. Залиште заявку. Просто натисніть «Відправити заявку» або заповніть форму розрахунку вартості відеоспостереження')?></p>
                                 <p class="howConnect__list-item">

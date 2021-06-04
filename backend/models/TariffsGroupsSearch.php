@@ -18,7 +18,9 @@ class TariffsGroupsSearch extends TariffsGroups
     {
         return [
             [['id'], 'integer'],
-            [['name'], 'safe'],
+            [['name_ru', 'name_uk'], 'safe'],
+            [['type'], 'integer'],
+
         ];
     }
 
@@ -61,7 +63,7 @@ class TariffsGroupsSearch extends TariffsGroups
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'name_uk', $this->name_uk]);
 
         return $dataProvider;
     }

@@ -7,6 +7,7 @@
  */
 namespace frontend\controllers;
 use common\models\Cities;
+use common\models\TariffsGroups;
 use yii\web\Controller;
 use common\models\Tariffs;
 
@@ -18,6 +19,7 @@ class InternetController extends Controller
 
 
         return $this->render('home', [
+            'groups' => TariffsGroups::getGroupsBusiness(),
             'tariffs' => Tariffs::getTariffs(),
             'cities' => Cities::find()->all()
         ]);
@@ -27,6 +29,7 @@ class InternetController extends Controller
     {
 
         return $this->render('business', [
+            'groups' => TariffsGroups::getGroupsBusiness(),
             'tariffs' => Tariffs::getTariffs(),
             'cities' => Cities::find()->all()
         ]);
@@ -35,6 +38,7 @@ class InternetController extends Controller
     public function actionView()
     {
         return $this->render('view', [
+            'groups' => TariffsGroups::getGroupsBusiness(),
             'tariffs' => Tariffs::getTariffs(),
             'cities' => Cities::find()->all()
         ]);

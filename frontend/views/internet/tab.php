@@ -7,7 +7,7 @@ foreach ($tariffs as $tariff) {
         $items[] = [
             'label' => $tariff['speed'] . '<span class="tariff__label">Мб/c</span> ',
             'headerOptions' => [
-                'data-id' => $tariff['group_id'],
+                'data-id' => $tariff['id'],
                 'style' => 'display: ' . ($tariff->group_id != $group_id ? 'none' : 'block')
             ],
             'content' => $this->render('/internet/view', [
@@ -21,6 +21,9 @@ foreach ($tariffs as $tariff) {
         ];
 //    }
 }
+//echo '<pre>';
+//print_r($groups[0]->id);
+//echo '</pre>';
 ?>
 
 <div class="tariff-tabs">

@@ -14,13 +14,17 @@ use common\models\TariffsGroups;
     <?php $form = ActiveForm::begin(); ?>
     <div class="row">
         <div class="col-md-2">
-            <?= $form->field($model, 'is_hot')->checkbox() ?>
-
-
+            <?= $form->field($model, 'status')->checkbox() ?>
         </div>
+
+        <div class="col-md-2">
+            <?= $form->field($model, 'is_hot')->checkbox() ?>
+        </div>
+
         <div class="col-md-2">
             <?= $form->field($model, 'for_new')->checkbox() ?>
         </div>
+
 
     </div>
 
@@ -45,9 +49,7 @@ use common\models\TariffsGroups;
     <div class="row">
 
 
-        <div class="col-md-6">
-            <?= $form->field($model, 'status')->textInput() ?>
-        </div>
+
 
     </div>
 

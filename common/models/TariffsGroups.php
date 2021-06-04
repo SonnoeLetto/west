@@ -15,6 +15,9 @@ use Yii;
  */
 class TariffsGroups extends \yii\db\ActiveRecord
 {
+
+    const TYPE_BUSINESS = 1;
+    const TYPE_HOME = 0;
     /**
      * {@inheritdoc}
      */
@@ -29,8 +32,8 @@ class TariffsGroups extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
-            [['name'], 'string', 'max' => 100],
+            [['name_ru', 'name_uk'], 'string', 'max' => 100],
+            [['type'], 'integer']
         ];
     }
 
@@ -42,7 +45,9 @@ class TariffsGroups extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Имя',
+            'name_uk' => 'Название укр',
+            'name_ru' => 'Название ру',
+            'type' => 'Для бизнеса',
         ];
     }
 
@@ -64,5 +69,15 @@ class TariffsGroups extends \yii\db\ActiveRecord
     public function getTariffs()
     {
         return $this->hasMany(Tariffs::className(), ['group_id' => 'id']);
+    }
+
+    public function getName()
+    {
+        return $this->{'name_' . Yii::$app->language};
+    }
+
+    public static function getGroupsBusiness()
+    {
+        return self::find()->where(['type' => self::TYPE_BUSINESS])->all();
     }
 }
