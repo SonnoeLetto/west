@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Card;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -16,6 +17,7 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use common\models\Cities;
 use common\models\Tariffs;
+
 
 
 /**
@@ -77,9 +79,18 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+//        $this->view->registerJsFile('/jsLib/cp/login.js');
         return $this->render('index', [
             'tariffs' => Tariffs::getTariffs(),
             'cities' => Cities::find()->all()
+        ]);
+    }
+
+    public function actionBusiness() {
+        Yii::$app->params['template_header'] = 'header_business';
+        return $this->render('index_business', [
+            'cities' => Cities::find()->all()
+
         ]);
     }
 

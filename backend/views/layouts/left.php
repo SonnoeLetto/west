@@ -24,6 +24,7 @@
                     ['label' => 'Новости', 'icon' => 'file-text-o', 'url' => '/news'],
                     ['label' => 'Блог', 'icon' => 'file-text-o', 'url' => '/blog'],
                     ['label' => 'Акции', 'icon' => 'file-text-o', 'url' => '/promotion'],
+                    ['label' => 'Карточки', 'icon' => 'file-text-o', 'url' => '/card'],
                     [
                       'label' => 'Секция тарифов',
                       'icon' => 'bookmark-o',

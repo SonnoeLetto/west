@@ -10,16 +10,15 @@ use common\models\Cities;
 use common\models\TariffsGroups;
 use yii\web\Controller;
 use common\models\Tariffs;
+use Yii;
 
 
 class InternetController extends Controller
 {
+
     public function actionHome()
     {
-
-
         return $this->render('home', [
-            'groups' => TariffsGroups::getGroupsBusiness(),
             'tariffs' => Tariffs::getTariffs(),
             'cities' => Cities::find()->all()
         ]);
@@ -27,8 +26,27 @@ class InternetController extends Controller
 
     public function actionBusiness()
     {
-
+        Yii::$app->params['template_header'] = 'header_business';
         return $this->render('business', [
+            'groups' => TariffsGroups::getGroupsBusiness(),
+            'tariffs' => Tariffs::getTariffs(),
+            'cities' => Cities::find()->all()
+        ]);
+    }
+
+    public function actionHomeView()
+    {
+        return $this->render('home_view', [
+            'groups' => TariffsGroups::getGroupsBusiness(),
+            'tariffs' => Tariffs::getTariffs(),
+            'cities' => Cities::find()->all()
+        ]);
+    }
+
+    public function actionBusinessView()
+    {
+        Yii::$app->params['template_header'] = 'header_business';
+        return $this->render('business_view', [
             'groups' => TariffsGroups::getGroupsBusiness(),
             'tariffs' => Tariffs::getTariffs(),
             'cities' => Cities::find()->all()

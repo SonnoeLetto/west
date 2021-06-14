@@ -53,6 +53,7 @@ return [
             'enableLanguagePersistence' => false,
             'rules' => [
                 '' => 'site/index',
+                'business' => 'site/business',
                 '/news/page/<page:\d+>' => '/news/index',
                 '/news/<slug>' => '/news/view',
                 '/news' => '/news/index',

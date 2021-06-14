@@ -10,8 +10,8 @@ use yii\web\Controller;
 
 class VideoController extends Controller
 {
-    public function actionIndex()
+    public function actionHome()
     {
-        return $this->render('index');
+        return $this->render('home');
     }
 }

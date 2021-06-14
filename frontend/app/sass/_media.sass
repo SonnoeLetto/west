@@ -85,6 +85,17 @@
   .content__wrap
     padding: 0
 
+  .card__top
+    flex-wrap: wrap
+    justify-content: center
+
+  .card__top-wrap
+    display: flex
+    justify-content: center
+
+
+  .card__top-number
+    display: none
   .cards-view_content
     padding-top: 50px
 
@@ -122,6 +133,10 @@
 
   .howConnect-feedback
     padding-left: 0
+
+
+  .chooseTariffs
+    background-position: 120%
 
 @media only screen and (max-width : 991px)
   body
@@ -189,6 +204,14 @@
     font-size: 43px
     line-height: 53px
 
+  .chooseTariffs
+    background-size: cover
+    background-position: 140px
+    padding: 50px 0
+
+  .chooseTariffs__business
+    padding: 70px 0
+
   .HowConnect-content__title
     font-size: 43px
 
@@ -206,12 +229,27 @@
   .info__title
     font-size: 43px
 
+  .mobile,
+  .router
+    padding-top: 30px
+
+  .services
+    padding: 30px 0 0
+
+  .rate
+    padding: 30px
+
   .info__text
     padding: 0 20px
 
-  .services-card
-    margin: 0 auto
+  //.services-card
+  //  margin: 0 auto
 
+  .news
+    padding: 30px
+
+  .news-slider .slick-dots
+    bottom: -15px
   .services-card__item
     width: calc(100%/2 - 20px)
 
@@ -290,6 +328,9 @@
 
   .howConnect-feedback__title
     padding-left: 0
+
+  .block-info__column
+    flex-basis: 100%
 @media only screen and (max-width : 768px)
   .cards-list
     display: block
@@ -350,15 +391,20 @@
   .consultation-form
     margin: 20px auto 0
 
-  .block-content__items-wrap
-    display: block
-    margin: 0
+  .howConnect__list
+    margin-bottom: 50px
 
-  .block-content__item
-    padding: 0
 
-  .block-content__item-title
-    text-align: center
+  .chooseTariffs__business
+    padding: 30px 0
+
+  .chooseTariffs__business-title
+    font-size: 30px
+    line-height: 42px
+
+  .column__title
+    font-size: 22px
+
 @media only screen and (max-width : 480px)
 
 
@@ -442,9 +488,38 @@
   .HowConnect-content__title
     font-size: 38px
 
+  .rate,
+  .connection-check,
+  .info,
+  .application,
+  .howConnect,
+  .options,
+  .router,
+  .mobile,
+  .news,
+  .block-info__bus-internet
+    padding: 25px 0
+
+  .services
+    padding: 25px 0 0
+
+  .news-slider .slick-dots
+    bottom: -5px
+  .offer
+    padding-bottom: 10px
+
+  .services-card,
+  .router-content
+    margin-bottom: 25px
+
+  .services-plus__title
+    margin-bottom: 20px
+
   .rate-content__title
     font-size: 38px
 
+  .services-plus__title-business
+    margin-bottom: 25px
   .capability-content
     margin-right: 0
 
@@ -455,11 +530,12 @@
     display: block
 
   .middle__title
-    font-size: 30px
+    font-size: 28px
     line-height: 43px
 
   .about-text
     margin-bottom: 50px
+    max-width: 100%
 
   .about-link
     display: flex
@@ -482,6 +558,18 @@
   .feedback-numb
     margin: 0 10px
 
+  .chooseTariffs
+    background-position: -100px
+
+
+  .chooseTariffs__business
+    padding: 20px 0
+    background-position: 10px
+
+  .chooseTariffs__business-title
+    font-size: 24px
+    line-height: 38px
+
   .mainCards
     padding: 15px 0
   .cards-view_content-title
@@ -497,6 +585,13 @@
   .feedback-numb
     display: block
     margin: 10px 0
+
+  .block-info-video__title
+    font-size: 26px
+    line-height: 32px
+
+  .rate__text
+    font-size: 20px
 @media only screen and (max-width : 320px)
   .mobile-content__link
     font-size: 19px

@@ -1,0 +1,18 @@
+<svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_b)">
+<circle cx="22.8472" cy="22.6731" r="22.5" fill="white" fill-opacity="0.25"/>
+</g>
+<path d="M17.8029 20.1508H14.1997C13.8017 20.1508 13.479 20.4734 13.479 20.8714V24.4747C13.479 24.8727 13.8017 25.1954 14.1997 25.1954H17.8029C18.201 25.1954 18.5236 24.8727 18.5236 24.4747V20.8714C18.5236 20.4734 18.201 20.1508 17.8029 20.1508Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30.7746 14.746H26.4506C26.0526 14.746 25.73 15.0686 25.73 15.4666V19.7906C25.73 20.1886 26.0526 20.5112 26.4506 20.5112H30.7746C31.1726 20.5112 31.4952 20.1886 31.4952 19.7906V15.4666C31.4952 15.0686 31.1726 14.746 30.7746 14.746Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30.7746 24.835H26.4506C26.0526 24.835 25.73 25.1576 25.73 25.5556V29.8796C25.73 30.2776 26.0526 30.6002 26.4506 30.6002H30.7746C31.1726 30.6002 31.4952 30.2776 31.4952 29.8796V25.5556C31.4952 25.1576 31.1726 24.835 30.7746 24.835Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18.5239 22.6735H22.1272" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25.7302 27.7179H24.2889C23.7155 27.7179 23.1656 27.4901 22.7602 27.0846C22.3547 26.6792 22.127 26.1293 22.127 25.5559V19.7906C22.127 19.2172 22.3547 18.6673 22.7602 18.2619C23.1656 17.8564 23.7155 17.6287 24.2889 17.6287H25.7302" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<filter id="filter0_b" x="-4.65283" y="-4.8269" width="55" height="55" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImage" stdDeviation="2.5"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur" result="shape"/>
+</filter>
+</defs>
+</svg>

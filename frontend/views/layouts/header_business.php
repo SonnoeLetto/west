@@ -8,122 +8,65 @@
 use \yii\helpers\Html;
 use frontend\components\LanguageWidget;
 use yii\helpers\Url;
+use yii\helpers\ArrayHelper;
+
+
+//$this->registerJs('var cities = ' . json_encode(ArrayHelper::map($cities, 'id', 'group_id')) . ';', View::POS_HEAD);
+
 ?>
 
 <header>
-    <div class="menu__bg"></div>
-    <div class="right-menu">
-        <div class="right-menu__close">
-            <button type="button" class="right-menu__btn"></button>
-        </div>
-        <div class="right-menu__wrap">
-            <div class="right-menu__tools">
-                <a class="tools__item right-menu__tools-basket" href="#"><?= Yii::t('header', 'Кошик')?></a>
-                <a class="tools__item right-menu__tools-personal" href="#"><?= Yii::t('header', 'Особистий кабінет')?></a>
-            </div>
-            <div class="right-menu-contacts">
-                <a class="middle-line__tel">0 800 201 222</a>
-
-                <a class="middle-line__email">hello@westelecom.ua</a>
-
-            </div>
-            <ul class="right-menu__category">
-                <li class="category__item"><?= Yii::t('header', 'Для дому') ?></li>
-                <li class="category__item"><?= Yii::t('header', 'Для бізнесу') ?></li>
-                <li class="category__item"><?= Yii::t('header', 'Акції')?></li>
-                <li class="category__item"><?= Yii::t('header', 'Магазин')?></li>
-            </ul>
-            <ul class="right-menu__list">
-                <li class="right-menu__list-item">
-                    <a class="right-line__link" href="">
-                        <svg class="right-line__icon">
-                            <use xlink:href="img/sprite.svg#home"></use>
-                        </svg>
-                        <span class="right-line__link-text"><?= Yii::t('header', 'Головна')?></span>
-                    </a>
-                </li>
-                <li class="right-menu__list-item">
-                    <a class="right-line__link" href="">
-                        <svg class="right-line__icon">
-                            <use xlink:href="img/sprite.svg#wifi"></use>
-                        </svg>
-                        <span class="right-line__link-text"><?= Yii::t('header', 'Інтернет')?></span>
-                    </a>
-                </li>
-                <li class="right-menu__list-item">
-                    <a class="right-line__link" href="">
-                        <svg class="right-line__icon">
-                            <use xlink:href="img/sprite.svg#vision"></use>
-                        </svg>
-                        <span class="right-line__link-text"><?= Yii::t('header', 'Відеоспостереження')?></span>
-                    </a>
-                </li>
-                <li class="right-menu__list-item">
-                    <a class="right-line__link" href="">
-                        <svg class="right-line__icon">
-                            <use xlink:href="img/sprite.svg#tv"></use>
-                        </svg>
-                        <span class="right-line__link-text"><?= Yii::t('header', 'Цифрове TV')?></span>
-
-                    </a>
-                </li>
-                <li class="right-menu__list-item">
-                    <a class="right-line__link" href="">
-                        <svg class="right-line__icon icon-phone">
-                            <use xlink:href="img/sprite.svg#phone"></use>
-                        </svg>
-                        <span class="right-line__link-text"><?= Yii::t('header', 'Домашній телефон')?></span>
-
-                    </a>
-                </li>
-                <li class="right-menu__list-item">
-                    <a class="right-line__link" href="">
-                        <svg class="right-line__icon">
-                            <use xlink:href="img/sprite.svg#colocation"></use>
-                        </svg>
-                        <span class="right-line__link-text">Colocation</span>
-                    </a>
-                </li>
-            </ul>
-
-
-        </div>
-
-    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="top-line">
 
-
-
                     <div class="top-line__left">
                         <div class="top-line__left-lang"><?= LanguageWidget::widget() ?></div>
-
-                        <div class="top-line__left-location"></div>
                     </div>
 
                     <ul class="top-line__menu">
                         <li class="top-line__menu-item">
-                            <a href="" class="top-line__menu-link"><?= Yii::t('header', 'Для дому') ?></a>
+                            <?= Html::a(Yii::t('header', 'Для дому'), ['/site/'], ['class' => 'top-line__menu-link top__link-Home'])?>
+
                         </li>
 
                         <li class="top-line__menu-item">
-                            <a href="" class="top-line__menu-link top-line__menu-link-forBusiness"><?= Yii::t('header', 'Для бізнесу') ?></a>
+                            <?= Html::a(Yii::t('header', 'Для бізнесу'), ['/business/'], ['class' => 'top-line__menu-link top__link-Business'])?>
+
                         </li>
 
                         <li class="top-line__menu-item">
-                            <?= Html::a(Yii::t('header', 'Акції'), ['/promotion/'])?>
+                            <?= Html::a(Yii::t('header', 'Магазин'), ['/promotion/'], ['class' => 'top-line__menu-link top__link-Magazine'])?>
                         </li>
 
                         <li class="top-line__menu-item">
-                            <a href="" class="top-line__menu-link"><?= Yii::t('header', 'Магазин')?></a>
+                            <div class="more">
+                                <div class="more__text">
+                                    <?= Yii::t('header', 'А також')?>
+                                    <svg class="dots">
+                                        <path d="M2.18537 5.13816C3.34659 5.13816 4.31605 4.19001 4.31605 3.00748C4.31605 1.84626 3.34659 0.887451 2.18537 0.887451C1.01349 0.887451 0.0546875 1.84626 0.0546875 3.00748C0.0546875 4.19001 1.01349 5.13816 2.18537 5.13816Z" "/>
+                                        <path d="M10.6815 5.13816C11.8427 5.13816 12.8121 4.19001 12.8121 3.00748C12.8121 1.84626 11.8427 0.887451 10.6815 0.887451C9.50959 0.887451 8.55078 1.84626 8.55078 3.00748C8.55078 4.19001 9.50959 5.13816 10.6815 5.13816Z" "/>
+                                        <path d="M19.1776 5.13816C20.3388 5.13816 21.3082 4.19001 21.3082 3.00748C21.3082 1.84626 20.3388 0.887451 19.1776 0.887451C18.0057 0.887451 17.0469 1.84626 17.0469 3.00748C17.0469 4.19001 18.0057 5.13816 19.1776 5.13816Z" "/>
+                                    </svg>
+                                </div>
+
+                                <div class="more__dropdown">
+                                    <?= Html::a(Yii::t('header', 'Акції'), ['/promotion/'], ['class' => 'more__dropdown-item'])?>
+                                    <?= Html::a(Yii::t('header', 'Блог'), ['/blog/'], ['class' => 'more__dropdown-item'])?>
+                                    <?= Html::a(Yii::t('footer', 'Новини'), ['/news/'], ['class' => 'more__dropdown-item'])?>
+                                </div>
+                            </div>
+
                         </li>
                     </ul>
-
-                    <div class="top-line__tools">
-                        <a class="tools__item top-line__tools-basket" href="#"><?= Yii::t('header', 'Кошик')?></a>
-                        <a class="tools__item top-line__tools-personal" href="#"><?= Yii::t('header', 'Особистий кабінет')?></a>
+                    <div class="tools">
+                        <svg class="personal__icon">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.3558 17.6382C5.41885 17.6382 1.20282 18.3846 1.20282 21.374C1.20282 24.3634 5.39211 25.1366 10.3558 25.1366C15.2927 25.1366 19.5075 24.3889 19.5075 21.4008C19.5075 18.4126 15.3195 17.6382 10.3558 17.6382Z"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.3558 13.3743C13.5956 13.3743 16.2215 10.7472 16.2215 7.50733C16.2215 4.2675 13.5956 1.6416 10.3558 1.6416C7.11598 1.6416 4.48886 4.2675 4.48886 7.50733C4.47792 10.7362 7.08681 13.3633 10.3145 13.3743H10.3558Z"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <!--                        <a class="tools__item top-line__tools-basket" href="#">--><?//= Yii::t('header', 'Кошик')?><!--</a>-->
+                        <a class="tools__item" href="#"><?= Yii::t('header', 'Особистий кабінет')?></a>
                     </div>
 
                     <div class="burger">
@@ -139,11 +82,10 @@ use yii\helpers\Url;
             <div class="middle-line">
                 <div class="middle-line__wrapper-left">
                     <div class="logo">
-                        <a href="#">
+                        <a href="<?=Url::to('/business') ?>">
                             <img src="/img/Logo.svg" alt="Logo">
                         </a>
                     </div>
-                    <p class="middle-line__promotion"><?= Yii::t('header', 'Непристойно швидкий інтернет на півдні України')?></p>
                 </div>
 
                 <div class="middle-line__wrapper-right">
@@ -174,7 +116,7 @@ use yii\helpers\Url;
                 <div class="col-md-12">
                     <ul class="bottom-line__list">
                         <li class="bottom-line__list-item">
-                            <a class="bottom-line__link" href="">
+                            <a class="bottom-line__link" href="<?=Url::to('/business') ?>">
                                 <svg class="bottom-line__icon">
                                     <use xlink:href="/img/sprite.svg#home"></use>
                                 </svg>
@@ -182,7 +124,7 @@ use yii\helpers\Url;
                             </a>
                         </li>
                         <li class="bottom-line__list-item">
-                            <a class="bottom-line__link" href="<?=Url::to('/internet/') ?>">
+                            <a class="bottom-line__link" href="<?=Url::to('/internet/business') ?>">
                                 <svg class="bottom-line__icon">
                                     <use xlink:href="/img/sprite.svg#wifi"></use>
                                 </svg>
@@ -203,23 +145,32 @@ use yii\helpers\Url;
                                 <svg class="bottom-line__icon-phone">
                                     <use xlink:href="/img/sprite.svg#phone"></use>
                                 </svg>
-                                <span class="bottom-line__link-text"><?= Yii::t('header', 'Домашній телефон')?></span>
+                                <span class="bottom-line__link-text"><?= Yii::t('header', 'Бізнес Телефонія')?></span>
 
                             </a>
                         </li>
                         <li class="bottom-line__list-item">
                             <a class="bottom-line__link" href="">
-                                <svg class="bottom-line__icon">
-                                    <use xlink:href="/img/sprite.svg#tv"></use>
+                                <svg class="bottom-line__icon icon__VOLS">
+                                    <use xlink:href="#VOLS"></use>
                                 </svg>
-                                <span class="bottom-line__link-text"><?= Yii::t('header', 'Цифрове TV')?></span>
+                                <span class="bottom-line__link-text"><?= Yii::t('header', 'Оренда / Продаж ВОЛЗ')?></span>
 
                             </a>
                         </li>
                         <li class="bottom-line__list-item">
                             <a class="bottom-line__link" href="">
                                 <svg class="bottom-line__icon">
-                                    <use xlink:href="#colocation"></use>
+                                    <use xlink:href="#VLAN"></use>
+                                </svg>
+                                <span class="bottom-line__link-text">VLAN</span>
+
+                            </a>
+                        </li>
+                        <li class="bottom-line__list-item">
+                            <a class="bottom-line__link" href="">
+                                <svg class="bottom-line__icon">
+                                    <use xlink:href="/img/sprite.svg#colocation"></use>
                                 </svg>
                                 <span class="bottom-line__link-text">Colocation</span>
                             </a>
@@ -229,7 +180,7 @@ use yii\helpers\Url;
                                 <svg class="bottom-line__icon">
                                     <use xlink:href="#sysAdmin"></use>
                                 </svg>
-                                <span class="bottom-line__link-text">Colocation</span>
+                                <span class="bottom-line__link-text">SysAdmin</span>
                             </a>
                         </li>
                     </ul>
@@ -237,11 +188,121 @@ use yii\helpers\Url;
             </div>
         </div>
     </div>
+    <div class="menu__bg"></div>
+    <div class="right-menu">
+        <div class="right-menu__close">
+            <button type="button" class="right-menu__btn"></button>
+        </div>
+        <div class="right-menu__wrap">
+
+            <ul class="right-menu__category">
+                <li class="category__item right-menu__col-home">
+                    <?= Html::a(Yii::t('header', 'Для дому'), ['/site/'])?>
+                </li>
+                <li class="category__item right-menu__col-business">
+                    <?= Html::a(Yii::t('header', 'Для бізнесу'), ['/business/'])?>
+                </li>
+                <li class="category__item right-menu__col-magazine">
+                    <?= Html::a(Yii::t('header', 'Магазин'), ['/promotion/'])?>
+                </li>
+                <li class="category__item right-menu__col-other">
+                    <?= Html::a(Yii::t('header', 'Акції'), ['/promotion/'])?>
+                </li>
+                <li class="category__item right-menu__col-other">
+                    <?= Html::a(Yii::t('header', 'Блог'), ['/blog/'])?>
+
+                </li>
+                <li class="category__item right-menu__col-other">
+                    <?= Html::a(Yii::t('footer', 'Новини'), ['/news/'])?>
+                </li>
+
+            </ul>
+            <ul class="right-menu__list">
+                <li class="right-menu__list-item">
+                    <a class="right-line__link" href="<?=Url::to('/business') ?>">
+                        <svg class="right-line__icon">
+                            <use xlink:href="/img/sprite.svg#home"></use>
+                        </svg>
+                        <span class="right-line__link-text"><?= Yii::t('header', 'Головна')?></span>
+                    </a>
+                </li>
+                <li class="right-menu__list-item">
+                    <a class="right-line__link" href="<?=Url::to('/internet/business') ?>">
+                        <svg class="right-line__icon">
+                            <use xlink:href="/img/sprite.svg#wifi"></use>
+                        </svg>
+                        <span class="right-line__link-text"><?= Yii::t('header', 'Інтернет')?></span>
+                    </a>
+                </li>
+                <li class="right-menu__list-item">
+                    <a class="right-line__link" href="">
+                        <svg class="right-line__icon">
+                            <use xlink:href="/img/sprite.svg#vision"></use>
+                        </svg>
+                        <span class="right-line__link-text"><?= Yii::t('header', 'Відеоспостереження')?></span>
+                    </a>
+                </li>
+                <li class="right-menu__list-item">
+                    <a class="right-line__link" href="">
+                        <svg class="right-line__icon">
+                            <use xlink:href="/img/sprite.svg#tv"></use>
+                        </svg>
+                        <span class="right-line__link-text"><?= Yii::t('header', 'Цифрове TV')?></span>
+
+                    </a>
+                </li>
+                <li class="right-menu__list-item">
+                    <a class="right-line__link" href="">
+                        <svg class="right-line__icon icon-phone">
+                            <use xlink:href="/img/sprite.svg#phone"></use>
+                        </svg>
+                        <span class="right-line__link-text"><?= Yii::t('header', 'Бізнес Телефонія')?></span>
+
+                    </a>
+                </li>
+                <li class="right-menu__list-item">
+                    <a class="right-line__link" href="">
+                        <svg class="right-line__icon icon__VOLS">
+                            <use xlink:href="#VOLS"></use>
+                        </svg>
+                        <span class="right-line__link-text"><?= Yii::t('header', 'Оренда / Продаж ВОЛЗ')?></span>
+                    </a>
+                </li>
+                <li class="right-menu__list-item">
+                    <a class="right-line__link" href="">
+                        <svg class="right-line__icon">
+                            <use xlink:href="#VLAN"></use>
+                        </svg>
+                        <span class="right-line__link-text">VLAN</span>
+                    </a>
+                </li>
+                <li class="right-menu__list-item">
+                    <a class="right-line__link" href="">
+                        <svg class="right-line__icon ">
+                            <use xlink:href="/img/sprite.svg#colocation"></use>
+                        </svg>
+                        <span class="right-line__link-text"><?= Yii::t('header', 'Оренда / Продаж ВОЛЗ')?></span>
+                    </a>
+                </li>
+                <li class="right-menu__list-item">
+                    <a class="right-line__link" href="">
+                        <svg class="right-line__icon">
+                            <use xlink:href="#sysAdmin"></use>
+                        </svg>
+                        <span class="right-line__link-text">SysAdmin</span>
+                    </a>
+                </li>
+            </ul>
+
+
+        </div>
+
+    </div>
     <svg class="svg__headerTypeTwo" xmlns="http://www.w3.org/2000/svg" >
-        <symbol id="home"  viewBox="0 0 25 26" >
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.69075 1.11278C11.4682 -0.296057 13.9914 -0.296057 15.7688 1.11278L15.7718 1.1151L23.3117 7.12821C24.293 7.88304 24.8783 9.04247 24.8953 10.2811L24.8954 10.2983V20.307C24.8954 23.1877 22.54 25.5015 19.6611 25.5015H17.4536C17.444 25.5015 17.4343 25.5014 17.4246 25.5012C15.9899 25.4679 14.8238 24.3032 14.824 22.8529C14.824 22.8528 14.824 22.8531 14.824 22.8529V19.3236C14.824 19.1267 14.6593 18.9456 14.4295 18.9456H11.124C10.8968 18.9485 10.7349 19.1283 10.7349 19.3236V22.842C10.7349 22.9521 10.7207 23.0589 10.6939 23.1606C10.5352 24.4883 9.3971 25.5015 8.03906 25.5015H5.83166C2.95267 25.5015 0.59729 23.1877 0.59729 20.307V10.2968C0.609553 9.05556 1.19589 7.89277 2.18096 7.13908L9.69075 1.11278ZM8.23491 22.842V19.3237C8.23488 17.7299 9.53081 16.4561 11.1101 16.4456L11.1184 16.4456L14.4295 16.4456C16.0162 16.4456 17.324 17.7223 17.324 19.3236V22.8529C17.324 22.9203 17.3799 22.9955 17.4749 23.0015H19.6611C21.1831 23.0015 22.3954 21.7834 22.3954 20.307V10.3081C22.3868 9.84015 22.1639 9.39727 21.783 9.10637L21.7623 9.09022L14.2159 3.07197C14.2155 3.07165 14.2151 3.07132 14.2147 3.071C13.3479 2.38492 12.1135 2.38454 11.2463 3.06986L3.73333 9.09878C3.72429 9.10603 3.71515 9.11316 3.70592 9.12015C3.32534 9.40853 3.10352 9.85022 3.09729 10.3163V20.307C3.09729 21.7834 4.30963 23.0015 5.83166 23.0015H8.03906C8.14691 23.0015 8.21284 22.9183 8.21284 22.842H8.23491Z"/>
-        </symbol>
-        <symbol id="VOLS" viewBox="0 0 35 34">
+<!--        <symbol id="home"  viewBox="0 0 25 26" >-->
+<!--            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.69075 1.11278C11.4682 -0.296057 13.9914 -0.296057 15.7688 1.11278L15.7718 1.1151L23.3117 7.12821C24.293 7.88304 24.8783 9.04247 24.8953 10.2811L24.8954 10.2983V20.307C24.8954 23.1877 22.54 25.5015 19.6611 25.5015H17.4536C17.444 25.5015 17.4343 25.5014 17.4246 25.5012C15.9899 25.4679 14.8238 24.3032 14.824 22.8529C14.824 22.8528 14.824 22.8531 14.824 22.8529V19.3236C14.824 19.1267 14.6593 18.9456 14.4295 18.9456H11.124C10.8968 18.9485 10.7349 19.1283 10.7349 19.3236V22.842C10.7349 22.9521 10.7207 23.0589 10.6939 23.1606C10.5352 24.4883 9.3971 25.5015 8.03906 25.5015H5.83166C2.95267 25.5015 0.59729 23.1877 0.59729 20.307V10.2968C0.609553 9.05556 1.19589 7.89277 2.18096 7.13908L9.69075 1.11278ZM8.23491 22.842V19.3237C8.23488 17.7299 9.53081 16.4561 11.1101 16.4456L11.1184 16.4456L14.4295 16.4456C16.0162 16.4456 17.324 17.7223 17.324 19.3236V22.8529C17.324 22.9203 17.3799 22.9955 17.4749 23.0015H19.6611C21.1831 23.0015 22.3954 21.7834 22.3954 20.307V10.3081C22.3868 9.84015 22.1639 9.39727 21.783 9.10637L21.7623 9.09022L14.2159 3.07197C14.2155 3.07165 14.2151 3.07132 14.2147 3.071C13.3479 2.38492 12.1135 2.38454 11.2463 3.06986L3.73333 9.09878C3.72429 9.10603 3.71515 9.11316 3.70592 9.12015C3.32534 9.40853 3.10352 9.85022 3.09729 10.3163V20.307C3.09729 21.7834 4.30963 23.0015 5.83166 23.0015H8.03906C8.14691 23.0015 8.21284 22.9183 8.21284 22.842H8.23491Z"/>-->
+<!--        </symbol>-->
+        <symbol id="VOLS" viewBox="0 0 35 34" >
             <path d="M10.0263 13.4492H4.8054C4.22872 13.4492 3.76123 13.9167 3.76123 14.4934V19.7143C3.76123 20.2909 4.22872 20.7584 4.8054 20.7584H10.0263C10.603 20.7584 11.0704 20.2909 11.0704 19.7143V14.4934C11.0704 13.9167 10.603 13.4492 10.0263 13.4492Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M28.8214 5.61768H22.5564C21.9797 5.61768 21.5122 6.08517 21.5122 6.66185V12.9269C21.5122 13.5036 21.9797 13.9711 22.5564 13.9711H28.8214C29.3981 13.9711 29.8656 13.5036 29.8656 12.9269V6.66185C29.8656 6.08517 29.3981 5.61768 28.8214 5.61768Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M28.8214 20.2363H22.5564C21.9797 20.2363 21.5122 20.7038 21.5122 21.2805V27.5455C21.5122 28.1222 21.9797 28.5897 22.5564 28.5897H28.8214C29.3981 28.5897 29.8656 28.1222 29.8656 27.5455V21.2805C29.8656 20.7038 29.3981 20.2363 28.8214 20.2363Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

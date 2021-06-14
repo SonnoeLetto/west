@@ -57,116 +57,81 @@
         </div>
     </div>
 
-    <section class="block-content">
-        <div class="container">
-            <div class="wrapper">
+    <section class="block-info">
+        <div class="block-info-video__title">
+            <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h5 class="middle__title block-content__title">
-                            <?= Yii::t('site', 'Контролюйте події на вашій території, де б ви не знаходилися')?>
-                        </h5>
-                        <div class="block-content__items-wrap">
-                            <div class="block-content__item">
-                                    <div class="img-wrap">
-                                        <img class="block-content__item-img" src="/img/vision-icon/Vector1.svg" alt="">
-
-                                    </div>
-                                    <h6 class="block-content__item-title content__item--mb">
-                                        <?= Yii::t('site', 'Контролюйте те, що відбувається в приміщенні')?>
-                                    </h6>
-
-                                <p class="block-content__item-text">
-                                    <?= Yii::t('site', 'Спостерігаючи в камеру, переконайтеся, що все гаразд і не турбуйтеся за збереження майна в будинку, на дачі або гаражі')?>
-                                </p>
-                            </div>
-                            <div class="block-content__item">
-                                <div class="img-wrap">
-                                    <img class="block-content__item-img" src="/img/vision-icon/Vector2.svg" alt="">
-
-                                </div>
-                                <h6 class="block-content__item-title content__item--mb">
-                                    <?= Yii::t('site', 'Будьте завжди в курсі того, що відбувається у вас вдома')?>
-                                </h6>
-
-                                <p class="block-content__item-text">
-                                    <?= Yii::t('site', 'Ви будете завжди в курсі того, що відбувається. У разі підозрілої активності, вам прийде повідомлення')?>
-                                </p>
-                            </div>
-                            <div class="block-content__item">
-                                <div class="img-wrap">
-                                    <img class="block-content__item-img" src="/img/vision-icon/Vector3.svg" alt="">
-
-                                </div>
-                                <h6 class="block-content__item-title content__item--mb">
-                                    <?= Yii::t('site', 'Тримайте під контролем будівельні роботи')?>
-                                </h6>
-
-                                <p class="block-content__item-text">
-                                    <?= Yii::t('site', 'Тримайте під контролем будь-які види робіт у вашому будинку - будівельні, процес ремонту або клінінгу')?>
-                                </p>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </section>
-    <section class="block-content block-content--color">
-        <div class="container">
-            <div class="wrapper">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="block-content__items-wrap">
-                            <div class="block-content__item">
-                                <div class="img-wrap">
-                                    <img class="block-content__item-img" src="/img/vision-icon/Vector4.svg" alt="">
-
-                                </div>
-                                <h6 class="block-content__item-title content__item--mb">
-                                    <?= Yii::t('site', 'Переконайтеся, що ваша дитина вже вдома')?>
-                                </h6>
-
-                            </div>
-                            <div class="block-content__item">
-                                <div class="img-wrap">
-                                    <img class="block-content__item-img" src="/img/vision-icon/Vector5.svg" alt="">
-
-                                </div>
-                                <h6 class="block-content__item-title content__item--mb">
-                                    <?= Yii::t('site', 'Контролюйте активність домашніх тварин')?>
-                                </h6>
-
-                            </div>
-                            <div class="block-content__item">
-                                <div class="img-wrap">
-                                    <img class="block-content__item-img" src="/img/vision-icon/Vector6.svg" alt="">
-
-                                </div>
-                                <h6 class="block-content__item-title content__item--mb">
-                                    <?= Yii::t('site', 'Будьте в курсі, чим займаються діти')?>
-                                </h6>
-
-                            </div><div class="block-content__item">
-                                <div class="img-wrap">
-                                    <img class="block-content__item-img" src="/img/vision-icon/Vector7.svg" alt="">
-
-                                </div>
-                                <h6 class="block-content__item-title content__item--mb">
-                                    <?= Yii::t('site', 'Переглядайте відео з камер в запису')?>
-                                </h6>
-
-                            </div>
-
+                        <div class="wrapper">
+                            <p><?= Yii::t('site', 'Відеоспостереження - це організація системи спостереження за об\'єктами за допомогою відеокамер з віддаленим доступом та зберіганням архіву в хмарі або локально.')?></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="block-info-video__1-row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="wrapper">
+
+                            <div class="middle__title block-info__title block-info__title-video"><?= Yii::t('site', 'Контролюйте події на вашій території, де б ви не знаходилися')?></div>
+                            <div class="block-info__inner">
+                                <div class="block-info__column">
+                                    <img class="column__img" src="/img/Block_icon/Vector1.svg" alt="">
+                                    <div class="column__title"><?= Yii::t('site', 'Контролюйте те, що відбувається в приміщенні')?></div>
+                                    <div class="column__text"><?= Yii::t('site', 'Спостерігаючи в камеру, переконайтеся, що все гаразд і не турбуйтеся за збереження майна в будинку, на дачі або гаражі\'')?></div>
+                                </div>
+                                <div class="block-info__column">
+                                    <img class="column__img" src="/img/Block_icon/Vector2.svg" alt="">
+                                    <div class="column__title"><?= Yii::t('site', 'Будьте завжди в курсі того, що відбувається у вас вдома')?></div>
+                                    <div class="column__text"><?= Yii::t('site', 'Ви будете завжди в курсі того, що відбувається. У разі підозрілої активності, вам прийде повідомлення')?></div>
+                                </div>
+                                <div class="block-info__column">
+                                    <img class="column__img" src="/img/Block_icon/Vector3.svg" alt="">
+                                    <div class="column__title"><?= Yii::t('site', 'Тримайте під контролем будівельні роботи')?></div>
+                                    <div class="column__text"><?= Yii::t('site', 'Тримайте під контролем будь-які види робіт у вашому будинку - будівельні, процес ремонту або клінінгу')?></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block-info-video__2-row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="wrapper">
+
+                            <div class="middle__title block-info__title block-info__title-video"><?= Yii::t('site', 'Подбайте про режим дня дитини і доглядайте за домашніми тваринами')?></div>
+                            <div class="block-info__inner">
+                                <div class="block-info__column">
+                                    <img class="column__img" src="/img/Block_icon/Vector4.svg" alt="">
+                                    <div class="column__title"><?= Yii::t('site', 'Переконайтеся, що ваша дитина вже вдома')?></div>
+                                </div>
+                                <div class="block-info__column">
+                                    <img class="column__img" src="/img/Block_icon/Vector5.svg" alt="">
+                                    <div class="column__title"><?= Yii::t('site', 'Контролюйте активність домашніх тварин')?></div>
+                                </div>
+                                <div class="block-info__column">
+                                    <img class="column__img" src="/img/Block_icon/Vector6.svg" alt="">
+                                    <div class="column__title"><?= Yii::t('site', 'Будьте в курсі, чим займаються діти')?></div>
+                                </div>
+                                <div class="block-info__column">
+                                    <img class="column__img" src="/img/Block_icon/Vector7.svg" alt="">
+                                    <div class="column__title"><?= Yii::t('site', 'Переглядайте відео з камер в запису')?></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
+
+
     <section class="video-apply">
         <div class="container">
             <div class="wrapper">
@@ -343,7 +308,7 @@
                                 <input class="main-form__input" type="tel" name="Phone number"
                                        placeholder="<?= Yii::t('site', 'Номер телефону')?>">
                                 <input class="main-form__input" type="email" name="email" placeholder="Email">
-                                <button class="main-form__btn" name="download"><?= Yii::t('site', 'Відправити')?></button>
+                                <button class="button button-primary video-form-btn" name="download"><?= Yii::t('site', 'Відправити')?></button>
                             </form>
                         </div>
 

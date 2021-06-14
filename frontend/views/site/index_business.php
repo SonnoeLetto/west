@@ -1,55 +1,19 @@
 <?php
-
-use common\models\News;
-use common\models\Card;
-use yii\helpers\BaseStringHelper;
-use common\models\Slider;
-use kartik\select2\Select2;
+/**
+ * Created by PhpStorm.
+ * User: alex
+ * Date: 07.06.21
+ * Time: 10:22
+ */
 use yii\helpers\ArrayHelper;
 use yii\web\View;
-
+use common\models\News;
+use common\models\Card;
+use common\models\Slider;
+use kartik\select2\Select2;
 
 $this->registerJs('var cities = ' . json_encode(ArrayHelper::map($cities, 'id', 'group_id')) . ';', View::POS_HEAD);
-$this->registerJsFile("js/popup.js",[
-    'depends' => [
-        \yii\web\JqueryAsset::className()
-    ]
-]);
-$this->registerJsFile("js/main-page.js",[
-    'depends' => [
-        \yii\web\JqueryAsset::className()
-    ]
-]);
 ?>
-
-
-<section class="promotion">
-        <div class="promotion-slider">
-            <?php foreach (Slider::getActive() as $slider) { ?>
-            <div class="promotion-slider__item promotion-slider__type<?= $slider->type ?>">
-                <picture>
-                    <source media="(max-width: 480px)" srcset="/uploads/sliders/<?=$slider->img_mobile?>">
-                    <source media="(max-width: 1200px)" srcset="/uploads/sliders/<?=$slider->img_tablet?>">
-                    <img class="promotion-slider__img" src="/uploads/sliders/<?= $slider->img_desktop ?>" alt="">
-                </picture>
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="promotion__content">
-                                <div class="promotion__content-wrap">
-                                    <h5 class="promotion__content-title" style="color: #<?=$slider->title_color ?>"><?= $slider->title ?></h5>
-                                    <p class="promotion__content-text" style="color: #<?=$slider->text_color ?>"><?= $slider->text ?></p>
-                                    <a class="promotion__content-btn"><?= $slider->linkText ?></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <?php } ?>
-        </div>
-    </section>
 
 <section class="offer">
     <div class="container">
@@ -81,63 +45,66 @@ $this->registerJsFile("js/main-page.js",[
         <div class="offer__ourClients-title middle__title"><?= Yii::t('site', 'Діючі клієнти Westelecom')?></div>
         <div class="offer__ourClients-back"></div>
     </div>
-                    <div class="offer__case">
-                        <div class="container">
-                            <div class="wrapper">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="offer__case-title middle__title"><?= Yii::t('site', 'Реалізовані проекти Westelecom')?></div>
+    <div class="offer__case">
+        <div class="container">
+            <div class="wrapper">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="offer__case-title middle__title"><?= Yii::t('site', 'Реалізовані проекти Westelecom')?></div>
 
 
-                            <?php
-                            $cards = Card::find()->all();
-                            $count = [];
-                            $count[0] = ceil(count($cards) / 3) - 1;
-                            $count[1] = $count[0] * 2 + 1;
-                            ?>
+                        <?php
+                        $cards = Card::find()->all();
+                        $count = [];
+                        $count[0] = ceil(count($cards) / 3) - 1;
+                        $count[1] = $count[0] * 2 + 1;
+                        ?>
 
-                                    <div class="offer__case-slider">
-                                    <?php foreach ($cards as $key => $card) { ?>
-                                        <div class="card">
-                                            <div class="card__inner" href="">
-                                                <div class="card__top">
-                                                    <div class="card__top-number"><?= $key + 1 ?></div>
-                                                    <div class="card__top-wrap">
-                                                        <img src="/img/icons/icon_1.svg"  class="card__top-item" style="display: <?=$card->wi_fi_icon ? '' : 'none'  ?>">
-                                                        <img src="/img/icons/icon_2.svg" class="card__top-item" style="display: <?=$card->phone_icon ? '' : 'none'  ?>">
-                                                        <img src="/img/icons/icon_3.svg" class="card__top-item" style="display: <?=$card->vols_icon ? '' : 'none'  ?>">
-                                                        <img src="/img/icons/icon_4.svg" class="card__top-item" style="display: <?=$card->vlan_icon ? '' : 'none'  ?>">
-                                                    </div>
-                                                </div>
-                                                <a class="card__btn-text"><?= $card->textPreview?></a>
-                                                <div class="card__text" style="display: none;"><?=$card->text ?></div>
-
+                        <div class="offer__case-slider">
+                            <?php foreach ($cards as $key => $card) { ?>
+                                <div class="card">
+                                    <div class="card__inner" href="">
+                                        <div class="card__top">
+                                            <div class="card__top-number"><?= $key + 1 ?></div>
+                                            <div class="card__top-wrap">
+                                                <img src="/img/icons/icon_1.svg"  class="card__top-item" style="display: <?=$card->wi_fi_icon ? '' : 'none'  ?>">
+                                                <img src="/img/icons/icon_2.svg" class="card__top-item" style="display: <?=$card->phone_icon ? '' : 'none'  ?>">
+                                                <img src="/img/icons/icon_3.svg" class="card__top-item" style="display: <?=$card->vols_icon ? '' : 'none'  ?>">
+                                                <img src="/img/icons/icon_4.svg" class="card__top-item" style="display: <?=$card->vlan_icon ? '' : 'none'  ?>">
                                             </div>
                                         </div>
-                                        <?= in_array($key, $count) ? '</div><div class="offer__case-slider">' : '' ?>
-                                    <?php } ?>
-                                    </div>
-
-
-
-
-
-                                        <div id="popup" class="popup">
-                                            <div class="popup__body">
-                                                <button href="#" class="popup__close"></button>
-                                                <div class="popup__content">
-
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <a class="card__btn-text"><?= $card->textPreview?></a>
+                                        <div class="card__text" style="display: none;"><?=$card->text ?></div>
 
                                     </div>
                                 </div>
+                                <?= in_array($key, $count) ? '</div><div class="offer__case-slider">' : '' ?>
+                            <?php } ?>
+                        </div>
+
+
+
+
+
+                        <div id="popup" class="popup">
+                            <div class="popup__body">
+                                <button href="#" class="popup__close"></button>
+                                <div class="popup__content">
+
+                                </div>
                             </div>
                         </div>
+
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </section>
+
+
+
 
 <section class="options">
     <div class="container">
@@ -172,7 +139,7 @@ $this->registerJsFile("js/main-page.js",[
                                         <div class="options-connect__switch">
                                             <input class="options-connect__checkbox-input" type="checkbox">
                                             <label class="options-connect__checkbox-label" for="checkbox">
-                                                    <?= Yii::t('site', 'Інтернет')?>
+                                                <?= Yii::t('site', 'Інтернет')?>
                                             </label>
                                         </div>
                                         <div class="options-connect__select-checkbox">
@@ -195,7 +162,7 @@ $this->registerJsFile("js/main-page.js",[
                                         <div class="options-connect__switch">
                                             <input class="options-connect__checkbox-input" type="checkbox">
                                             <label class="options-connect__checkbox-label" for="checkbox">
-                                                    <?= Yii::t('site', 'Відеоспостереження')?>
+                                                <?= Yii::t('site', 'Відеоспостереження')?>
                                             </label>
                                         </div>
                                         <input class="form-input checkbox-input" type="tel" readonly name="phone"
@@ -205,7 +172,7 @@ $this->registerJsFile("js/main-page.js",[
                                         <div class="options-connect__switch">
                                             <input class="options-connect__checkbox-input" type="checkbox">
                                             <label class="options-connect__checkbox-label" for="checkbox">
-                                                    <?= Yii::t('site', 'Цифрове TV')?>
+                                                <?= Yii::t('header', 'Бізнес Телефонія')?>
                                             </label>
                                         </div>
                                         <div class="options-connect__select-checkbox">
@@ -224,37 +191,47 @@ $this->registerJsFile("js/main-page.js",[
                                             ?>
                                         </div>
                                     </div>
+
                                     <div class="options-connect__checkbox-wrapper">
                                         <div class="options-connect__switch">
                                             <input class="options-connect__checkbox-input" type="checkbox">
                                             <label class="options-connect__checkbox-label" for="checkbox">
-                                                    <?= Yii::t('site', 'Домашній телефон ')?>
+                                                <?= Yii::t('site', 'ВОЛС')?>
                                             </label>
                                         </div>
-                                        <div class="options-connect__select-checkbox">
-                                            <?= Select2::widget([
-                                                'name' => 'tariff',
-                                                'id' => 'choosePhone',
-                                                'data' => [
-                                                    1 => 'Премиум 120',
-                                                    2 => 'Премиум 120',
-                                                ],
-                                                'hideSearch' => true,
-                                                'options' => [
-                                                    'placeholder' => 'Выберите тариф'
-                                                ],
-                                            ]);
-                                            ?>
-                                        </div>
+                                        <input class="form-input checkbox-input"  readonly name="vols"
+                                               placeholder="Инд.расчет">
                                     </div>
                                     <div class="options-connect__checkbox-wrapper">
                                         <div class="options-connect__switch">
                                             <input class="options-connect__checkbox-input" type="checkbox">
                                             <label class="options-connect__checkbox-label" for="checkbox">
-                                                    Colocation
+                                                <?= Yii::t('site', 'VLAN')?>
                                             </label>
                                         </div>
-                                        <input class="form-input checkbox-input" readonly type="tel" name="phone"
+                                        <input class="form-input checkbox-input"  readonly name="vlan"
+                                               placeholder="Инд.расчет">
+                                    </div>
+
+
+                                    <div class="options-connect__checkbox-wrapper">
+                                        <div class="options-connect__switch">
+                                            <input class="options-connect__checkbox-input" type="checkbox">
+                                            <label class="options-connect__checkbox-label" for="checkbox">
+                                                Colocation
+                                            </label>
+                                        </div>
+                                        <input class="form-input checkbox-input" readonly  name="colocation"
+                                               placeholder="Инд.расчет">
+                                    </div>
+                                    <div class="options-connect__checkbox-wrapper">
+                                        <div class="options-connect__switch">
+                                            <input class="options-connect__checkbox-input" type="checkbox">
+                                            <label class="options-connect__checkbox-label" for="checkbox">
+                                                SysAdmin
+                                            </label>
+                                        </div>
+                                        <input class="form-input checkbox-input" readonly  name="sysAdmin"
                                                placeholder="Инд.расчет">
                                     </div>
                                 </div>
@@ -301,23 +278,22 @@ $this->registerJsFile("js/main-page.js",[
     </div>
 </section>
 
-<section class="chooseTariffs">
+
+<section class="chooseTariffs__business">
     <div class="container">
         <div class="wrapper">
             <div class="row">
                 <div class="col-md-12">
-                    <h4 class="rate__main-title">
-                        <?= Yii::t('site', 'Те почуття, коли поспішаєш додому, де Інтернет на Супер Швидкості!')?></h4>
-                    <p class="rate__main-text"><?= Yii::t('site', 'Знайоме? Є таке!')?></p>
-
-                    <a class="button button-secondary rate-btn-m"><?= Yii::t('site', 'Вибрати Тариф')?></a>
+                    <div class="chooseTariffs__business-title">Выпекаешь лучшие печенья
+                        в городе? Обеспечь гостям
+                        надежный WiFi и увеличь
+                        посещаемость!
+                    </div>
+                    <div class="button button-secondary rate-btn-m">Выбрать Тариф</div>
                 </div>
             </div>
         </div>
-
-
     </div>
-
 </section>
 
 <section class="router">

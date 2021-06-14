@@ -73,6 +73,36 @@ a
 header
   background: #1F2431
 
+.button
+  display: block
+  height: 40px
+  line-height: 36px
+  min-width: 120px
+  padding: 0 22px
+  border-radius: 20px
+  font-size: 14px
+  font-weight: 700
+  transition: all .3s ease-in
+  cursor: pointer
+
+.button-primary
+  background-color: #315EFB
+  &:focus
+    background-color: #2997FF
+  &[disabled]
+    background-color: #62687F
+    cursor: not-allowed
+
+.button-secondary
+  background-color: #000000
+  &:hover
+    background-color: #343b4c
+  &:focus
+    background-color: #343B4C
+  &[disabled]
+    background-color: #62687F
+    cursor: not-allowed
+
 .top-line
   display: flex
   justify-content: space-between
@@ -86,17 +116,18 @@ header
   border-bottom: 1px solid #757575
   padding: 25px 0
 
-.top-line__left
-  display: flex
-  align-items: center
-  color: $secondary_color
 
 
 .top-line__left-lang
+  color: $secondary_color
   margin-right: 27px
   font-weight: 700
   padding-top: 8px
+  transition: all 0.3s ease-in-out
+  &:hover
+    color: #EEF2F4
 
+// Choose language =========
 .textTransform
   text-transform: uppercase
 
@@ -108,13 +139,7 @@ header
     a
       padding-left: 12px
 
-.top-line__left-location
-  background: url("../img/icons/left-location.svg")
-  width: 88px
-  height: 21px
-
-.top-line__menu
-  margin: 0
+// ====================
 
 .top-line__menu-item
   display: inline-block
@@ -122,53 +147,108 @@ header
 
 .top-line__menu-link
   position: relative
-  color: #fff
-  font-size: 17px
   display: inline-block
   padding: 24px 0
-  &:hover
-    background-image: $orangeToPink
-    -webkit-background-clip: text
-    color: transparent
-    transition: all .2s ease-in
-  &:hover:after
+  &:after
     content: ''
     position: absolute
     bottom: 0
     left: 0
-    background-image: $orangeToPink
+    opacity: 0
     width: 100%
     height: 4px
+    transition: all 0.3s ease-in-out
+  &:hover
+    -webkit-background-clip: text
+    color: transparent
+    transition: all .3s ease-in
+  &:hover:after
+    opacity: 1
 
-.top-line__menu-link-forBusiness
+.top__link-Home
+  &:after
+    background-image: $orangeToPink
+  &:hover
+    background-image: $orangeToPink
+
+.top__link-Business
+  &:after
+    background-image: $blueToPurple
   &:hover
     background-image: $blueToPurple
-  &:hover:after
-    background-image: $blueToPurple
+
+.top__link-Magazine
+  &:after
+    background-color: #1ED760
+  &:hover
+    color: #1ED760
+
+.more
+  position: relative
+  color: #8D96B2
+  cursor: pointer
+  display: inline-block
+
+  &:hover
+    .more__dropdown
+      display: block
+
+.more__text
+  padding: 24px 0
+  transition: all .3s ease-in
+  &:hover
+    color: #ffffff
+    .dots
+      fill: #ffffff
+
+
+.more__dropdown
+  display: none
+  position: absolute
+  background-color: #343B4C
+  min-width: 270px
+  padding: 26px 39px
+  border-radius: 12px
+  &-item
+    display: block
+    transition: all .3s ease-in
+    &:hover
+      color: #ffffff
+    & + .more__dropdown-item
+      margin-top: 5px
+
+.dots
+  vertical-align: middle
+  margin-left: 5px
+  width: 22px
+  height: 6px
+  fill: $secondary_color
+  transition: all .3s ease-in
+
+.tools
+  &:focus
+    color: inherit
+  &:hover
+    color: #ffffff
+    .personal__icon
+      stroke: #ffffff
 
 .tools__item
   display: inline-block
   vertical-align: middle
   line-height: 25px
+  color: $secondary_color
+  transition: all .3s ease-in
 
-.top-line__tools-basket:before,
-.top-line__tools-personal:before
-  content: ""
-  background-size: auto 25px
-  display: inline-block
-  height: 26px
-  vertical-align: top
 
-.top-line__tools-basket
-  margin-right: 20px
-  &:before
-    background: url("../img/icons/Bag.svg") no-repeat
-    width: 30px
+.personal__icon
+  width: 21px
+  height: 27px
+  stroke: $secondary_color
+  fill: transparent
+  vertical-align: bottom
+  transition: all .3s ease-in
 
-.top-line__tools-personal
-  &:before
-    background: url("../img/icons/Profile.svg") no-repeat
-    width: 26px
 
 // SWIPE RIGHT MENU START
 .menu__bg
@@ -232,58 +312,52 @@ header
   text-align: left
 
 .right-menu__category
-  font-weight: 500
   font-size: 21px
   line-height: 26px
-  margin-bottom: 36px
+  margin: 0 0 36px
+
+.category__item
+  transition: all .2s ease-in
 
 .category__item + .category__item
   margin-top: 18px
 
-.category__item
-  &:active
+.right-menu__col-home
+  &:hover
     background-image: $orangeToPink
     -webkit-background-clip: text
     color: transparent
 
-.right-menu__tools
-  text-align: left
-  margin-bottom: 30px
+.right-menu__col-business
+  &:hover
+    background-image: $blueToPurple
+    -webkit-background-clip: text
+    color: transparent
 
-.right-menu__tools-basket
-  display: block
-  margin-bottom: 29px
-  &:before
-    content: ""
-    background: url("../img/icons/Bag.svg") no-repeat
-    background-size: auto 25px
-    display: inline-block
-    height: 26px
-    width: 30px
-    vertical-align: top
+.right-menu__col-magazine
+  &:hover
+    color: #1ED760
 
-.right-menu__tools-personal
-  display: block
-  &:before
-    content: ""
-    background: url("../img/icons/Profile.svg") no-repeat
-    background-size: auto 25px
-    display: inline-block
-    height: 26px
-    width: 26px
-    vertical-align: top
+.right-menu__col-other
+  color: $secondary_color
+  &:hover
+    color: #ffffff
 
 .right-line__link
   display: flex
   font-size: 17px
-  font-weight: 500
   line-height: 21px
-  &:active
+  &:hover
     .right-line__link-text
       color: #ffffff
     .right-line__icon
       fill: white
     .right-line__icon-phone
+      stroke: #ffffff
+    .icon-phone
+      stroke: white
+    .icon__VOLS
+      fill: transparent
       stroke: #ffffff
 
 .right-menu__list-item + .right-menu__list-item
@@ -304,6 +378,11 @@ header
   transition: all .2s ease-in
   fill: none
   stroke: $secondary_color
+  transition: all .2s ease-in
+  width: 25px
+  height: 21px
+  margin-right: 18px
+
 
 .icon-wi-fi
   width: 21px
@@ -329,22 +408,6 @@ header
   width: 100%
   height: 46px
 
-.middle-line__promotion
-  position: relative
-  color: #ffffff
-  margin: 0
-  font-size: 21px
-  line-height: 25px
-  padding-left: 16px
-  &:before
-    content: ""
-    position: absolute
-    display: block
-    background: #ffffff
-    height: 100%
-    width: 2px
-    top: 0
-    left: 0
 
 .middle-line__email
   line-height: 24px
@@ -378,6 +441,7 @@ header
   z-index: 5000
   background-color: #1f2431
   padding: 5px 0
+  opacity: 0.9
 
 .bottom-line__list
   padding: 10px 0 11px
@@ -397,6 +461,10 @@ header
       fill: white
     .bottom-line__icon-phone
       stroke: #ffffff
+    .icon__VOLS
+      fill: transparent
+      stroke: #ffffff
+
 
 .bottom-line__list-item+.bottom-line__list-item
   margin-left: 38px
@@ -421,6 +489,13 @@ header
   width: 33px
   height: 27px
   margin-bottom: 10px
+
+.icon__VOLS
+  fill: transparent
+  stroke: $secondary_color
+  &:hover
+    fill: transparent
+    stroke: #ffffff
 
 // SLIDER START
 
@@ -577,22 +652,65 @@ header
     color: $secondary_color
 
 
-.main-form__btn
-  display: block
+.offer-btn-m
   margin: 40px auto 0
-  padding: 11.5px 30.5px
-  border-radius: 19px
-  background: #62687F
-  color: #ffffff
-  font-weight: 700
-  line-height: 17px
-  font-size: 14px
 
 .main-form__input+.main-form__input
   margin-top: 15px
+//
+.offer__ourClients-back
+  background-image: url("/img/back_case.png")
+  background-repeat: repeat-x
+  animation: background-logo 100s linear infinite
+  //animation-delay: 0s
+  //animation-duration: 300s
+  height: 675px
+
+
+@keyframes background-logo
+  0%
+    background-position: 0
+  //50%
+  //  background-position: -50% 0%
+
+  100%
+    background-position: 1833px
 
 .offer__case-slider-item
   overflow: hidden
+
+.card
+  &:nth-of-type(6n+1)
+    background-color: #2997FF
+  &:nth-of-type(6n+2)
+    background-color: #315EFB
+  &:nth-of-type(6n+3)
+    background-color: #BF5AF2
+  &:nth-of-type(6n+4)
+    background-color: #FF375F
+  &:nth-of-type(6n+5)
+    background-color: #FFA227
+  &:nth-of-type(6n+6)
+    background-color: #1ED760
+
+  //&:nth-of-type(6n-5)
+  //  background-color: #FF375F
+  //&:nth-of-type(6n-4)
+  //  background-color: #FFA227
+  //&:nth-of-type(6n-3)
+  //  background-color: #1ED760
+  //&:nth-of-type(6n-2)
+  //  background-color: #2997FF
+  //&:nth-of-type(6n-1)
+  //  background-color: #315EFB
+  //&:nth-of-type(6n)
+  //  background-color: #BF5AF2
+
+.offer__case
+  padding-top: 38px
+
+.offer__case-title
+  margin-bottom: 38px
 
 .offer__case-text
   text-align: center
@@ -611,9 +729,26 @@ header
   border-radius: 18px
   margin: 0 11px 25px
 
-.card__btn-title
+.card__top
   font-weight: 700
   line-height: 21px
+  display: flex
+  justify-content: space-between
+  &-wrap
+    font-size: 0
+    img
+      display: inline
+      & + img
+        margin-left: 7px
+
+.card__top-number
+  width: 45px
+  height: 45px
+  background: rgba(255, 255, 255, 0.25)
+  border-radius: 50%
+
+  text-align: center
+  line-height: 47px
 
 .card__btn-text
   padding: 17px 19px
@@ -622,8 +757,74 @@ header
   left: 0
   line-height: 21px
   color: #ffffff
+  //overflow: hidden
+  //text-overflow: ellipsis
   &:hover
     text-decoration: underline
+
+.popup__content p
+  margin-bottom: 25px
+
+.popup
+  position: absolute
+  width: 100%
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  display: none
+  background: rgba(#1F2431, .5)
+
+
+
+.popup__body
+  position: absolute
+  max-width: 900px
+  width: 100%
+  min-height: 400px
+  max-height: 500px
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%)
+  padding: 25px
+  background-color: #1F2431
+  color: $secondary_color
+  border-radius: 36px
+  overflow-y: auto
+  overflow-x: hidden
+
+.popup__content
+  padding-left: 40px
+  padding-top: 70px
+
+.popup__close
+  position: absolute
+  top: 30px
+  right: 30px
+  width: 23px
+  height: 23px
+  background: none
+  cursor: pointer
+
+.popup__close:before
+  content: ''
+  background-color: $secondary_color
+  position: absolute
+  height: 2px
+  width: 12px
+  top: 11px
+  left: -4px
+  transform: rotate(-45deg)
+
+.popup__close:after
+  content: ''
+  background-color: $secondary_color
+  position: absolute
+  height: 2px
+  width: 12px
+  top: 11px
+  left: -4px
+  transform: rotate(45deg)
 
 .options
   background: #EEF2F4
@@ -810,20 +1011,8 @@ header
   font-weight: 500
   color: #000
 
-.btn__form
-  padding-top: 2px
-  width: 120px
-  height: 40px
-  font-weight: 700
-  font-size: 14px
-  border-radius: 20px
-  background:  #000000
-  vertical-align: center
-  line-height: 40px
+.options-btn-m
   margin: 0 auto
-  display: block
-  &:active
-    background: #1F2431
 
 .options-payment
   padding: 37px 0 25px
@@ -877,9 +1066,52 @@ header
     text-decoration: underline
     color: #315EFB
 
+.chooseTariffs
+  background: url("../img/back.svg") #C6CAD8 no-repeat
+  background-position: center 100%
+  background-size: contain
+  padding: 100px 0 99px
+
+.chooseTariffs__business
+  background: url("../img/back_business.jpg") #C6CAD8 no-repeat
+  background-size: cover
+  background-position: center
+  padding: 135px 0 130px
+  text-align: center
+
+.chooseTariffs__business-title
+  font-size: 36px
+  line-height: 44px
+  color: #000000
+  font-weight: 700
+  max-width: 515px
+  width: 100%
+  margin: 0 auto 24px
+
 .rate
-  background: #EEF2F4
-  padding: 39px 0 50px
+  padding: 50px 0
+
+.rate__main-title
+  background-image: $orangeToPink
+  -webkit-background-clip: text
+  color: transparent
+  margin-bottom: 26px
+  font-size: 36px
+  line-height: 44px
+  font-weight: 700
+  max-width: 375px
+  width: 100%
+
+.rate__main-text
+  color: #62687F
+  font-size: 21px
+  line-height: 26px
+  margin-bottom: 36px
+
+.rate-btn-m
+  display: inline-block
+
+
 
 .rate__title
   color: #000
@@ -905,16 +1137,21 @@ header
       border: 1px solid rgba(#8D96B2, .3)
 
 
+
 .rate-item
   position: relative
-  background-image: linear-gradient(359.61deg,rgba(169,201,255,.65) .34%,rgba(255,187,236,.65) 99.68%)
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1)
   border-radius: 30px
   border: 1px solid #C6CAD8
   text-align: center
   padding: 29px 0 28px 0
-  margin: 0 25px
-  margin-top: 40px
+  margin: 40px 25px 15px
+
+.rate-item__home-color
+  background-image: linear-gradient(359.61deg,rgba(169,201,255,.65) .34%,rgba(255,187,236,.65) 99.68%)
+
+.rate-item__business-color
+  background: linear-gradient(360deg, rgba(131, 106, 252, 0.7) 1.63%, rgba(52, 154, 255, 0.7) 101.05%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)
 
 .rate-item__forNewClients
   text-align: center
@@ -924,12 +1161,17 @@ header
   top: 0
   left: 0
   right: 0
-  background-color: #00D37F
   width: 160px
   height: 23px
   margin: 0 auto
   border-bottom-left-radius: 10px
   border-bottom-right-radius: 10px
+
+.forNewClients-color-home
+  background-color: #00D37F
+
+.forNewClients-color-business
+  background-color: #BF5AF2
 
 .hot__img
   position: absolute
@@ -955,6 +1197,26 @@ header
   font-size: 17px
   line-height: 19px
   color: #000000
+
+.rate-slider__business
+  outline: none
+  position: relative
+  max-width: 1000px
+  margin: 0 auto
+  .slick-arrow
+    position: absolute
+    top: 50%
+    z-index: 10
+    font-size: 0
+    width: 50px
+    height: 50px
+
+.rate-slider__business .slick-arrow.slick-prev
+  left: -60px
+  background: url("../img/rare_img/left_arrow.svg")
+.rate-slider__business .slick-arrow.slick-next
+  right: -60px
+  background: url("../img/rare_img/right_arrow.svg")
 
 .rate-slider
   outline: none
@@ -983,6 +1245,7 @@ header
   a
     text-decoration: underline
     color: #315EFB
+    
 .rate-item__price
   color: #000000
   font-weight: 700
@@ -992,6 +1255,13 @@ header
   span
     font-size: 45px
     line-height: 50px
+
+.price-color
+  color: #ffffff
+
+.rate-item__link
+  a
+    color: #000000
 
 .router
   padding: 49px 0 0 0
@@ -1042,7 +1312,8 @@ header
   width: 100%
 
 
-
+.offer__ourClients-title
+  margin-bottom: 40px
 
 .our-clients
   background-color: #1F2431
@@ -1096,7 +1367,8 @@ header
 
 .mobile
   padding: 77px 0 43px
-  background: linear-gradient(270deg, #A9C9FF -10.38%, #FFBBEC 114.81%)
+  background: url("/img/backGround2.jpg"), #2eb4e6 no-repeat
+  background-size: cover
   color: #000000
 
 .mobile-vision
@@ -1179,8 +1451,8 @@ header
 
 .mobile__image
   position: absolute
-  top: -114px
-  right: -120px
+  top: 58px
+  right: 0
 
 .mobile-vision__image
   position: absolute
@@ -1452,6 +1724,12 @@ header
   -webkit-background-clip: text
   color: transparent
 
+.check-title__business
+  margin-bottom: 38px
+  background-image: $blueToPurple
+  -webkit-background-clip: text
+  color: transparent
+
 .connection-check__form-inner
   display: flex
   align-items: center
@@ -1480,15 +1758,7 @@ header
     color: $secondary_color
 
 
-.connection-check__form-btn
-  width: 120px
-  height: 40px
-  border-radius: 20px
-  background: #315EFB
-  color: #ffffff
-  font-weight: 700
-  line-height: 17px
-  font-size: 14px
+.connection-check-btn
   margin-left: 40px
 
 .info
@@ -1511,6 +1781,12 @@ header
 .services-content__title
   margin-bottom: 22px
   background-image: $orangeToPink
+  -webkit-background-clip: text
+  color: transparent
+
+.services-content__title-business
+  margin-bottom: 22px
+  background-image: $blueToPurple
   -webkit-background-clip: text
   color: transparent
 
@@ -1564,6 +1840,11 @@ header
   -webkit-background-clip: text
   color: transparent
 
+.services-plus__title-business
+  margin-bottom: 40px
+  background-image: $blueToPurple
+  -webkit-background-clip: text
+  color: transparent
 .application
   background: center url("../img/backGround2.svg") no-repeat
   background-size: cover
@@ -1640,7 +1921,6 @@ header
 
 .howConnect-feedback__title
   font-weight: 700
-  padding-left: 100px
   margin-bottom: 19px
 
 .howConnect-feedback--homeInt
@@ -1656,6 +1936,17 @@ header
   margin: 0 20px
   &:hover
     background-image: $orangeToPink
+    -webkit-background-clip: text
+    color: transparent
+
+.feedback-numb__business
+  font-weight: 700
+  background-image: $blueToPurple
+  -webkit-background-clip: text
+  color: transparent
+  margin: 0 20px
+  &:hover
+    background-image: $blueToPurple
     -webkit-background-clip: text
     color: transparent
 
@@ -1676,50 +1967,59 @@ header
 .video-home
   background-color: #EEF2F4
 
-.block-content
-  padding: 40px 0 0
-  color: #1D1D1F
+.block-info
+  color: #000000
 
-.block-content__title
-  margin-bottom: 38px
+.block-info__bus-internet
+  background-color: #EEF2F4
+  padding: 50px 0 20px
 
-.block-content__items-wrap
-  display: flex
-  flex-wrap: wrap
-  margin: 0 -37px
+.block-info-video__title
+  background-color: white
 
-.block-content__item
-  margin-bottom: 40px
-  padding: 0 37px
-
-.block-content__item:nth-child(even)
-  flex: 0 1 55%
-
-.block-content__item:nth-child(odd)
-  flex: 0 1 45%
-
-.img-wrap
-  text-align: center
-
-.block-content__item-img
-  margin: 0 auto
+.block-info__title
   margin-bottom: 20px
 
-.block-content__item-title
+.block-info__title-video
+  text-align: left
+
+.block-info-video__1-row
+  padding: 39px 0 46px
+
+
+.block-info-video__2-row
+  padding: 40px 0
+  background-color: white
+
+.block-info__inner
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -25px
+
+.block-info__column
+  flex: 0 1 50%
+  padding: 0 25px
+  margin-bottom: 15px
+
+.column__img
+  display: block
+  margin: 0 auto
+  margin-bottom: 18px
+
+.column__title
   font-size: 26px
   line-height: 32px
   font-weight: 700
-  //text-align: center
-
-.content__item--mb
   margin-bottom: 30px
+  word-wrap: break-word
 
-.block-content__item-text
-  line-height: 21px
+.column__text
   color: #62687F
 
-.block-content--color
-  background-color: #ffffff
+.block-info-video__title
+  font-size: 32px
+  line-height: 38px
+  padding: 43px 0 42px
   
 .video-apply
   color: #1D1D1F
@@ -1739,6 +2039,8 @@ header
   display: block
   text-align: center
 
+.video-form-btn
+  margin: 35px auto 0
 .news__pagination
   .pagination
     display: flex
@@ -2188,8 +2490,7 @@ header
   max-width: 700px
   width: 100%
   margin: 0 auto
-  .btn__form
-    color: #ffffff
+
 
 .tariff-result__checkbox-wrapper
   display: flex

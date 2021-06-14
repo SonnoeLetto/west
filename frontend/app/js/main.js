@@ -34,6 +34,33 @@ $(document).ready(function () {
         }]
     });
 
+    $('.rate-slider__business').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: true,
+        responsive: [{
+            breakpoint: 1200,
+            settings: {
+                arrows: false
+            }
+        }, {
+            breakpoint: 992,
+            settings: {
+                arrows: false,
+                slidesToShow: 2,
+                lidesToScroll: 1
+            }
+        }, {
+            breakpoint: 550,
+            settings: {
+                arrows: false,
+                slidesToShow: 1,
+                lidesToScroll: 1
+            }
+        }]
+    });
+
     function filterSlider() {
         var city_id = $('#cities-select').val();
         var group_id = cities[city_id];
@@ -46,56 +73,11 @@ $(document).ready(function () {
         filterSlider();
     });
 
-    // $('.rate-slider').slick('slickUnfilter');
-    // $('.rate-slider').slick('slickFilter', foo);
-    //
-    // function foo() {
-    //
-    //    const result = $('.rate-item').each(function () {
-    //         $(this).data('id') != cities[1];
-    //     });
-    //    return result
-    // }
-
-    // $('.rate-slider').slick('slickUnfilter', );
-    // console.log($(this).data('id') != cities[1]);
-    // $('.rate-slider').slick('slickFilter', $(this).data('id') == cities[1]);
-
-
-    // $('.rate-slider').slick('slickUnfilter', function () {
-    //     $('.rate-item').each(function () {
-    //         $(this).data('id') != cities[1]
-    //     })
-    // });
-
-
-    // $('.rate-slider').slick('slickFilter', function () {
-    //     $('.rate-item').each(function () {
-    //         $(this).data('id') == cities[1]
-    //     })
-    // });
-
-    // const id_index = $('.rate-item').data('id') != cities[1];
-
-    // $('.rate-item').each(function () {
-    //     $('.rate-slider').slick('slickUnfilter')
-    //     if ( $(this).data('id') == cities[1]) {
-    //         console.log($(this).data('id'));
-    //         console.log(cities[1]);
-    //         $('.rate-slider').slick('slickFilter', $(this))
-    //     }
-    // })
-
-
-    // const id_index = $('.rate-item').each(function () {
-    //     if (o) {
-    //
-    //     }
-    // });
-    // console.log(id_index);
-
-
-    // $('.rate-slider').slick('slickFilter', id_index);
+    $('.business__tab').click(function () {
+        var group_id = $(this).data('group');
+        console.log(group_id);
+        $('.rate-slider__business').slick('slickUnfilter').slick('slickFilter', $('.rate-item[data-id="' + group_id + '"]').closest('.slick-slide'));
+    });
 
     $('.news-slider').slick({
         infinite: true,
@@ -139,26 +121,6 @@ $(document).ready(function () {
             }
         }]
 
-    });
-
-    $('.offer__case-slider--reverse').slick({
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        arrows: false,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        responsive: [{
-            breakpoint: 992,
-            settings: {
-                slidesToShow: 2
-            }
-        }, {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1
-            }
-        }]
     });
 
     $('.burger').click(function () {
@@ -293,7 +255,6 @@ $(document).ready(function () {
 
     $('.business__tab').click(function () {
         var group_id = $(this).data('group');
-        console.log(group_id);
         var is_first = true;
 
         $('.tariff-tabs .nav li').each(function () {
