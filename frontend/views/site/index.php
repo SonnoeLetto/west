@@ -9,17 +9,13 @@ use yii\helpers\ArrayHelper;
 use yii\web\View;
 
 
-$this->registerJs('var cities = ' . json_encode(ArrayHelper::map($cities, 'id', 'group_id')) . ';', View::POS_HEAD);
+//$this->registerJs('var cities = ' . json_encode(ArrayHelper::map($cities, 'id', 'group_id')) . ';', View::POS_HEAD);
 $this->registerJsFile("js/popup.js",[
     'depends' => [
         \yii\web\JqueryAsset::className()
     ]
 ]);
-$this->registerJsFile("js/main-page.js",[
-    'depends' => [
-        \yii\web\JqueryAsset::className()
-    ]
-]);
+
 ?>
 
 
@@ -78,7 +74,16 @@ $this->registerJsFile("js/main-page.js",[
         </div>
     </div>
     <div class="offer__ourClients">
-        <div class="offer__ourClients-title middle__title"><?= Yii::t('site', 'Діючі клієнти Westelecom')?></div>
+        <div class="container">
+            <div class="wrapper">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="offer__ourClients-title middle__title"><?= Yii::t('site', 'Діючі клієнти Westelecom')?></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="offer__ourClients-back"></div>
     </div>
                     <div class="offer__case">
@@ -302,6 +307,7 @@ $this->registerJsFile("js/main-page.js",[
 </section>
 
 <section class="chooseTariffs">
+    <div class="blur"></div>
     <div class="container">
         <div class="wrapper">
             <div class="row">
@@ -309,8 +315,10 @@ $this->registerJsFile("js/main-page.js",[
                     <h4 class="rate__main-title">
                         <?= Yii::t('site', 'Те почуття, коли поспішаєш додому, де Інтернет на Супер Швидкості!')?></h4>
                     <p class="rate__main-text"><?= Yii::t('site', 'Знайоме? Є таке!')?></p>
+                    <div class="button-wrap">
+                        <a class="button button-secondary rate-btn-m"><?= Yii::t('site', 'Обрати Тариф')?></a>
 
-                    <a class="button button-secondary rate-btn-m"><?= Yii::t('site', 'Вибрати Тариф')?></a>
+                    </div>
                 </div>
             </div>
         </div>

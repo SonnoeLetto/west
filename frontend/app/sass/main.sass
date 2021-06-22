@@ -15,7 +15,7 @@ body
   //display: none
   font-size: 17px
   color: white
-  line-height: 1
+  line-height: 21px
   font-weight: 500
 
 button
@@ -37,9 +37,19 @@ input[type=checkbox]:focus,
 input[type=radio]:focus
   outline: none
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+  -webkit-appearance: none
+  margin: 0
+
+
+input[type=number]
+  -moz-appearance: textfield
+
 input[type=checkbox],
 input[type=radio]
   margin: 0
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr,
 acronym, address, big, cite, code, del, dfn, em, img, ins, kbd,
@@ -74,16 +84,17 @@ header
   background: #1F2431
 
 .button
-  display: block
-  height: 40px
-  line-height: 36px
   min-width: 120px
-  padding: 0 22px
+  padding: 12px 22px
   border-radius: 20px
   font-size: 14px
   font-weight: 700
   transition: all .3s ease-in
   cursor: pointer
+  display: inline-flex
+  align-self: center
+  justify-content: center
+  color: #ffffff
 
 .button-primary
   background-color: #315EFB
@@ -95,6 +106,7 @@ header
 
 .button-secondary
   background-color: #000000
+
   &:hover
     background-color: #343b4c
   &:focus
@@ -122,7 +134,7 @@ header
   color: $secondary_color
   margin-right: 27px
   font-weight: 700
-  padding-top: 8px
+  padding-top: 2px
   transition: all 0.3s ease-in-out
   &:hover
     color: #EEF2F4
@@ -645,7 +657,7 @@ header
   display: block
   background: rgba(#1F2431, 0.3)
   border-radius: 16px
-  padding: 14.5px 0 14.5px 20px
+  padding: 14.5px 20px 14.5px 20px
   line-height: 21px
   border-style: none
   &::placeholder
@@ -661,6 +673,7 @@ header
 .offer__ourClients-back
   background-image: url("/img/back_case.png")
   background-repeat: repeat-x
+  //background-size: contain
   animation: background-logo 100s linear infinite
   //animation-delay: 0s
   //animation-duration: 300s
@@ -693,18 +706,6 @@ header
   &:nth-of-type(6n+6)
     background-color: #1ED760
 
-  //&:nth-of-type(6n-5)
-  //  background-color: #FF375F
-  //&:nth-of-type(6n-4)
-  //  background-color: #FFA227
-  //&:nth-of-type(6n-3)
-  //  background-color: #1ED760
-  //&:nth-of-type(6n-2)
-  //  background-color: #2997FF
-  //&:nth-of-type(6n-1)
-  //  background-color: #315EFB
-  //&:nth-of-type(6n)
-  //  background-color: #BF5AF2
 
 .offer__case
   padding-top: 38px
@@ -1022,13 +1023,13 @@ header
   margin: 0 auto
   max-width: 397px
   width: 100%
-  padding-left: 34px
+  padding-left: 43px
   padding-bottom: 45px
   &:before
     background-image: url("../img/options_image/wallet.svg")
     background-repeat: no-repeat
     top: 3px
-    left: 1px
+    left: 10px
   &:after
     content: ''
     color: #1d1d1f
@@ -1067,12 +1068,16 @@ header
     color: #315EFB
 
 .chooseTariffs
+  position: relative
   background: url("../img/back.svg") #C6CAD8 no-repeat
   background-position: center 100%
   background-size: contain
   padding: 100px 0 99px
 
+
+
 .chooseTariffs__business
+  position: relative
   background: url("../img/back_business.jpg") #C6CAD8 no-repeat
   background-size: cover
   background-position: center
@@ -1111,7 +1116,8 @@ header
 .rate-btn-m
   display: inline-block
 
-
+.rate-variables-business
+  display: none
 
 .rate__title
   color: #000
@@ -1984,8 +1990,8 @@ header
   text-align: left
 
 .block-info-video__1-row
-  padding: 39px 0 46px
-
+  padding: 39px 0 39px
+  background-color: #EEF2F4
 
 .block-info-video__2-row
   padding: 40px 0
@@ -1999,8 +2005,14 @@ header
 .block-info__column
   flex: 0 1 50%
   padding: 0 25px
-  margin-bottom: 15px
+  margin-bottom: 50px
+  &:last-child
+    margin-bottom: 0
 
+.column__wrapper
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
 .column__img
   display: block
   margin: 0 auto
@@ -2013,9 +2025,39 @@ header
   margin-bottom: 30px
   word-wrap: break-word
 
+.info-business__column-title
+  font-size: 26px
+  line-height: 32px
+  background-image: $blueToPurple
+  -webkit-background-clip: text
+  color: transparent
+  margin-bottom: 20px
+
+
+.info-business__list-item
+  position: relative
+  padding-left: 31px
+  & + .info-business__list-item
+    margin-top: 20px
+  &:before
+    content: ''
+    background: url("/img/tariff_icon.svg")
+    width: 21px
+    height: 16px
+    position: absolute
+    top: 3px
+    left: 0
+
+.column__title-width
+  max-width: 310px
 .column__text
   color: #62687F
 
+.info-business__list
+  max-width: 345px
+
+.info-business__list-third
+  max-width: 310px
 .block-info-video__title
   font-size: 32px
   line-height: 38px
@@ -2024,6 +2066,7 @@ header
 .video-apply
   color: #1D1D1F
   padding: 40px 0
+  background-color: #EEF2F4
 
 .video-apply__title
   text-align: left
@@ -2040,6 +2083,7 @@ header
   text-align: center
 
 .video-form-btn
+  display: flex
   margin: 35px auto 0
 .news__pagination
   .pagination
@@ -2614,6 +2658,13 @@ header
   color: transparent
   margin-bottom: 47px
 
+.consultation__title-bus
+  text-align: left
+  background-image: $blueToPurple
+  -webkit-background-clip: text
+  color: transparent
+  margin-bottom: 47px
+
 .consultation-form
   margin: 0 87px 0 0
 
@@ -2645,6 +2696,506 @@ header
 .howConnect-feedback__title--homeVideo
   font-weight: 700
   margin-bottom: 19px
+
+.calculate
+  color: #1d1d1f
+  padding: 39px 0 50px
+
+.calculate__title
+  margin-bottom: 21px
+
+.calculate__form
+  padding-left: 250px
+  margin-bottom: 38px
+
+.calculate__form-item
+  margin-bottom: 20px
+
+.calculate__form-item-last
+  display: flex
+  & > .calculate__list-item
+    margin-left: 40px
+
+.calculate__form-title
+  font-size: 32px
+  line-height: 39px
+  margin-bottom: 5px
+
+.calculate__list-item
+  & + .calculate__list-item
+    margin-top: 10px
+
+.calculate__form-position
+  display: flex
+  justify-content: space-between
+
+.calculate__list-item-content
+  font-size: 21px
+  line-height: 40px
+  max-width: 350px
+  width: 100%
+
+.calculate__list-item input[type="number"]
+  padding: 0 11px
+  color: #315EFB
+  border: 1px solid #8D96B2
+  border-radius: 4px
+  width: 100px
+  height: 40px
+  &:focus
+    box-shadow: 0 0 0 3px rgba(#2997FF, .5)
+
+.check
+  line-height: 26px
+  display: inline-flex
+  align-items: center
+
+.check__box
+  margin-right: 18px
+  vertical-align: middle
+  width: 20px
+  height: 20px
+
+.check-primary__box
+  border-radius: 50%
+  background-color: #C6CAD8
+
+.check-secondary__box
+  border: 2px solid #C6CAD8
+  border-radius: 6px
+  background-color: white
+
+.check__input
+  position: absolute
+  width: 1px
+  height: 1px
+  overflow: hidden
+  clip: rect(0 0 0 0)
+
+.check-primary__input
+  &:checked + .check__box
+    background-color: #fff
+    border: 5px solid #8D96B2
+  &:focus + .check__box
+    box-shadow: 0 0 0 3px rgba(#2997FF, .5)
+  &:checked:focus + .check__box
+    box-shadow: 0 0 0 3px rgba(#2997FF, .5)
+
+.check-secondary__input
+  &:checked + .check-secondary__box
+    display: block
+    background-image: url("../img/Check.svg")
+    height: 20px
+    width: 20px
+    background-repeat: no-repeat
+    background-position: bottom
+    background-position-y: -2px
+    background-color: #8D96B2
+    border-color: #8D96B2
+  &:focus + .check-secondary__box
+    box-shadow: 0 0 0 3px rgba(#2997FF, .5)
+  &:checked:focus + .check-secondary__box
+    box-shadow: 0 0 0 3px rgba(#2997FF, .5)
+
+.calc-input
+  display: block
+  margin: 0 auto
+  max-width: 280px
+  width: 100%
+  background: rgba(#C6CAD8, 0.35)
+  padding: 15px 33px
+  border: 1px solid rgba(#8D96B2, 0.35)
+  & + .calc-input
+    margin-top: 15px
+  &:focus
+    box-shadow: 0 0 0 3px rgba(#2997FF, .5)
+
+.calc-btn-m
+  margin: 40px auto 0
+
+.phone-info
+  color: #000000
+  padding: 50px 0 34px
+  background-color: #EEF2F4
+
+.phone-info__list + .phone-info__list
+  margin-top: 22px
+
+.phone-info__list-w
+  max-width: 586px
+  width: 100%
+.phone-info__title
+  margin-bottom: 44px
+
+.phone-info__definition-bus
+  &:before
+    content: ''
+    display: inline-block
+    vertical-align: middle
+    margin-right: 10px
+    height: 5px
+    width: 5px
+    border-radius: 50%
+    background-color: #000
+
+.phone-bus-title
+  margin: 0 auto
+  margin-bottom: 44px
+  max-width: 815px
+  width: 100%
+  span
+    background-image: $blueToPurple
+    -webkit-background-clip: text
+    color: transparent
+.phone-info__content
+  max-width: 750px
+  width: 100%
+  margin: 0 auto
+.phone-info__text
+  margin-bottom: 22px
+  & span
+    font-weight: 700
+
+.phone-info__text-width
+  max-width: 540px
+  width: 100%
+
+.phone-info__text-width-bus
+  max-width: 712px
+  width: 100%
+.phone-info__text-width-last
+  max-width: 640px
+  width: 100%
+
+.phone-columns
+  padding: 40px 0 38px
+
+.phone-columns__wrap
+  display: flex
+  justify-content: space-between
+
+.phone__col-inner
+  position: relative
+  &:before
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    width: 50px
+    height: 50px
+
+.phone-col-1
+  max-width: 234px
+  width: 100%
+  &:before
+    left: -58px
+
+
+.phone-col-home-1:before
+  background: url("../img/icons/phone-icon1.svg") no-repeat
+  top: -16px
+
+.phone-col-bussines-1:before
+  background: url("../img/icons/phone-icon01.svg") no-repeat
+
+
+.phone-col-2
+  max-width: 374px
+  width: 100%
+  &:before
+    left: -35px
+    top: -2px
+
+.phone-col-home-2:before
+  background: url("../img/icons/phone-icon2.svg") no-repeat
+
+.phone-col-bussines-2:before
+  background: url("../img/icons/phone-icon02.svg") no-repeat
+
+.phone-col-3
+  max-width: 256px
+  width: 100%
+  &:before
+    left: -30px
+    top: -2px
+
+.phone-col-home-3:before
+  background: url("../img/icons/phone-icon3.svg") no-repeat
+
+.phone-col-bussines-3:before
+  background: url("../img/icons/phone-icon03.svg") no-repeat
+
+.phone__col-title
+  color: #1d1d1f
+  line-height: 17px
+  margin-bottom: 16px
+.phone__col-text
+  color: #62687F
+  font-size: 14px
+  line-height: 17px
+
+.colocation-info
+  padding: 40px 0 45px
+
+.colocation-info__title
+  color: #000
+  margin-bottom: 22px
+  text-align: left
+
+.colocation-info__subtitle
+  color: #000
+  font-size: 32px
+  line-height: 39px
+  margin-bottom: 25px
+  max-width: 800px
+  width: 100%
+  
+.colocation-info__text-content
+  color: #62687F
+  font-size: 21px
+  line-height: 26px
+  max-width: 1045px
+  width: 100%
+
+.colocation-info__text-block + .colocation-info__text-block
+  margin-top: 30px
+
+.colocation-btn
+  margin: 0 auto
+  background: $blueToPurple
+
+.colocation-button
+  background-color: #EEF2F4
+  padding: 50px 0
+
+.btn__wrap
+  text-align: center
+
+.colocation-info-provide
+  padding: 48px 0 34px
+  color: #000
+
+.colocation-info-provide__title
+  text-align: left
+  margin-bottom: 24px
+
+.colocation-info-provide__inner
+  display: flex
+.colocation-info-provide__list-item
+  list-style: disc
+
+.colocation-info-provide__list1
+  padding-left: 50px
+  margin-right: 220px
+  max-width: 290px
+  width: 100%
+
+.colocation-info-provide__list2
+  max-width: 320px
+  width: 100%
+
+.colocation-info-services__title
+  background-image: $orangeToPink
+  -webkit-background-clip: text
+  color: transparent
+  margin-bottom: 41px
+
+.colocation-info-provide__list1
+  .colocation-info-provide__list-item
+    & + .colocation-info-provide__list-item
+      margin-top: 27px
+
+.colocation-info-provide__list2
+  .colocation-info-provide__list-item + .colocation-info-provide__list-item
+    margin-top: 48px
+
+
+.colocation-info-services
+  background-color: #1F2431
+  padding: 40px 0 0
+
+.colocation-info-services__inner
+  flex-wrap: wrap
+  display: flex
+  justify-content: space-between
+
+.colocation-info-services__item
+  margin-bottom: 40px
+.colocation-info-services__text
+  font-size: 32px
+  line-height: 39px
+  font-weight: 700
+
+  margin-bottom: 13px
+
+.colocation-info-services__text1
+  max-width: 207px
+  width: 100%
+
+.colocation-info-services__text2
+  max-width: 320px
+  width: 100%
+
+
+.colocation-info-services__text3
+  max-width: 252px
+  width: 100%
+
+.colocation-info-services__img
+  margin-bottom: 15px
+.colocation-info-services__link
+  position: relative
+  color: #2997FF
+  font-size: 21px
+  line-height: 26px
+  &:after
+    padding-left: 5px
+    content: url("../img/arr_link.svg")
+    height: 13px
+    width: 9px
+  &:hover
+    color: #2997FF
+    text-decoration: underline
+  &:focus
+    text-decoration: none
+    color: #2997FF
+
+.colocation-info-param
+  padding: 50px 0 0
+
+.colocation-info-param__title
+  color: #000
+  text-align: left
+  margin-bottom: 23px
+
+.colocation-info-param__inner
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+  padding-left: 42px
+
+.colocation-info-param__item
+  margin-bottom: 30px
+  max-width: 33%
+  width: 100%
+
+.param__item
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+
+.param__item-w
+  max-width: 236px
+  width: 100%
+.colocation-info-param__item-title
+  color: #000
+  font-size: 26px
+  line-height: 32px
+  font-weight: 700
+
+.colocation-info-param__list
+  color: #62687F
+  font-size: 16px
+  line-height: 20px
+  list-style: auto
+
+.colocation-info-param__list-item:before
+  display: inline-block
+  content: "-"
+  margin-left: -11px
+
+.SLA
+  padding: 108px 0
+
+.SLA__inner
+  max-width: 935px
+  width: 100%
+  margin: 0 auto
+  text-align: center
+
+.SLA__title
+  color: #000
+  margin-bottom: 19px
+
+.SLA__text
+  color: #62687F
+  font-size: 32px
+  line-height: 39px
+  margin-bottom: 27px
+
+.phone-tariff__content
+  padding: 39px 0 45px
+  color: #000
+.phone-tariff__title
+  max-width: 838px
+  width: 100%
+  margin: 32px auto 0
+  text-align: center
+  span
+    background-image: $orangeToPink
+    -webkit-background-clip: text
+    color: transparent
+
+.phone-tariff__name
+  font-size: 32px
+  line-height: 35px
+  text-align: center
+  margin-bottom: 40px
+
+.phone-tariff__list
+  max-width: 642px
+  width: 100%
+  margin: 0 auto
+  font-size: 21px
+  line-height: 26px
+
+.phone-tariff__list-item
+  position: relative
+  max-width: 700px
+  width: 100%
+  margin: 0 auto
+  padding-left: 35px
+  & + .phone-tariff__list-item
+    margin-top: 27px
+  &:before
+    content: ''
+    background: url("/img/tariff_icon.svg")
+    width: 21px
+    height: 16px
+    position: absolute
+    top: 3px
+    left: 0
+  span
+    background-image: $orangeToPink
+    -webkit-background-clip: text
+    color: transparent
+
+.phone-tariff__card-wrapper
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -85px
+
+.phone-tariff__card-item
+  flex: 0 1 33.333%
+  display: flex
+  flex-direction: column
+  padding: 0 85px
+  margin-bottom: 30px
+.img-wrap
+  text-align: center
+  margin-bottom: 22px
+
+.phone-tariff__card-title
+  flex-grow: 1
+  font-size: 21px
+  color: #000
+  margin-bottom: 9px
+
+.phone-tariff__card-text
+  color: #62687F
+  font-size: 14px
+  line-height: 17px
+
 @import "media";
 
 

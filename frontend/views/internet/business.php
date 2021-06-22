@@ -9,7 +9,11 @@ use \yii\helpers\Html;
 $this->registerJs('var tariffs = ' . json_encode(ArrayHelper::toArray($tariffs)) . ';', View::POS_HEAD);
 
 $this->registerJs('var cities = ' . json_encode(ArrayHelper::map($cities, 'id', 'group_id')) . ';', View::POS_HEAD);
-
+$this->registerJsFile("js/tariff-business.js",[
+    'depends' => [
+        \yii\web\JqueryAsset::className()
+    ]
+]);
 ?>
 
 <section class="rate">
@@ -24,6 +28,19 @@ $this->registerJs('var cities = ' . json_encode(ArrayHelper::map($cities, 'id', 
                     </div>
 
                     <div class="tariff-business__tabs">
+                        <div class="rate-variables-business">
+                            <div class="rate__select">
+                                <?= Select2::widget([
+                                    'name' => 'location3',
+                                    'id' => 'group-select',
+                                    'data' => ArrayHelper::map($groups, 'id', 'name'),
+                                    'value' => $groups[0]->id ?? null,
+                                    'hideSearch' => true,
+                                ]);
+                                ?>
+                            </div>
+                        </div>
+
                         <ul class="tabs-list">
                             <?php foreach ($groups as $key => $group) { ?>
 

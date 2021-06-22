@@ -63,6 +63,7 @@ return [
                 '/promotion/page/<page:\d+>' => '/promotion/index',
                 '/promotion/<slug>' => '/promotion/view',
                 '/promotion' => '/promotion/index',
+                '/colocation' => '/colocation/index'
             ],
 
         ],

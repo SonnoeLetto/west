@@ -1,5 +1,11 @@
 <?php
 use kartik\select2\Select2;
+
+$this->registerJsFile("js/tariff-calc.js",[
+    'depends' => [
+        \yii\web\JqueryAsset::className()
+    ]
+]);
 ?>
 
 

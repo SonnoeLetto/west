@@ -5,6 +5,11 @@ use yii\helpers\ArrayHelper;
 
 $this->registerJs('var tariffs = ' . json_encode(ArrayHelper::toArray($tariffs)) . ';', View::POS_HEAD);
 $this->registerJs('var cities = ' . json_encode(ArrayHelper::map($cities, 'id', 'group_id')) . ';', View::POS_HEAD);
+$this->registerJsFile("js/tariff-home.js",[
+    'depends' => [
+        \yii\web\JqueryAsset::className()
+    ]
+]);
 ?>
 
 <section class="tariff">

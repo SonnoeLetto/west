@@ -242,8 +242,8 @@
   .info__text
     padding: 0 20px
 
-  //.services-card
-  //  margin: 0 auto
+  .calculate__form
+    padding-left: 0
 
   .news
     padding: 30px
@@ -331,6 +331,25 @@
 
   .block-info__column
     flex-basis: 100%
+
+  .offer__ourClients-back
+    background-size: cover
+    height: 500px
+
+  .column__title-width
+    max-width: 100%
+
+  .block-info__inner
+    margin: 0
+
+  .colocation-info-provide__inner
+    justify-content: space-between
+
+  .colocation-info-provide__list1
+    margin-right: 0
+
+  .colocation-info-param__inner
+    padding-left: 0
 @media only screen and (max-width : 768px)
   .cards-list
     display: block
@@ -352,7 +371,14 @@
   .tariff-tabs > .nav-tabs > li
     width: calc(100%/3 - 30px)
 
+  .rate-variables-business
+    display: block
 
+  .tariff-business__tabs
+    border-bottom: none
+
+  .tariff-business__tabs .tabs-list
+    display: none
 
   .tariff__label
     display: block
@@ -395,6 +421,7 @@
     margin-bottom: 50px
 
 
+
   .chooseTariffs__business
     padding: 30px 0
 
@@ -405,9 +432,71 @@
   .column__title
     font-size: 22px
 
+  .calculate__form-item-last
+    display: block
+    & > .calculate__list-item
+      margin-left: 0
+      margin-top: 30px
+
+  .offer__check-title,
+  .offer__check-text,
+  .offer__case-text,
+  .offer__ourClients-title
+    margin-bottom: 30px
+
+
+
+
+  .info-business__column
+    margin-bottom: 30px
+
+  .info-business__column:last-child
+    margin-bottom: 0
+
+  .info-business__list
+    max-width: 450px
+
+  .colocation-info-provide__inner
+    display: block
+
+  .colocation-info-provide__list1
+    max-width: 100%
+
+  .colocation-info-provide__list2
+    max-width: 100%
+    margin-top: 27px
+    padding-left: 50px
+    .colocation-info-provide__list-item
+      & + .colocation-info-provide__list-item
+        margin-top: 27px
+
+  .colocation-info-services__inner
+    display: block
+    text-align: center
+
+  .colocation-info-services__text1
+    max-width: 100%
+  .colocation-info-services__text2
+    max-width: 100%
+  .colocation-info-services__text3
+    max-width: 100%
+
+  .colocation-info-param__inner
+    display: block
+    padding-left: 50px
+
+  .colocation-info-param__item
+    max-width: 100%
+
+  .param__item-w
+    max-width: 100%
+
+  .param__item
+    display: block
 @media only screen and (max-width : 480px)
-
-
+  .colocation-info-provide__list1,
+  .colocation-info-provide__list2
+    padding-left: 20px
   .middle-line
     display: block
     text-align: center
@@ -493,10 +582,16 @@
   .info,
   .application,
   .howConnect,
+  .colocation-info,
   .options,
   .router,
   .mobile,
   .news,
+  .video-apply,
+  .block-info-video__2-row,
+  .block-info-video__1-row,
+  .block-info-video__title,
+  .colocation-info-provide,
   .block-info__bus-internet
     padding: 25px 0
 
@@ -507,6 +602,7 @@
     bottom: -5px
   .offer
     padding-bottom: 10px
+    padding-top: 30px
 
   .services-card,
   .router-content
@@ -559,16 +655,37 @@
     margin: 0 10px
 
   .chooseTariffs
-    background-position: -100px
+    background-position: -100px 2px
 
 
   .chooseTariffs__business
     padding: 20px 0
-    background-position: 10px
+    background-position: -480px
 
   .chooseTariffs__business-title
     font-size: 24px
     line-height: 38px
+
+
+  .blur
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background: rgba(255, 255, 255, 0.2)
+    backdrop-filter: blur(6px)
+
+  .rate__main-title
+    max-width: 100%
+    text-align: center
+    margin-bottom: 11px
+
+  .rate__main-text
+    text-align: center
+
+  .button-wrap
+    text-align: center
 
   .mainCards
     padding: 15px 0
@@ -592,6 +709,25 @@
 
   .rate__text
     font-size: 20px
+
+  .calculate__form-title
+    font-size: 28px
+
+  .calculate__form-position
+    display: block
+
+  .calculate__list-item input[type="number"]
+    margin-top: 20px
+    display: block
+
+  .consultation__title-bus
+    text-align: center
+  .offer__ourClients-back
+    background-size: cover
+    height: 300px
+
+  .colocation-info-param__inner
+    padding-left: 25px
 @media only screen and (max-width : 320px)
   .mobile-content__link
     font-size: 19px

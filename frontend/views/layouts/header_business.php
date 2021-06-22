@@ -132,7 +132,7 @@ use yii\helpers\ArrayHelper;
                             </a>
                         </li>
                         <li class="bottom-line__list-item">
-                            <a class="bottom-line__link" href="">
+                            <a class="bottom-line__link" href="<?=Url::to('/video/business') ?>">
                                 <svg class="bottom-line__icon">
                                     <use xlink:href="/img/sprite.svg#vision"></use>
                                 </svg>
@@ -235,20 +235,11 @@ use yii\helpers\ArrayHelper;
                     </a>
                 </li>
                 <li class="right-menu__list-item">
-                    <a class="right-line__link" href="">
+                    <a class="right-line__link" href="<?=Url::to('/video/business') ?>">
                         <svg class="right-line__icon">
                             <use xlink:href="/img/sprite.svg#vision"></use>
                         </svg>
                         <span class="right-line__link-text"><?= Yii::t('header', 'Відеоспостереження')?></span>
-                    </a>
-                </li>
-                <li class="right-menu__list-item">
-                    <a class="right-line__link" href="">
-                        <svg class="right-line__icon">
-                            <use xlink:href="/img/sprite.svg#tv"></use>
-                        </svg>
-                        <span class="right-line__link-text"><?= Yii::t('header', 'Цифрове TV')?></span>
-
                     </a>
                 </li>
                 <li class="right-menu__list-item">

@@ -280,16 +280,20 @@ $this->registerJs('var cities = ' . json_encode(ArrayHelper::map($cities, 'id', 
 
 
 <section class="chooseTariffs__business">
+    <div class="blur"></div>
     <div class="container">
         <div class="wrapper">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="chooseTariffs__business-title">Выпекаешь лучшие печенья
-                        в городе? Обеспечь гостям
-                        надежный WiFi и увеличь
-                        посещаемость!
+                    <div class="chooseTariffs__business-title">
+                        <?= Yii::t('site', 'Обрати Тариф')?>
+
                     </div>
-                    <div class="button button-secondary rate-btn-m">Выбрать Тариф</div>
+                    <div class="button-wrap">
+                        <div class="button button-secondary rate-btn-m"><?= Yii::t('site', 'Обрати Тариф')?></div>
+
+                    </div>
+
                 </div>
             </div>
         </div>

@@ -1,59 +1,7 @@
 <?php
-
-
 ?>
-<main class="video-home">
-<!--    <div class="promotion-slider">-->
-<!--        <div class="promotion-slider__item">-->
-<!--            <img class="promotion-slider__img" src="img/slider_img/prom__slide2.jpg" alt="">-->
-<!--            <!--<div class="wrap-img">-->-->
-<!--            <div class="container">-->
-<!--                <div class="row">-->
-<!--                    <div class="col-lg-12">-->
-<!--                        <div class="promotion__content">-->
-<!--                            <div class="promotion__content-wrap">-->
-<!--                                <h3 class="promotion__content-title" style="color: #ffffff">Без штрафов за-->
-<!--                                    превышение скорости по Одессе:)</h3>-->
-<!--                                <p class="promotion__content-text">А здесь, что нибудь очень продающее, важное,-->
-<!--                                    описывающее, как сильно и важно это-->
-<!--                                    купить.</p>-->
-<!--                                <a class="promotion__content-btn">Подключить</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!---->
-<!--        <div class="promotion-slider__item">-->
-<!---->
-<!--            <img class="promotion-slider__img" src="img/slider_img/Карусель2.jpg" alt="">-->
-<!--            <div class="container">-->
-<!--                <div class="row">-->
-<!--                    <div class="col-md-4">-->
-<!--                        <div class="promotion__content">-->
-<!--                            <h3 class="promotion__content-title">Без штрафов за превышение скорости по Одессе:)</h3>-->
-<!--                            <a class="promotion__content-btn">Подключить</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="promotion-slider__item">-->
-<!--            <img class="promotion-slider__img" src="img/slider_img/Карусель.jpg" alt="">-->
-<!--            <div class="container">-->
-<!--                <div class="row">-->
-<!--                    <div class="col-md-4">-->
-<!--                        <div class="promotion__content">-->
-<!--                            <h3 class="promotion__content-title">Без штрафов за превышение скорости по Одессе:)</h3>-->
-<!--                            <a class="promotion__content-btn">Подключить</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
 
+<main class="video-business">
     <section class="block-info">
         <div class="block-info-video__title">
             <div class="container">
@@ -72,22 +20,26 @@
                     <div class="col-md-12">
                         <div class="wrapper">
 
-                            <div class="middle__title block-info__title block-info__title-video"><?= Yii::t('site', 'Контролюйте події на вашій території, де б ви не знаходилися')?></div>
                             <div class="block-info__inner">
                                 <div class="block-info__column">
-                                    <img class="column__img" src="/img/Block_icon/Vector1.svg" alt="">
-                                    <div class="column__title"><?= Yii::t('site', 'Контролюйте те, що відбувається в приміщенні')?></div>
-                                    <div class="column__text"><?= Yii::t('site', 'Спостерігаючи в камеру, переконайтеся, що все гаразд і не турбуйтеся за збереження майна в будинку, на дачі або гаражі\'')?></div>
+                                    <img class="column__img" src="/img/Block_icon/icon01.svg" alt="">
+                                    <div class="column__title column__title-width"><?= Yii::t('video', 'Без додаткових вкладень')?></div>
+                                    <div class="column__text"><?= Yii::t('video', 'Організація відеоспостереження без вкладень на мережеву інфраструктуру під ключ і в короткі терміни. Закупівля серверів, ПО, ліцензій не потрібно.')?></div>
                                 </div>
                                 <div class="block-info__column">
-                                    <img class="column__img" src="/img/Block_icon/Vector2.svg" alt="">
-                                    <div class="column__title"><?= Yii::t('site', 'Будьте завжди в курсі того, що відбувається у вас вдома')?></div>
-                                    <div class="column__text"><?= Yii::t('site', 'Ви будете завжди в курсі того, що відбувається. У разі підозрілої активності, вам прийде повідомлення')?></div>
+                                    <img class="column__img" src="/img/Block_icon/icon02.svg" alt="">
+                                    <div class="column__title"><?= Yii::t('video', 'Доступ до камер, управління і зберігання матеріалу')?></div>
+                                    <div class="column__text"><?= Yii::t('video', 'Доступ до камер відеоспостереження, управління ними можливі з будь-якої точки світу, при наявності підключення до Інтернету. Архів відеозаписів зберігається на среверах дата-центру Westelecom')?></div>
                                 </div>
                                 <div class="block-info__column">
-                                    <img class="column__img" src="/img/Block_icon/Vector3.svg" alt="">
-                                    <div class="column__title"><?= Yii::t('site', 'Тримайте під контролем будівельні роботи')?></div>
-                                    <div class="column__text"><?= Yii::t('site', 'Тримайте під контролем будь-які види робіт у вашому будинку - будівельні, процес ремонту або клінінгу')?></div>
+                                    <img class="column__img" src="/img/Block_icon/icon03.svg" alt="">
+                                    <div class="column__title"><?= Yii::t('video', 'Без прив\'язки до провайдера інтернету')?></div>
+                                    <div class="column__text"><?= Yii::t('video', 'Систему відеоспостереження можна розгорнути з будь-яким провайдером Інтернету.')?></div>
+                                </div>
+                                <div class="block-info__column">
+                                    <img class="column__img" src="/img/Block_icon/icon04.svg" alt="">
+                                    <div class="column__title"><?= Yii::t('video', 'Гнучкі настройки системи відеоспостереження')?></div>
+                                    <div class="column__text"><?= Yii::t('video', 'Систему відеоспостереження можна налаштувати під будь-які завдання бізнесу, встановити відеозапис на рух або звук, записувати потокове відео або тільки події')?></div>
                                 </div>
                             </div>
                         </div>
@@ -101,25 +53,44 @@
                     <div class="col-md-12">
                         <div class="wrapper">
 
-                            <div class="middle__title block-info__title block-info__title-video"><?= Yii::t('site', 'Подбайте про режим дня дитини і доглядайте за домашніми тваринами')?></div>
-                            <div class="block-info__inner">
-                                <div class="block-info__column">
-                                    <img class="column__img" src="/img/Block_icon/Vector4.svg" alt="">
-                                    <div class="column__title"><?= Yii::t('site', 'Переконайтеся, що ваша дитина вже вдома')?></div>
+                            <div class="middle__title block-info__title block-info__title-video"><?= Yii::t('video', 'Відеоспостереження для бізнесу вирішує такі завдання як:')?></div>
+                            <div class="column__wrapper">
+                                <div class="info-business__column">
+                                    <div class="info-business__column-title"><?= Yii::t('video', 'Співробітники')?></div>
+                                    <ul class="info-business__list">
+                                        <li class="info-business__list-item"><?= Yii::t('video', 'Безпека ваших співробітників')?></li>
+                                        <li class="info-business__list-item"><?= Yii::t('video', 'Облік і контроль дисципліни, робочого часу')?></li>
+                                        <li class="info-business__list-item"><?= Yii::t('video', 'Дистанційні перевірки і контрольні закупівлі')?></li>
+                                        <li class="info-business__list-item"><?= Yii::t('video', 'Відстеження шахрайства і крадіжок')?></li>
+                                    </ul>
                                 </div>
-                                <div class="block-info__column">
-                                    <img class="column__img" src="/img/Block_icon/Vector5.svg" alt="">
-                                    <div class="column__title"><?= Yii::t('site', 'Контролюйте активність домашніх тварин')?></div>
+                                <div class="info-business__column">
+                                    <div class="info-business__column-title"><?= Yii::t('video', 'Майно')?></div>
+                                    <ul class="info-business__list">
+                                        <li class="info-business__list-item"><?= Yii::t('video', 'Віддалене і постійне спостереження за майном')?></li>
+                                        <li class="info-business__list-item"><?= Yii::t('video', 'Відстеження подій і неправомірних дій')?></li>
+                                        <li class="info-business__list-item"><?= Yii::t('video', 'Миттєве інформування з нештатних ситуацій')?></li>
+                                        <li class="info-business__list-item"><?= Yii::t('video', 'Контроль дій в зоні підвищеної уваги')?></li>
+                                    </ul>
                                 </div>
-                                <div class="block-info__column">
-                                    <img class="column__img" src="/img/Block_icon/Vector6.svg" alt="">
-                                    <div class="column__title"><?= Yii::t('site', 'Будьте в курсі, чим займаються діти')?></div>
-                                </div>
-                                <div class="block-info__column">
-                                    <img class="column__img" src="/img/Block_icon/Vector7.svg" alt="">
-                                    <div class="column__title"><?= Yii::t('site', 'Переглядайте відео з камер в запису')?></div>
+                                <div class="info-business__column">
+                                    <div class="info-business__column-title"><?= Yii::t('video', 'Клієнти')?></div>
+                                    <ul class="info-business__list info-business__list-third">
+                                        <li class="info-business__list-item"><?= Yii::t('video', 'Оцінка якості обслуговування')?></li>
+                                        <li class="info-business__list-item"><?= Yii::t('video', 'Захист клієнтів і гостей від крадіжки')?></li>
+                                        <li class="info-business__list-item"><?= Yii::t('video', 'Підтримка репутації і лояльності')?></li>
+                                        <li class="info-business__list-item"><?= Yii::t('video', 'Рішення конфліктних ситуацій за допомогою записів камер відеоспостереження')?></li>
+                                    </ul>
                                 </div>
                             </div>
+
+
+
+
+
+
+
+
                         </div>
                     </div>
                 </div>
@@ -127,15 +98,13 @@
         </div>
 
     </section>
-
-
     <section class="video-apply">
         <div class="container">
             <div class="wrapper">
                 <div class="row">
                     <div class="col-md-12">
                         <h5 class="middle__title video-apply__title">
-                            <?= Yii::t('site', 'Відеоспостереження. Ваш будинок завжди в прямому ефірі')?>
+                            <?= Yii::t('site', 'Територія вашого бізнесу завжди в прямому ефірі')?>
                         </h5>
                         <div class="apply-text__wrap">
                             <p class="video-apply__text">
@@ -149,7 +118,7 @@
                                 <?= Yii::t('site', 'Стежити за трансляцією бездротового відеоспостереження можна з будь-якої точки світу, де є доступ до мережі Інтернет.')?>
                             </p>
                             <p class="video-apply__text">
-                                <?= Yii::t('site', 'Позбавте себе від зайвих переживань і завжди будьте в курсі подій. Тримайте під контролем безпеку ваших рідних і збереження майна!')?>
+                                <?= Yii::t('site', 'Позбавте себе від зайвих переживань і завжди будьте в курсі подій. Тримайте під контролем безпеку на вашій території і збереження майна!')?>
                             </p>
                         </div>
                         <div class="video-apply__link">
@@ -166,13 +135,13 @@
             </div>
         </div>
     </section>
-    <div class="services">
+    <section class="services">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="wrapper">
                         <div class="services-content">
-                            <h5 class="middle__title services-content__title">
+                            <h5 class="middle__title services-content__title-business">
                                 <?= Yii::t('site', 'Вас обов\'язково зацікавить ...')?>
                             </h5>
                             <p class="services__text">
@@ -181,55 +150,55 @@
                         </div>
                         <div class="services-card">
                             <div class="services-card__item">
-                                <img class="services-card__img" src="/img/image__servCard/card1.jpg" alt="card">
+                                <img class="services-card__img" src="/img/image__servCard/card_8.jpg" alt="card">
                                 <a class="services-card__link" href="#">
-                                    <?= Yii::t('site', 'Непристойно швидкий Інтернет для дому')?>
+                                    <?= Yii::t('site', 'Надійний, симетричний інтернет для роботи і гостей офісу')?>
+                                </a>
+                            </div>
+<!--                            <div class="services-card__item">-->
+<!--                                <img class="services-card__img" src="/img/image__servCard/card_1.jpg" alt="card">-->
+<!--                                <a class="services-card__link" href="#">-->
+<!--                                    --><?//= Yii::t('site', 'Ваш офіс, склад або ресторан завжди в прямому ефірі')?>
+<!--                                </a>-->
+<!--                            </div>-->
+                            <div class="services-card__item">
+                                <img class="services-card__img" src="/img/image__servCard/card_2.jpg" alt="card">
+                                <a class="services-card__link" href="#">
+                                    <?= Yii::t('site', 'Зв\'язок для вашого бізнесу за вигідними тарифами')?>
                                 </a>
                             </div>
                             <div class="services-card__item">
-                                <img class="services-card__img" src="/img/image__servCard/card2.jpg" alt="card">
+                                <img class="services-card__img" src="/img/image__servCard/card_3.jpg" alt="card">
                                 <a class="services-card__link" href="#">
-                                    <?= Yii::t('site', 'Ваш будинок або квартира завжди у прямому ефірі')?>
+                                    <?= Yii::t('site', 'Оптична, виділена лінія зв\'язку. Повна безпека, відсутність компромісів')?>
                                 </a>
                             </div>
                             <div class="services-card__item">
-                                <img class="services-card__img" src="/img/image__servCard/card3.jpg" alt="card">
+                                <img class="services-card__img" src="/img/image__servCard/card_4.jpg" alt="card">
                                 <a class="services-card__link" href="#">
-                                    <?= Yii::t('site', 'Дивіться ваші улюблені фільми і шоу c Trinity TV в мережі Westelecom')?>
+                                    <?= Yii::t('site', 'Об\'єднайте ваші філії в єдину, виділену мережу')?>
                                 </a>
                             </div>
                             <div class="services-card__item">
                                 <img class="services-card__img" src="/img/image__servCard/card4.jpg" alt="card">
-                                <a class="services-card__link" href="#">
-                                    <?= Yii::t('site', 'Домашній телефон став більш корисним')?>
-                                </a>
-                            </div>
-                            <div class="services-card__item">
-                                <img class="services-card__img" src="/img/image__servCard/card5.jpg" alt="card">
                                 <a class="services-card__link" href="#">
                                     <?= Yii::t('site', 'Зберігайте дані в самому безпечному місці')?>
                                 </a>
                             </div>
                             <div class="services-card__item">
-                                <img class="services-card__img" src="/img/image__servCard/card6.jpg" alt="card">
+                                <img class="services-card__img" src="/img/image__servCard/card_5.jpg" alt="card">
                                 <a class="services-card__link" href="#">
-                                    <?= Yii::t('site', 'Потужні роутери для вимогливих розваг і роботи')?>
-                                </a>
-                            </div>
-                            <div class="services-card__item">
-                                <img class="services-card__img" src="/img/image__servCard/card4.jpg" alt="card">
-                                <a class="services-card__link" href="#">
-                                    <?= Yii::t('site', 'Зроби комплімент близьким! Подаруй інтернет!')?>
+                                    <?= Yii::t('site', 'Ідеальний порядок вашої IT інфраструктури')?>
                                 </a>
                             </div>
                         </div>
                         <div class="services-plus">
-                            <h5 class="middle__title services-plus__title"><?= Yii::t('site', 'Додаткові послуги')?></h5>
+                            <h5 class="middle__title services-plus__title-business"><?= Yii::t('site', 'Додаткові послуги')?></h5>
                             <div class="services-card">
                                 <div class="services-card__item">
-                                    <img class="services-card__img" src="/img/image__servCard/cardPlus1.jpg" alt="card">
+                                    <img class="services-card__img" src="/img/image__servCard/card_6.jpg" alt="card">
                                     <a class="services-card__link" href="#">
-                                        <?= Yii::t('site', 'Їдете у відпустку? Активуйте послугу "Заморожування"')?>
+                                        <?= Yii::t('site', 'З\'їжджаєте в новий офіс? Скористайтеся послугою "Заморожування"')?>
                                     </a>
                                 </div>
                                 <div class="services-card__item">
@@ -239,9 +208,9 @@
                                     </a>
                                 </div>
                                 <div class="services-card__item">
-                                    <img class="services-card__img" src="/img/image__servCard/cardPlus3.jpg" alt="card">
+                                    <img class="services-card__img" src="/img/image__servCard/card_7.jpg" alt="card">
                                     <a class="services-card__link" href="#">
-                                        <?= Yii::t('site', 'Потрібно налаштувати домашню мережу або щось не працює? Виклик майстра!')?>
+                                        <?= Yii::t('site', 'Потужні роутери для створення надійної, безшовної мережі вашого офісу')?>
                                     </a>
                                 </div>
                             </div>
@@ -251,7 +220,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <section class="mobile-vision">
         <div class="container">
             <div class="wrapper">
@@ -289,7 +258,7 @@
                     <div class="col-md-12">
                         <div class="consultation__inner">
                             <div class="consultation-content">
-                                <h6 class="middle__title consultation__title">
+                                <h6 class="middle__title consultation__title-bus">
                                     <?= Yii::t('site', 'Консультація з інженером')?>
                                 </h6>
                                 <p class="consultation__text">
@@ -329,7 +298,7 @@
                                     <?= Yii::t('site', '2. Консультація з техвідділом. Ви можете звернутися в будь-який день і в будь-який час. Технічний відділ працює цілодобово, в будь-який день тижня.')?>
                                 </p>
                                 <p class="howConnect__list-item">
-                                    <?= Yii::t('site', '3. Сплачуйте без комісій. Через сайт, особистий кабінет або іншим, найбільш зручним для вас способом.')?>
+                                    <?= Yii::t('site', '3. Ваше звернення зафіксують, дадуть відповідь на будь-які питання і якщо необхідно підберуть необхідне обладнання відеоспостереження, яке ви могли не врахувати. Після чого піде процес укладення договору і буде призначений день монтажу.')?>
                                 </p>
                                 <p class="howConnect__list-item">
                                     <?= Yii::t('site', '4. Спеціаліст проведе монтаж та налаштує обладнання без шкоди для вашого ремонту')?>
@@ -353,4 +322,5 @@
             </div>
         </div>
     </section>
+
 </main>
